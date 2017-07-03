@@ -28,6 +28,7 @@
     "npm-run-all": "^4.0.2",
     "postcss-cli": "^4.0.0",
     "node-sass": "^4.5.3",
-    "opener": "^1.4.3"
+    "opener": "^1.4.3",
+    "pygments": "^0.2.1"
   }
 }
