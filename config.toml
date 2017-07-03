@@ -1,0 +1,12 @@
+baseurl = "http://example.org/"
+languageCode = "en-us"
+title = "My New Hugo Site"
+theme = "hugo-stellar-theme"
+
+# Code Highlighting
+PygmentsCodeFences = true
+PygmentsStyle = "monokai"
+
+[params]
+  description = "Tesla's Awesome Hugo Site"
+  author = "Nikola Tesla"
