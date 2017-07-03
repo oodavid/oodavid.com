@@ -1,0 +1,46 @@
+/*
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+/* Type */
+body {
+  color: #ffffff; }
+
+/* Button */
+.button {
+  position: relative;
+  border: solid 1px !important; }
+  .button.special {
+    border: none !important; }
+
+/* Icon */
+.icon.major {
+  -ms-behavior: url("assets/js/ie/PIE.htc"); }
+  .icon.major:before {
+    font-size: 4em;
+    border: 0; }
+
+/* Spotlight */
+.spotlight .image {
+  position: relative;
+  -ms-behavior: url("assets/js/ie/PIE.htc"); }
+  .spotlight .image img {
+    position: relative;
+    -ms-behavior: url("assets/js/ie/PIE.htc"); }
+
+/* Features */
+.features li {
+  width: 29%; }
+
+/* Footer */
+#footer > * {
+  width: 50%;
+  margin-left: 0; }
+
+/* Main */
+#main > .main > .image.main:first-child {
+  margin-top: 0;
+  margin-left: 0;
+  width: 100%; }
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3N0YXRpYy1zcmMvc2Fzcy9pZTguc2NzcyIsIi4uLy4uL3N0YXRpYy1zcmMvc2Fzcy9saWJzL192YXJzLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBS0E7Ozs7RUFJRTtBQUVGLFVBQVU7QUFFVDtFQUNDLGVDa0JrQixFRGpCbEI7O0FBRUYsWUFBWTtBQUVYO0VBQ0MsbUJBQWtCO0VBQ2xCLDZCQUE0QixFQUs1QjtFQVBEO0lBS0Usd0JBQXVCLEVBQ3ZCOztBQUdILFVBQVU7QUFFVDtFQUVFLDBDQUF5QyxFQU16QztFQVJGO0lBS0csZUFBYztJQUNkLFVBQVMsRUFDVDs7QUFJSixlQUFlO0FBRWQ7RUFFRSxtQkFBa0I7RUFDbEIsMENBQXlDLEVBTXpDO0VBVEY7SUFNRyxtQkFBa0I7SUFDbEIsMENBQXlDLEVBQ3pDOztBQUlKLGNBQWM7QUFFYjtFQUVFLFdBQVUsRUFDVjs7QUFHSCxZQUFZO0FBRVg7RUFFRSxXQUFVO0VBQ1YsZUFBYyxFQUNkOztBQUdILFVBQVU7QUFFVDtFQUdHLGNBQWE7RUFDYixlQUFjO0VBQ2QsWUFBVyxFQUNYIiwiZmlsZSI6ImllOC5jc3MifQ== */

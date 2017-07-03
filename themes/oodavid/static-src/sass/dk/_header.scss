@@ -1,0 +1,49 @@
+#header {
+  // Layout
+  padding: 2em 0;
+  > div {
+    display: table;
+    margin: auto;
+    > div {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    // Fade-in on load (see main.js)
+    body.is-loading & {
+      opacity: 0;
+    }
+    transition: opacity 3s ease;
+    transition-delay: 0.5s;
+    opacity: 1;
+  }
+  // Style
+  font-size: 1.2em;
+  color: rgba(255,255,255,0.65);
+  #header__image {
+    > div {
+      padding: 5px;
+      background-color: #ffffff;
+      width: 160px;
+      img {
+        vertical-align: middle;
+        width: 100%;
+      }
+    }
+  }
+  #header__bio {
+    text-align: left;
+    p {
+      margin: 0 0 0 3em;
+    }
+    p#header__twitter {
+      margin-top: 10px;
+    }
+    a {
+      border-bottom: dotted 1px rgba(255,255,255,0.65);
+      &:hover {
+        border-bottom-color: transparent;
+        color: white;
+      }
+    }
+  }
+}

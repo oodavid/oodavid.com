@@ -1,0 +1,25 @@
+ul.icons {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1.25em;
+  li {
+    display: inline-block;
+    a {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+      line-height: 40px;
+      text-align: center;
+      overflow: hidden;
+      border-radius: 50%;
+      //
+      transition: background-color 300ms ease-in-out,
+                  color 300ms ease-in-out;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.075);
+      }
+    }
+  }
+}

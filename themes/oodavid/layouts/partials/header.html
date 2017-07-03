@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<!--
+    Stellar by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  -->
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+  <head>
+    <meta charset="utf-8" />
+    {{ .Hugo.Generator }}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" href="/images/icons/{{ .Site.Params.favicon  }}" type="image/x-icon" />
+    <!--[if lte IE 8]><script src="/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/css/style.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
+    <link href="https://use.fontawesome.com/2ae11d0200.css" media="all" rel="stylesheet">
+
+    {{ if eq .URL "/" }}
+      <title>{{ .Title }}</title>
+      <meta property='og:title' content="{{ .Title }}">
+      <meta property="og:type" content="website">
+    {{ else }}
+      <title>{{ .Title }} - {{ .Site.Title }}</title>
+      <meta property='og:title' content="{{ .Title }} - {{ .Site.Title }}">
+      <meta property="og:type" content="article">
+    {{ end }}
+</head>
+<body>
+
+  <!-- Angular Silhouette -->
+  <svg id="angular-silhouette">
+    <defs>
+      <clipPath id="angular-silhouette-path" clipPathUnits="objectBoundingBox">
+        <polygon points="0.5 0, 0.97 0.17, 0.9 0.78, 0.5 1, 0.1 0.78, 0.03 0.17" />
+      </clipPath>
+    </defs>
+  </svg>
+
+  <!-- Header -->
+  <header id="header">
+    <div>
+      <div id="header__image">
+        <div class="angular-silhouette">
+          <img src="/images/david.jpg" alt="David King" class="angular-silhouette">
+        </div>
+      </div>
+      <div id="header__bio">
+        <p>Hi, I'm David King, an Angular developer and evangelist.</p>
+        <p>I work for <a href="//accredible.com">Accredible</a>.</p>
+        <p id="header__twitter">
+          <a href="//twitter.com/oodavid" class="twitter-follow-button" data-show-count="true"></a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          &nbsp;
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Nav -->
+  <nav id="nav">
+    <ul class="container">
+      <li>
+        <a href="">Articles</a>
+      </li>
+      <li>
+        <a href="">About Me</a>
+      </li>
+      <li>
+        <a href="">My Work</a>
+      </li>
+    </ul>
+  </nav>
