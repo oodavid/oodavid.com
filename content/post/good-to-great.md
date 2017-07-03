@@ -5,7 +5,6 @@ draft: false
 ---
 ## Todo
 
-1. Netlify > Prepare for A/B testing
 1. Home > List and Paginate (10 per page)
 1. Footer > Simplify
 1. Article > Write First
