@@ -1,12 +1,11 @@
-baseurl = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseurl = "/"
+languageCode = "en-gb"
+title = "David King"
 theme = "oodavid"
+
+# Analytics
+googleAnalytics = "UA-24181653-1"
 
 # Code Highlighting
 PygmentsCodeFences = true
 PygmentsStyle = "monokai"
-
-[params]
-  description = "Tesla's Awesome Hugo Site"
-  author = "Nikola Tesla"
