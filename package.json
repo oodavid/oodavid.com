@@ -13,10 +13,10 @@
     "hugo:build": "hugo",
     "hugo:watch": "hugo server",
 
-    "sass":       "node-sass themes/oodavid-stellar/static-src/sass/ --output themes/oodavid-stellar/static/css/ --source-map true --error-bell",
-    "postcss":    "postcss themes/oodavid-stellar/static/css/*.css --use autoprefixer -d themes/oodavid-stellar/static/css/",
+    "sass":       "node-sass themes/oodavid/static-src/sass/ --output themes/oodavid/static/css/ --source-map true --error-bell",
+    "postcss":    "postcss themes/oodavid/static/css/*.css --use autoprefixer -d themes/oodavid/static/css/",
     "sass:build": "npm run sass && npm run postcss",
-    "sass:watch": "npm run sass && npm run sass -- --watch themes/oodavid-stellar/static-src/sass/",
+    "sass:watch": "npm run sass && npm run sass -- --watch themes/oodavid/static-src/sass/",
 
     "open": "opener http://localhost:1313",
 
