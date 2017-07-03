@@ -1,7 +1,7 @@
 baseurl = "http://example.org/"
 languageCode = "en-us"
 title = "My New Hugo Site"
-theme = "oodavid-stellar"
+theme = "oodavid"
 
 # Code Highlighting
 PygmentsCodeFences = true
