@@ -5,13 +5,16 @@ draft: false
 ---
 ## Todo
 
-1. Home > List and Paginate (10 per page)
-1. Footer > Simplify
-1. Article > Write First
-1. Launch
-1. Articles > Port archive
-1. Nav > Highlight active section
-1. Footer > Reinstate Contact form (simple)
+1. Home > List and Paginate (10 per page) - *30 min*
+1. Footer > Simplify - *10 min*
+1. Article > Write First - *1 hour*
+1. Launch - *15 min*
+1. Nav > Highlight active section - *30 min*
+1. Footer > Reinstate Contact form (simple) - *30 min*
+1. Articles > Port archive - *1 hour*
+1. Page > About Me - *45 min*
+1. Page > My Work - *1h 30*
+1. Page > Todo - *15 min*
 
 <h2>Text</h2>
 <p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
