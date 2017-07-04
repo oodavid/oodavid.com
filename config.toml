@@ -2,6 +2,7 @@ baseurl = "/"
 languageCode = "en-gb"
 title = "David King"
 theme = "oodavid"
+paginate = 8
 
 # Analytics
 googleAnalytics = "UA-24181653-1"

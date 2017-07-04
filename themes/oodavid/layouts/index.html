@@ -2,17 +2,36 @@
 
 <!-- Main -->
 <div id="main">
-  <div class="container">
-    <section>
+  <div id="home" class="container">
 
-    </section>
-    <section>
-      <h1>Hello world</h1>
-    </section>
-
-    {{ range where .Data.Pages "Section" "card" }}
-    {{ .Render "summary" }}
+    {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+    {{ template "_internal/pagination.html" . }}
+    {{ range $paginator.Pages }}
+      <section>
+        <h1>
+          <a href="{{ .Permalink }}">
+            {{ .Title }}
+          </a>
+        </h1>
+        <p class="post_meta">
+          <time datetime="2017-02-07">{{ .Date.Format "1 Jan 2006" }}</time>
+          {{ if .Draft }}
+            <br><strong>draft article</strong>
+          {{ end }}
+        </p>
+        <p>
+          <a href="{{ .Permalink }}">
+            {{ .Summary }}...
+          </a>
+        </p>
+        <p>
+          <a href="{{ .Permalink }}" class="button">
+            Read More
+          </a>
+        </p>
+      </section>
     {{ end }}
+
   </div>
 </div>
 
