@@ -11,7 +11,7 @@
   },
   "scripts": {
     "hugo:build": "hugo",
-    "hugo:watch": "hugo server",
+    "hugo:watch": "hugo server --buildDrafts",
 
     "sass":       "node-sass themes/oodavid/static-src/sass/ --output themes/oodavid/static/css/ --source-map true --error-bell",
     "postcss":    "postcss themes/oodavid/static/css/*.css --use autoprefixer -d themes/oodavid/static/css/",
