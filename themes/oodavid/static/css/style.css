@@ -548,7 +548,7 @@ a.button {
     border-color: #a1628b !important; }
 
 #header {
-  padding: 2em 0;
+  padding: 40px 0;
   font-size: 1.2em;
   color: rgba(255, 255, 255, 0.65); }
   #header > div {
@@ -563,20 +563,34 @@ a.button {
     body.is-loading #header > div {
       opacity: 0; }
   #header #header__image > div {
+    display: inline-block;
     padding: 5px;
     background-color: #ffffff;
     width: 160px; }
     #header #header__image > div img {
       vertical-align: middle;
       width: 100%; }
-  #header #header__bio {
-    text-align: left; }
-    #header #header__bio p {
-      margin: 0 0 0 3em; }
-    #header #header__bio p#header__twitter {
-      margin-top: 10px; }
-    #header #header__bio a:hover {
-      color: white; }
+  #header #header__bio p,
+  #header #header__bio__compact p {
+    margin: 0 0 0 30px; }
+  #header #header__bio p.header__twitter,
+  #header #header__bio__compact p.header__twitter {
+    margin-top: 10px; }
+  #header #header__bio a:hover,
+  #header #header__bio__compact a:hover {
+    color: white; }
+  #header #header__bio__compact {
+    display: none; }
+  @media (max-width: 500px) {
+    #header > div {
+      display: block;
+      text-align: center; }
+      #header > div > div {
+        display: block; }
+    #header #header__bio {
+      display: none; }
+    #header #header__bio__compact {
+      display: block; } }
 
 #nav {
   background-color: #f7f7f7;
@@ -608,7 +622,7 @@ a.button {
         background-size: 0px 3px;
         transition: 0.5s;
         text-decoration: none; }
-        #nav ul li a:hover {
+        #nav ul li a:hover, #nav ul li a.active {
           background-size: 100% 3px;
           color: #000000; }
 
@@ -621,12 +635,21 @@ a.button {
   #main h1, #main h2, #main h3, #main h4, #main h5, #main h6, #main p, #main ul, #main ol, #main hr {
     margin-left: 50px;
     margin-right: 50px; }
+    @media (max-width: 700px) {
+      #main h1, #main h2, #main h3, #main h4, #main h5, #main h6, #main p, #main ul, #main ol, #main hr {
+        margin-left: 40px;
+        margin-right: 40px; } }
+    @media (max-width: 500px) {
+      #main h1, #main h2, #main h3, #main h4, #main h5, #main h6, #main p, #main ul, #main ol, #main hr {
+        margin-left: 20px;
+        margin-right: 20px; } }
 
 #footer {
   border-color: rgba(255, 255, 255, 0.35);
   color: #ffffff; }
   #footer .copyright {
-    text-align: center; }
+    text-align: center;
+    margin: 60px 0; }
 
 #home section {
   padding: 0 0 28px 0;

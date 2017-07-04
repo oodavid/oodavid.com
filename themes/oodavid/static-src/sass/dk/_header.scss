@@ -1,6 +1,6 @@
 #header {
   // Layout
-  padding: 2em 0;
+  padding: 40px 0;
   > div {
     display: table;
     margin: auto;
@@ -21,6 +21,7 @@
   color: rgba(255,255,255,0.65);
   #header__image {
     > div {
+      display: inline-block;
       padding: 5px;
       background-color: #ffffff;
       width: 160px;
@@ -30,16 +31,35 @@
       }
     }
   }
-  #header__bio {
-    text-align: left;
+  #header__bio,
+  #header__bio__compact {
     p {
-      margin: 0 0 0 3em;
+      margin: 0 0 0 30px;
     }
-    p#header__twitter {
+    p.header__twitter {
       margin-top: 10px;
     }
     a:hover {
       color: white;
+    }
+  }
+  #header__bio__compact {
+    display: none;
+  }
+  // Compact version
+  @media (max-width: 500px) {
+    > div {
+      display: block;
+      text-align: center;
+      > div {
+        display: block;
+      }
+    }
+    #header__bio {
+      display: none;
+    }
+    #header__bio__compact {
+      display: block;
     }
   }
 }
