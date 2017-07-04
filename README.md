@@ -2,14 +2,14 @@
 
 ```
 npm install
-npm watch
-npm build
+npm run server
+npm run build
 ```
 
-# Create a blog article
+# Create a new article
 
 ```
-hugo new post/good-to-great.md
+hugo new article/article-title.md
 ```
 
 # Shortcodes & Internal Templates

@@ -55,9 +55,17 @@
         </div>
       </div>
       <div id="header__bio">
-        <p>Hi, I'm David King, an Angular developer and evangelist.</p>
+        <p>Hi, I'm David King, Javascript developer.</p>
         <p>I work for <a href="//accredible.com">Accredible</a>.</p>
-        <p id="header__twitter">
+        <p class="header__twitter">
+          <a href="//twitter.com/oodavid" class="twitter-follow-button" data-show-count="true"></a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          &nbsp;
+        </p>
+      </div>
+      <div id="header__bio__compact">
+        <p>David King, Javascript developer.</p>
+        <p class="header__twitter">
           <a href="//twitter.com/oodavid" class="twitter-follow-button" data-show-count="true"></a>
           <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
           &nbsp;
@@ -70,13 +78,13 @@
   <nav id="nav">
     <ul class="container">
       <li>
-        <a href="{{ .Site.BaseURL }}">Articles</a>
+        <a href="{{ .Site.BaseURL }}" {{ if or (eq .Type "article") (eq .URL "/" ) }}class="active"{{ end }}>Articles</a>
       </li>
       <li>
-        <a href="">About Me</a>
+        <a href="{{ .Site.BaseURL }}about-me" {{ if eq .File.Path "about-me.md" }}class="active"{{ end }}>About Me</a>
       </li>
       <li>
-        <a href="">My Work</a>
+        <a href="{{ .Site.BaseURL }}my-work" {{ if eq .File.Path "my-work.md" }}class="active"{{ end }}>My Work</a>
       </li>
     </ul>
   </nav>

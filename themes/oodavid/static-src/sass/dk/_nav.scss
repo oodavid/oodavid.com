@@ -34,7 +34,8 @@
         background-size: 0px 3px;
         transition: 0.5s;
         text-decoration: none;
-        &:hover {
+        &:hover,
+        &.active {
           background-size: 100% 3px;
           color: #000000;
         }
