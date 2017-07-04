@@ -4,7 +4,7 @@
 <div id="main">
   <div id="home" class="container">
 
-    {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+    {{ $paginator := .Paginate (where .Data.Pages "Type" "article") }}
     {{ template "_internal/pagination.html" . }}
     {{ range $paginator.Pages }}
       <section>
