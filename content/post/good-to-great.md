@@ -6,6 +6,7 @@ draft: false
 ## Todo
 
 1. Footer > Simplify - *10 min*
+1. Header > Responsive - *25 min*
 1. Page > About Me - *45 min*
 1. Page > My Work - *1h 30*
 1. Article > Write First - *1 hour*
