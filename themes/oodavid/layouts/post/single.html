@@ -2,24 +2,19 @@
 
 <!-- Main -->
 <div id="main">
-  <div class="container">
+  <div id="post" class="container">
     <h1>{{ .Title }}</h1>
     <p class="post_meta">
       <time datetime="2017-02-07">{{ .Date.Format "1 Jan 2006" }}</time>
       <br>
-      <a href="//github.com/oodavid/oodavid.com/blob/master/content/{{ .File.Path }}" target="_blank">
-        Edit this page on GitHub
-      </a>
+      {{ if .Draft }}
+        <strong>draft article</strong>
+      {{ else }}
+        <a href="//github.com/oodavid/oodavid.com/blob/master/content/{{ .File.Path }}" target="_blank">
+          Edit this page on GitHub
+        </a>
+      {{ end }}
     </p>
-
-
-
-
-
-    <p>{{ .Params.subtitle }}</p>
-    {{ if isset .Params "primary_image" }}
-      <span class="image main"><img src="/images/{{ .Params.primary_image }}" alt="" /></span>
-    {{ end }}
     {{ .Content }}
   </div>
 </div>
