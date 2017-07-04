@@ -1,0 +1,24 @@
+ul.pagination {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+  li {
+    display: inline-block;
+    a {
+      display: inline-block;
+      min-width: 25px;
+      border: none;
+      font-weight: bolder;
+    }
+    &:first-of-type,
+    &:last-of-type {
+      display: none;
+    }
+    &.disabled {
+
+    }
+    &.active {
+
+    }
+  }
+}

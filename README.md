@@ -12,6 +12,12 @@ npm run build
 hugo new article/article-title.md
 ```
 
+# Create a new page
+
+```
+hugo new about-me.md
+```
+
 # Shortcodes & Internal Templates
 
 Shortcodes are well documented:

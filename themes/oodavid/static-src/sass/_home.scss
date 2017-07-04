@@ -1,0 +1,25 @@
+section.home {
+  padding: 0 0 28px 0;
+  text-align: center;
+  + section {
+    border-top: 1px solid #f1f1f1;
+  }
+  h1 {
+    small {
+      font-style: italic;
+      color: $palette__accent3;
+      font-size: 0.5em;
+      display: block;
+      line-height: 0.8;
+    }
+  }
+  a {
+    text-decoration: none;
+    border: none;
+  }
+  p {
+    @media (min-width: 700px) {
+      margin: 32px 80px;
+    }
+  }
+}

@@ -3,20 +3,6 @@ title: "Good To Great"
 date: 2017-07-02T20:46:41+01:00
 draft: false
 ---
-## Todo
-
-1. Page > About Me - *45 min*
-1. Page > My Work - *1h 30*
-1. Article > Write First - *1 hour*
-1. Launch - *15 min*
-1. Nav > Highlight active section - *30 min*
-1. Footer > Reinstate Contact form (simple) - *30 min*
-1. Articles > Port archive - *1 hour*
-1. Page > Todo - *15 min*
-1. Nav > Search - *1h*
-1. Meta > Prepare Site for OpenGraph etc. (see README) - *20m*
-
-<h2>Text</h2>
 <p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
 This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
 This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>

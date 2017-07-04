@@ -26,6 +26,13 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  margin-left: 0 !important;
+}
+
 h1 {
   text-align: center;
   margin-top: 60px;
@@ -63,9 +70,9 @@ blockquote {
   background-color: lighten($palette__accent3, 25%);
 }
 
-p.post_meta {
+p.page_meta,
+p.date {
   height: 1px;
-  margin: 32px 0;
   background-image: linear-gradient(90deg, $palette__accent1, $palette__accent3, $palette__accent5);
   color: $palette__accent3;
   line-height: 15px;
@@ -80,5 +87,10 @@ p.post_meta {
   }
   a {
     font-size: 12px;
+  }
+  margin-top: 32px;
+  margin-bottom: 32px;
+  &.page_meta {
+    margin-bottom: 80px;
   }
 }

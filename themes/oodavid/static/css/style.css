@@ -449,6 +449,12 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
     border: none; }
 
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  margin-left: 0 !important; }
+
 h1 {
   text-align: center;
   margin-top: 60px; }
@@ -480,22 +486,29 @@ blockquote {
   padding: 30px 50px;
   background-color: #f0eef6; }
 
-p.post_meta {
+p.page_meta,
+p.date {
   height: 1px;
-  margin: 32px 0;
   background-image: linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
   color: #a89cc8;
   line-height: 15px;
   font-size: 15px;
   text-align: center;
-  font-style: italic; }
-  p.post_meta time {
+  font-style: italic;
+  margin-top: 32px;
+  margin-bottom: 32px; }
+  p.page_meta time,
+  p.date time {
     padding: 0 5px;
     background-color: #ffffff;
     position: relative;
     top: -8px; }
-  p.post_meta a {
+  p.page_meta a,
+  p.date a {
     font-size: 12px; }
+  p.page_meta.page_meta,
+  p.date.page_meta {
+    margin-bottom: 80px; }
 
 .container {
   width: 800px;
@@ -504,6 +517,17 @@ p.post_meta {
     .container {
       width: auto;
       margin: 0 20px; } }
+  .container h1, .container h2, .container h3, .container h4, .container h5, .container h6, .container p, .container ul, .container ol, .container hr {
+    margin-left: 50px;
+    margin-right: 50px; }
+    @media (max-width: 700px) {
+      .container h1, .container h2, .container h3, .container h4, .container h5, .container h6, .container p, .container ul, .container ol, .container hr {
+        margin-left: 40px;
+        margin-right: 40px; } }
+    @media (max-width: 500px) {
+      .container h1, .container h2, .container h3, .container h4, .container h5, .container h6, .container p, .container ul, .container ol, .container hr {
+        margin-left: 20px;
+        margin-right: 20px; } }
 
 ul.icons {
   list-style-type: none;
@@ -546,6 +570,20 @@ a.button {
     background-color: #f6f5f9;
     color: #a1628b !important;
     border-color: #a1628b !important; }
+
+ul.pagination {
+  list-style-type: none;
+  padding: 0;
+  text-align: center; }
+  ul.pagination li {
+    display: inline-block; }
+    ul.pagination li a {
+      display: inline-block;
+      min-width: 25px;
+      border: none;
+      font-weight: bolder; }
+    ul.pagination li:first-of-type, ul.pagination li:last-of-type {
+      display: none; }
 
 #header {
   padding: 40px 0;
@@ -632,17 +670,6 @@ a.button {
   #main > .container {
     background-color: #ffffff;
     padding: 1px 0; }
-  #main h1, #main h2, #main h3, #main h4, #main h5, #main h6, #main p, #main ul, #main ol, #main hr {
-    margin-left: 50px;
-    margin-right: 50px; }
-    @media (max-width: 700px) {
-      #main h1, #main h2, #main h3, #main h4, #main h5, #main h6, #main p, #main ul, #main ol, #main hr {
-        margin-left: 40px;
-        margin-right: 40px; } }
-    @media (max-width: 500px) {
-      #main h1, #main h2, #main h3, #main h4, #main h5, #main h6, #main p, #main ul, #main ol, #main hr {
-        margin-left: 20px;
-        margin-right: 20px; } }
 
 #footer {
   border-color: rgba(255, 255, 255, 0.35);
@@ -651,94 +678,22 @@ a.button {
     text-align: center;
     margin: 60px 0; }
 
-#home section {
+section.home {
   padding: 0 0 28px 0;
   text-align: center; }
-  #home section a {
+  section.home + section {
+    border-top: 1px solid #f1f1f1; }
+  section.home h1 small {
+    font-style: italic;
+    color: #a89cc8;
+    font-size: 0.5em;
+    display: block;
+    line-height: 0.8; }
+  section.home a {
     text-decoration: none;
     border: none; }
-  #home section p {
-    margin: 32px 80px; }
-  #home section + section {
-    border-top: 1px solid #f1f1f1; }
-
-#post p.post_meta {
-  margin-bottom: 80px; }
-
-/*
-@import 'libs/vars';
-@import 'libs/functions';
-@import 'libs/mixins';
-@import 'libs/skel';
-@import 'font-awesome.min.css';
-@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400';
-
-/*
-	Stellar by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-* /
-
-	@include skel-breakpoints((
-		xlarge: '(max-width: 1680px)',
-		large: '(max-width: 1280px)',
-		medium: '(max-width: 980px)',
-		small: '(max-width: 736px)',
-		xsmall: '(max-width: 480px)',
-		xxsmall: '(max-width: 360px)'
-	));
-
-	@include skel-layout((
-		reset: 'full',
-		boxModel: 'border',
-		grid: ( gutters: 1.5em ),
-		breakpoints: (
-			small: (
-				grid: ( gutters: 1em ),
-			)
-		)
-	));
-
-	@mixin color($p) {
-		@include color-typography($p);
-		@include color-box($p);
-		@include color-button($p);
-		@include color-form($p);
-		@include color-icon($p);
-		@include color-list($p);
-		@include color-section($p);
-		@include color-table($p);
-		@include color-spotlight($p);
-	}
-
-// Base.
-
-	@import 'base/page';
-	@import 'base/typography';
-
-// Component.
-
-	@import 'components/box';
-	@import 'components/button';
-	@import 'components/clip-path';
-	@import 'components/form';
-	@import 'components/icon';
-	@import 'components/image';
-	@import 'components/list';
-	@import 'components/section';
-	@import 'components/table';
-	@import 'components/features';
-	@import 'components/statistics';
-	@import 'components/spotlight';
-
-// Layout.
-
-	@import 'layout/header';
-	@import 'layout/nav';
-	@import 'layout/main';
-	@import 'layout/footer';
-	@import 'layout/wrapper';
-
-*/
+  @media (min-width: 700px) {
+    section.home p {
+      margin: 32px 80px; } }
 
 /*# sourceMappingURL=style.css.map */

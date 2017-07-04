@@ -1,22 +1,7 @@
 {{ partial "header.html" . }}
 
-<!-- Main -->
-<div id="main">
-  <div id="post" class="container">
-    <h1>{{ .Title }}</h1>
-    <p class="post_meta">
-      <time datetime="2017-02-07">{{ .Date.Format "1 Jan 2006" }}</time>
-      <br>
-      {{ if .Draft }}
-        <strong>draft article</strong>
-      {{ else }}
-        <a href="//github.com/oodavid/oodavid.com/blob/master/content/{{ .File.Path }}" target="_blank">
-          Edit this page on GitHub
-        </a>
-      {{ end }}
-    </p>
-    {{ .Content }}
-  </div>
-</div>
+<h1>{{ .Title }}</h1>
+{{ partial "page_meta.html" . }}
+{{ .Content }}
 
 {{ partial "footer.html" . }}

@@ -1,11 +1,7 @@
 {{ partial "header.html" . }}
 
-<!-- Main -->
-<div id="main">
-  <div id="page" class="container">
-    <h1>{{ .Title }}</h1>
-    {{ .Content }}
-  </div>
-</div>
+<h1>{{ .Title }}</h1>
+{{ partial "page_meta.html" . }}
+{{ .Content }}
 
 {{ partial "footer.html" . }}
