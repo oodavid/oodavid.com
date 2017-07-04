@@ -1,20 +1,22 @@
-@import 'dk/settings';
+// Reset
 @import 'dk/normalize';
 @import 'dk/box-sizing';
-
+@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400';
+// Prep
+@import 'dk/settings';
 @import 'dk/silhouette';
-
+// Components
 @import 'dk/body';
 @import 'dk/type';
 @import 'dk/container';
 @import 'dk/icons';
-
+@import 'dk/buttons';
+// Sections
 @import 'dk/header';
 @import 'dk/nav';
 @import 'dk/main';
 @import 'dk/footer';
 
-@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400';
 
 /*
 @import 'libs/vars';
