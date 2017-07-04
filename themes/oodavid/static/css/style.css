@@ -1,35 +1,3 @@
-/*
-		bg:					#935d8c,
-		fg:					rgba(255,255,255,0.65),
-		fg-bold:			#ffffff,
-		fg-light:			rgba(255,255,255,0.5),
-		border:				rgba(255,255,255,0.35),
-		border-bg:			rgba(255,255,255,0.075),
-		border2:			rgba(255,255,255,0.75),
-		border2-bg:			rgba(255,255,255,0.2),
-
-		invert: (
-			bg:				#ffffff,
-			bg-alt:			#f7f7f7,
-			fg:				#636363,
-			fg-bold:		#636363,
-			fg-light:		rgba(99,99,99,0.25),
-			border:			#dddddd,
-			border-bg:		rgba(222,222,222,0.25),
-			border2:		#dddddd,
-			border2-bg:		rgba(222,222,222,0.5),
-		),
-
-		accent:				#8cc9f0,
-		accent1:			#efa8b0,
-		accent2:			#c79cc8,
-		accent3:			#a89cc8,
-		accent4:			#9bb2e1,
-		accent5:			#8cc9f0,
-		bg1:				#e37682,
-		bg2:				#5f4d93
-
-*/
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -470,14 +438,16 @@ a {
   border-bottom: dotted 1px;
   color: inherit; }
   a:hover {
-    border-bottom-color: transparent; }
+    border-bottom-color: transparent;
+    color: #a1628b; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   line-height: 1.5; }
   h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     color: inherit;
-    text-decoration: none; }
+    text-decoration: none;
+    border: none; }
 
 h1 {
   text-align: center;
@@ -489,8 +459,8 @@ hr {
   background-image: linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0); }
 
 div.highlight {
-  margin-left: -50px;
-  margin-right: -50px;
+  margin-left: 0;
+  margin-right: 0;
   border-left: 3px solid #efa8b0; }
   div.highlight pre {
     padding: 50px 47px;
@@ -504,15 +474,15 @@ code {
   -webkit-font-smoothing: antialiased; }
 
 blockquote {
-  margin-left: -50px;
-  margin-right: -50px;
+  margin-left: 0;
+  margin-right: 0;
   border-left: 3px solid #a89cc8;
   padding: 30px 50px;
   background-color: #f0eef6; }
 
 p.post_meta {
   height: 1px;
-  margin-bottom: 80px;
+  margin: 32px 0;
   background-image: linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
   color: #a89cc8;
   line-height: 15px;
@@ -555,6 +525,28 @@ ul.icons {
       ul.icons li a:hover {
         background-color: rgba(255, 255, 255, 0.075); }
 
+a.button {
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out, border-color 300ms ease-in-out;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 300;
+  height: 2.75em;
+  line-height: 2.75em;
+  min-width: 9.25em;
+  padding: 0 1.5em;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 1px solid #dddddd !important;
+  color: #636363 !important;
+  text-transform: uppercase; }
+  a.button:hover {
+    background-color: #f6f5f9;
+    color: #a1628b !important;
+    border-color: #a1628b !important; }
+
 #header {
   padding: 2em 0;
   font-size: 1.2em;
@@ -583,11 +575,8 @@ ul.icons {
       margin: 0 0 0 3em; }
     #header #header__bio p#header__twitter {
       margin-top: 10px; }
-    #header #header__bio a {
-      border-bottom: dotted 1px rgba(255, 255, 255, 0.65); }
-      #header #header__bio a:hover {
-        border-bottom-color: transparent;
-        color: white; }
+    #header #header__bio a:hover {
+      color: white; }
 
 #nav {
   background-color: #f7f7f7;
@@ -628,13 +617,30 @@ ul.icons {
   color: #636363; }
   #main > .container {
     background-color: #ffffff;
-    padding: 1px 50px; }
+    padding: 1px 0; }
+  #main h1, #main h2, #main h3, #main h4, #main h5, #main h6, #main p, #main ul, #main ol, #main hr {
+    margin-left: 50px;
+    margin-right: 50px; }
 
 #footer {
   border-color: rgba(255, 255, 255, 0.35);
   color: #ffffff; }
   #footer .copyright {
     text-align: center; }
+
+#home section {
+  padding: 0 0 28px 0;
+  text-align: center; }
+  #home section a {
+    text-decoration: none;
+    border: none; }
+  #home section p {
+    margin: 32px 80px; }
+  #home section + section {
+    border-top: 1px solid #f1f1f1; }
+
+#post p.post_meta {
+  margin-bottom: 80px; }
 
 /*
 @import 'libs/vars';

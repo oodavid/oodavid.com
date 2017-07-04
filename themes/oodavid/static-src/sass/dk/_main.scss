@@ -3,6 +3,10 @@
   color: $palette__font;
   > .container {
     background-color: #ffffff;
-    padding: 1px 50px;
+    padding: 1px 0;
+  }
+  h1, h2, h3, h4, h5, h6, p, ul, ol, hr {
+    margin-left: 50px;
+    margin-right: 50px;
   }
 }

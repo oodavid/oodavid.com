@@ -38,12 +38,8 @@
     p#header__twitter {
       margin-top: 10px;
     }
-    a {
-      border-bottom: dotted 1px rgba(255,255,255,0.65);
-      &:hover {
-        border-bottom-color: transparent;
-        color: white;
-      }
+    a:hover {
+      color: white;
     }
   }
 }

@@ -27,6 +27,13 @@
       <meta property='og:title' content="{{ .Title }} - {{ .Site.Title }}">
       <meta property="og:type" content="article">
     {{ end }}
+
+    {{ template "_internal/opengraph.html" . }}
+    {{ template "_internal/google_news.html" . }}
+    {{ template "_internal/schema.html" . }}
+    {{ template "_internal/twitter_cards.html" . }}
+
+
 </head>
 <body>
 
@@ -63,7 +70,7 @@
   <nav id="nav">
     <ul class="container">
       <li>
-        <a href="">Articles</a>
+        <a href="{{ .Site.BaseURL }}">Articles</a>
       </li>
       <li>
         <a href="">About Me</a>
