@@ -21,7 +21,8 @@
     "open": "opener http://localhost:1313",
 
     "build":  "npm-run-all -s sass:build hugo:build",
-    "watch":  "npm-run-all -p sass:watch hugo:watch open"
+    "server": "npm-run-all -p sass:watch hugo:watch open",
+    "serve":  "npm run server"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",

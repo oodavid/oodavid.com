@@ -529,8 +529,11 @@ p.post_meta {
 
 .container {
   width: 800px;
-  max-width: 100%;
   margin: 0 auto; }
+  @media (max-width: 840px) {
+    .container {
+      width: auto;
+      margin: 0 20px; } }
 
 ul.icons {
   list-style-type: none;
@@ -593,11 +596,16 @@ ul.icons {
   #nav ul {
     font-size: 1.2em;
     padding: 0;
-    list-style: none;
-    display: table;
-    table-layout: fixed; }
+    list-style: none; }
     #nav ul li {
-      display: table-cell; }
+      float: left;
+      width: 33%; }
+      #nav ul li:nth-child(2) {
+        width: 34%; }
+    #nav ul:after {
+      content: "";
+      display: table;
+      clear: both; }
     #nav ul li {
       padding: 0;
       text-align: center; }
@@ -616,7 +624,7 @@ ul.icons {
           color: #000000; }
 
 #main {
-  background-color: #fafafa;
+  background-color: #f1f1f1;
   color: #636363; }
   #main > .container {
     background-color: #ffffff;

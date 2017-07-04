@@ -6,11 +6,18 @@
     font-size: 1.2em;
     padding: 0;
     list-style: none;
-    // Equal width
-    display: table;
-    table-layout: fixed;
+    // Equal width + clearfix
     li {
-      display: table-cell;
+      float: left;
+      width: 33%;
+      &:nth-child(2){
+        width: 34%;
+      }
+    }
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
     }
     // Links
     li {
