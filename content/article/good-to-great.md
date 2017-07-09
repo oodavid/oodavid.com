@@ -1,8 +1,13 @@
----
-title: "Good To Great"
-date: 2017-07-02T20:46:41+01:00
-draft: false
----
++++
+title = "Good To Great"
+date = 2017-07-02T20:46:41+01:00
+draft = false
+slug = ""
+tags = []
+categories = []
+locale = "en-GB"
++++
+
 <p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
 This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
 This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>

@@ -1,8 +1,9 @@
 +++
-# Date and title are automatically added
+title = "{{ replace .TranslationBaseName "-" " " | title }}"
+date = {{ .Date }}
+draft = true
 slug = ""
 tags = []
 categories = []
-draft = true
 locale = "en-GB"
 +++
