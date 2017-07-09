@@ -610,13 +610,15 @@ ul.pagination {
       width: 100%; }
   #header #header__bio p,
   #header #header__bio__compact p {
-    margin: 0 0 0 30px; }
-  #header #header__bio p.header__twitter,
-  #header #header__bio__compact p.header__twitter {
-    margin-top: 10px; }
+    margin: 0; }
+    #header #header__bio p.header__twitter,
+    #header #header__bio__compact p.header__twitter {
+      margin-top: 10px; }
   #header #header__bio a:hover,
   #header #header__bio__compact a:hover {
     color: white; }
+  #header #header__bio {
+    padding: 0 0 0 30px; }
   #header #header__bio__compact {
     display: none; }
   @media (max-width: 500px) {

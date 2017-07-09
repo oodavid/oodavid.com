@@ -34,14 +34,17 @@
   #header__bio,
   #header__bio__compact {
     p {
-      margin: 0 0 0 30px;
-    }
-    p.header__twitter {
-      margin-top: 10px;
+      margin: 0;
+      &.header__twitter {
+        margin-top: 10px;
+      }
     }
     a:hover {
       color: white;
     }
+  }
+  #header__bio {
+    padding: 0 0 0 30px;
   }
   #header__bio__compact {
     display: none;
