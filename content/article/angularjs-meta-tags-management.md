@@ -51,6 +51,10 @@ locale = "en-GB"
 </head>
 ```
 
+## Pre-Rendering
+
+
+
 ## Debugging
 
 Most social platforms have debuggers and validators that let you to test your URLs against their parsers. It is worth doing this occasionally as the platforms sometimes make  breaking changes to their requirements.
