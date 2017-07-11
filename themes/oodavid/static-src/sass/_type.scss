@@ -52,6 +52,7 @@ div.highlight {
     padding: 50px 47px;
     overflow-x: auto;
     -webkit-font-smoothing: antialiased;
+    color: white;
   }
 }
 
@@ -93,4 +94,12 @@ p.date {
   &.page_meta {
     margin-bottom: 80px;
   }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }

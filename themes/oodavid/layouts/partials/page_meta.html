@@ -1,5 +1,5 @@
 <p class="page_meta">
-  <time datetime="2017-02-07">{{ .Date.Format "1 Jan 2006" }}</time>
+  <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
   <br>
   {{ if .Draft }}
     <strong>draft article</strong>

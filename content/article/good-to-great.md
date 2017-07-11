@@ -1,7 +1,7 @@
 +++
 title = "Good To Great"
 date = 2017-07-02T20:46:41+01:00
-draft = false
+draft = true
 slug = ""
 tags = []
 categories = []

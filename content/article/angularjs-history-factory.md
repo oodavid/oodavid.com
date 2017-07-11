@@ -1,6 +1,6 @@
 +++
-title = "AngularJS Pagination Component"
-date = 2017-07-04T08:17:20+01:00
+title = "AngularJS History Factory"
+date = 2017-07-11T16:11:45+01:00
 draft = true
 slug = ""
 tags = []

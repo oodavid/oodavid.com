@@ -1,8 +1,25 @@
 #footer {
+
+  background-color: $palette__bg;
+  background-image: url("images/overlay.png"),
+                    linear-gradient(45deg, $palette__bg1 15%, $palette__bg 85%);
+
   border-color: rgba(255, 255, 255, 0.35);
   color: #ffffff;
   .copyright {
     text-align: center;
     margin: 60px 0;
   }
+}
+
+
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+#footer {
+  flex: 1 0 auto;
 }

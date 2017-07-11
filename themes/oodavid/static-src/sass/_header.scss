@@ -1,4 +1,16 @@
+
+// header top-right   #5f4d93
+// header bottom-left #975e8c
+// header top-right   #975e8c
+// footer bottom-left #e37682
+
 #header {
+
+
+  background-color: $palette__bg;
+  background-image: url("images/overlay.png"),
+                    linear-gradient(45deg, $palette__bg 15%, $palette__bg2 85%);
+
   // Layout
   padding: 40px 0;
   > div {
