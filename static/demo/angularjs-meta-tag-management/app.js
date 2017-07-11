@@ -67,8 +67,8 @@ function appRun(MetaTagsService){
     'og:site_name': 'oodavid',
     'og:title': 'AngularJS Meta Tags Management',
     'og:description': 'This AngularJS service lets you manage the <meta> tags used by various sharing platforms. From Opengraph to Twitter and Pinterest.',
-    'og:url': 'http://oodavid.com/article/angularjs-meta-tags-management/',
-    'og:image': 'http://oodavid.com/article/angularjs-meta-tags-management/meta-tags.png',
+    'og:url': 'https://singer-duncan-17012.netlify.com/article/angularjs-meta-tags-management/',
+    'og:image': 'https://singer-duncan-17012.netlify.com/article/angularjs-meta-tags-management/meta-tags.png',
     'og:image:width': '680',
     'og:image:height': '340',
     // Twitter
@@ -77,7 +77,7 @@ function appRun(MetaTagsService){
     'twitter:creator': '@oodavid',
     'twitter:title': 'AngularJS Meta Tags Management',
     'twitter:description': 'This AngularJS service lets you manage the <meta> tags used by various sharing platforms. From Opengraph to Twitter and Pinterest.',
-    'twitter:image': 'http://oodavid.com/article/angularjs-meta-tags-management/meta-tags.png',
+    'twitter:image': 'https://singer-duncan-17012.netlify.com/article/angularjs-meta-tags-management/meta-tags.png',
   });
 }
 
