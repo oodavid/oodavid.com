@@ -157,7 +157,7 @@ function appConfig($locationProvider, $stateProvider){
 
 
 var app = angular.module('app',['ui.router']);
-app.service('MetaTagsService', MetaTagsService);
+// app.service('MetaTagsService', MetaTagsService);
 app.service('ArticleService', ArticleService);
 app.config(appConfig);
-app.run(appRun);
+// app.run(appRun);
