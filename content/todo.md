@@ -15,4 +15,6 @@ draft: false
 1. Articles > Port archive - *1 hour*
 1. Nav > Search - *1h*
 1. Meta > Prepare Site for OpenGraph etc. (see README) - *20m*
-
+1. Add a [Table of Contents](https://gohugo.io/extras/toc/)
+1. Move the Demo / GitHub links to the frontmatter and deal with it on the archetype template
+1. Might as well make the CSS test page an article, I can talk about Hugo / Netlify there too
