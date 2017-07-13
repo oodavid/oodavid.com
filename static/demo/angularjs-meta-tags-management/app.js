@@ -1,4 +1,3 @@
-
 function MetaTagsService(){
   var service = this;
   service.setDefaultTags = setDefaultTags;
@@ -7,6 +6,7 @@ function MetaTagsService(){
   var tagElements = [];
   function setDefaultTags(tags){
     angular.copy(tags, defaultTags);
+    setTags({});
   }
   function mergeDefaultTags(tags){
     angular.forEach(defaultTags, function(defaultTagContent, defaultTagName){
@@ -26,14 +26,14 @@ function MetaTagsService(){
       // Special provision for the title element
       return angular
         .element('<title>')
-        .text(content);
+        .text(content)[0];
     } else {
       // Opengraph uses [property], but everything else uses [name]
       var nameAttr = (name.indexOf('og:') === 0) ? 'property' : 'name';
       return angular
         .element('<meta>')
         .attr(nameAttr, name)
-        .attr('content', content);
+        .attr('content', content)[0];
     }
   }
   function setTags(tags){
@@ -54,52 +54,110 @@ function MetaTagsService(){
   }
 }
 
-appRun.$inject = ['MetaTagsService'];
-function appRun(MetaTagsService){
+
+
+
+appRun.$inject = ['$transitions', 'MetaTagsService'];
+function appRun($transitions, MetaTagsService){
+
   MetaTagsService.setDefaultTags({
-    'title': 'oodavid.com',
     // General SEO
+    'title': 'oodavid.com',
     'author': 'David King',
     'description': 'oodavid.com',
     // Indexing / Spiders
     'googlebot': 'all',
     'bingbot': 'all',
     'robots': 'all',
-  });
-  MetaTagsService.setTags({
-    'title': 'AngularJS Meta Tags Management',
     // OpenGraph
-    'og:type': 'article',
     'og:site_name': 'oodavid',
-    'og:title': 'AngularJS Meta Tags Management',
-    'og:description': 'How to manage and update meta tags in your AngularJS app. This AngularJS service lets you manage the <meta> tags used by various social networks and search engines. From Google to Facebook and Twitter to Pinterest.',
-    // 'og:url': 'https://singer-duncan-17012.netlify.com/demo/angularjs-meta-tags-management/',
-    'og:image': 'https://singer-duncan-17012.netlify.com/demo/angularjs-meta-tags-management/meta-tags.png',
-    'og:image:width': '680',
-    'og:image:height': '340',
     // Twitter
-    'twitter:card': 'summary_large_image',
     'twitter:site': '@oodavid',
-    'twitter:creator': '@oodavid',
-    'twitter:title': 'AngularJS Meta Tags Management',
-    'twitter:description': 'How to manage and update meta tags in your AngularJS app. This AngularJS service lets you manage the <meta> tags used by various social networks and search engines. From Google to Facebook and Twitter to Pinterest.',
-    'twitter:image': 'https://singer-duncan-17012.netlify.com/demo/angularjs-meta-tags-management/meta-tags.png',
   });
+
+  $transitions.onSuccess({ to: 'home' }, function($transition){
+    MetaTagsService.setTags({});
+  });
+
+  $transitions.onSuccess({ to: 'article' }, function($transition){
+    var state = $transition.to();
+    var article = $transition.injector().get('resolvedArticle');
+    MetaTagsService.setTags({
+      // General SEO
+      'title': article.title,
+      // OpenGraph
+      'og:type': 'article',
+      'og:title': article.title,
+      'og:description': article.description,
+      'og:image': article.image,
+      // Twitter
+      'twitter:card': 'summary_large_image',
+      'twitter:creator': article.twitter_id,
+      'twitter:title': article.title,
+      'twitter:description': article.description,
+      'twitter:image': article.image,
+    });
+
+  });
+
 }
+
+
+
+
+function ArticleService(){
+  var service = this;
+  this.getArticle = getArticle;
+  var articles = {
+    'one': {
+      title: 'AngularJS Meta Tags Management',
+      description: 'How to manage and update meta tags in your AngularJS app. This AngularJS service lets you manage the <meta> tags used by various social networks and search engines. From Google to Facebook and Twitter to Pinterest.',
+      image: '/demo/angularjs-meta-tags-management/meta-tags.png',
+      twitter_id: '@oodavid',
+    },
+    'two': {
+      title: 'AngularJS Pagination Component',
+      description: 'A simple component that adds pagination to your pages. The debounce feature is especially useful for rapid cycling of pages without overloading your server.',
+      image: '/demo/angularjs-meta-tags-management/pagination.png',
+      twitter_id: '@oodavid',
+    },
+  }
+  function getArticle(articleId){
+    return articles[articleId];
+  }
+}
+
+
+
 
 appConfig.$inject = ['$locationProvider', '$stateProvider'];
 function appConfig($locationProvider, $stateProvider){
   $locationProvider.html5Mode(true);
   $stateProvider
-    .state('one', {
-      template: '<h1>One</h1>'
+    .state('home', {
+      url: '/',
+      template: '<h1>This is the home page</h1>'
     })
-    .state('two', {
-      template: '<h1>Two</h1>'
+    .state('article', {
+      url: '/article/:articleId',
+      template: '<h1>{{ ctrl.article.title }}</h1><p>{{ ctrl.article.description }}</p><p><img ng-src="{{ ctrl.article.image }}"></p>',
+      controller: function(resolvedArticle){
+        this.article = resolvedArticle;
+      },
+      controllerAs: 'ctrl',
+      resolve: {
+        resolvedArticle: ['$stateParams', 'ArticleService', function($stateParams, ArticleService) {
+          return ArticleService.getArticle($stateParams.articleId);
+        }]
+      },
     });
 }
 
+
+
+
 var app = angular.module('app',['ui.router']);
 app.service('MetaTagsService', MetaTagsService);
+app.service('ArticleService', ArticleService);
 app.config(appConfig);
 app.run(appRun);

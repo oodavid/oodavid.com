@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    {"source": "/demo/angularjs-meta-tags-management/**", "destination": "/demo/angularjs-meta-tags-management/index.html"},
+    {"source": "**", "destination": "index.html"}
+  ]
+}
