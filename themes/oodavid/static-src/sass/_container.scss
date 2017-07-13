@@ -5,16 +5,4 @@
     width: auto;
     margin: 0 20px;
   }
-  h1, h2, h3, h4, h5, h6, p, ul, ol, hr {
-    margin-left: 50px;
-    margin-right: 50px;
-    @media (max-width: 700px) {
-      margin-left: 40px;
-      margin-right: 40px;
-    }
-    @media (max-width: 500px) {
-      margin-left: 20px;
-      margin-right: 20px;
-    }
-  }
 }

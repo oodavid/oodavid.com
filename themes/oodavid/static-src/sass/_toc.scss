@@ -1,0 +1,21 @@
+#toc {
+  background: $palette__bg_alt;
+  padding: 20px 40px;
+  h4 {
+    font-size: 30px;
+    margin: 0;
+  }
+  #TableOfContents {
+    // H1 - Hidden
+    > ul {
+      list-style-type: none;
+      padding: 0;
+      > li {
+        // H2 - Visible
+        > ul {
+
+        }
+      }
+    }
+  }
+}

@@ -45,11 +45,8 @@ hr {
 }
 
 div.highlight {
-  margin-left: 0;
-  margin-right: 0;
   border-left: 3px solid $palette__accent1;
   pre {
-    padding: 50px 47px;
     overflow-x: auto;
     -webkit-font-smoothing: antialiased;
     color: white;
@@ -64,10 +61,7 @@ code {
 }
 
 blockquote {
-  margin-left: 0;
-  margin-right: 0;
   border-left: 3px solid $palette__accent3;
-  padding: 30px 50px;
   background-color: lighten($palette__accent3, 25%);
 }
 

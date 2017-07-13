@@ -1,8 +1,33 @@
+@mixin main-container-padding($padding) {
+  padding-left: $padding;
+  padding-right: $padding;
+  > blockquote {
+    margin-left: -$padding;
+    margin-right: -$padding;
+    padding: 35px ($padding - 3px);
+  }
+  > div.highlight {
+    margin-left: -$padding;
+    margin-right: -$padding;
+    pre {
+      padding: 35px ($padding - 3px);
+    }
+  }
+}
+
 #main {
   background-color: #f1f1f1;
   color: $palette__font;
   > .container {
     background-color: #ffffff;
     padding: 1px 0;
+    //
+    @include main-container-padding(50px);
+    @media (max-width: 700px) {
+      @include main-container-padding(40px);
+    }
+    @media (max-width: 700px) {
+      @include main-container-padding(20px);
+    }
   }
 }

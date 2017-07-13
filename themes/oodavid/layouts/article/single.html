@@ -2,6 +2,12 @@
 
 <h1>{{ .Title }}</h1>
 {{ partial "page_meta.html" . }}
+
+<div id="toc">
+  <h4>Table of Contents</h4>
+  {{ .TableOfContents }}
+</div>
+
 {{ .Content }}
 
 {{ partial "footer.html" . }}
