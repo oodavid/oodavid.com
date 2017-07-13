@@ -1,0 +1,14 @@
+<html ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
+  <script src="./app.js"></script>
+</head>
+<body>
+  <div ng-controller="ArticleController as ctrl">
+    <h1>{{ ctrl.article.title }}</h1>
+    <p>{{ ctrl.article.description }}</p>
+    <p><img ng-src="{{ ctrl.article.image }}"></p>
+  </div>
+</body>
+</html>
