@@ -37,16 +37,15 @@ function MetaTagsService(){
   function setTags(tags){
     clearTags();
     mergeDefaultTags(tags);
-    var headElement = document.head;
     angular.forEach(tags, function(content, name){
       var tagElement = getTagElement(content, name);
-      headElement.appendChild(tagElement);
+      document.head.appendChild(tagElement);
       tagElements.push(tagElement);
     });
   }
   function clearTags(){
     angular.forEach(tagElements, function(tagElement){
-      tagElement.remove();
+      document.head.removeChild(tagElement);
     });
     tagElements.length = 0;
   }
