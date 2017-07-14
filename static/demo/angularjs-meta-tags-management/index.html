@@ -2,6 +2,9 @@
 <head>
   <meta charset="utf-8">
   <base href="/demo/angularjs-meta-tags-management/">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
+  <script src="//unpkg.com/angular-ui-router@1.0.3/release/angular-ui-router.min.js"></script>
+  <script src="./app.js"></script>
 </head>
 <body>
   <h1>Select an article, or the homepage</h1>
@@ -10,11 +13,9 @@
     <li><a ui-sref="article({articleId:'one'})">Article 1</a></li>
     <li><a ui-sref="article({articleId:'two'})">Article 2</a></li>
   </ul>
-  <p>...then check the page's meta data. Or test the URL on the <a href="https://developers.facebook.com/tools/debug/og/object/">Facebook Open Graph Debugger</a> or <a href="https://cards-dev.twitter.com/validator">Twitter Card Validator</a></p>
+  <p>...then check the page's meta data.</p>
+  <p>You can test the URL on the <a href="https://developers.facebook.com/tools/debug/og/object/">Facebook Open Graph Debugger</a> or <a href="https://cards-dev.twitter.com/validator">Twitter Card Validator</a>.</p>
   <hr>
   <div ui-view></div>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
-  <script src="//unpkg.com/angular-ui-router@1.0.3/release/angular-ui-router.min.js"></script>
-  <script src="./app.js"></script>
 </body>
 </html>

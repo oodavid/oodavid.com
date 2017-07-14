@@ -1,6 +1,6 @@
 +++
 title = "AngularJS Meta Tags Management"
-date = 2017-07-09T13:26:49+01:00
+date = 2017-07-14T12:00:00
 draft = false
 slug = ""
 tags = []
@@ -25,27 +25,23 @@ In this article I demonstrate a simple AngularJS Service that allows you to mana
 
 ## How are meta-tags used?
 
-When sharing links to the myriad platforms, they each use meta data to create a richer experience.
+When sharing a links to a social network such as Facebook, LinkedIn, Pinterest or Twitter, we must provide meta data to create a rich experience.
 
-If we shared a link to [The Tick](http://www.imdb.com/title/tt5540054/) on IMDb to Facebook and Twitter, we see these objects:
+For example, if we share a link to [The Tick](http://www.imdb.com/title/tt5540054/) on IMDb to Facebook and Twitter, we see these objects:
 
 <figure>
   <img src="/images/article/meta-facebook.png">
-  <figcaption>As shared to the Facebook OpenGraph</figcaption>
+  <figcaption>Shared to Facebook - uses the "OpenGraph" meta tags</figcaption>
 </figure>
 
 <figure>
   <img src="/images/article/meta-twitter.png">
-  <figcaption>As shared to Twitter as a &quot;card&quot;</figcaption>
+  <figcaption>Shared to Twitter - uses the "Twitter" meta tags</figcaption>
 </figure>
-
-Since AngularJS creates single-page-apps, we need a way to manage these `<meta>` tags.
 
 ## Example Markup
 
-The following `<head>` element contains a number of `<meta>` tags. They describe the page in general terms and have additional properties for the OpenGraph (denoted by `og:`) and Twitter (denoted by `twitter:`). They would create similar cards and posts as above.
-
-The exact tags required will change depending on the route. After all, not all pages have an author, or image.
+The following `<head>` element contains a number of `<meta>` tags. They describe the page in general terms and have additional properties for the OpenGraph (denoted by `og:`) and Twitter (denoted by `twitter:`). When shared, this page would create a rich experience as I demonstrated above.
 
 ```html
 <head>
@@ -77,11 +73,15 @@ The exact tags required will change depending on the route. After all, not all p
 </head>
 ```
 
+There are more meta tags than demonstrated here. With the emergence of new social networks, more will be available to use.
+
+Since AngularJS creates single-page-apps, we need a way to manage these `<meta>` tags.
+
 ## The MetaTags Service
 
 Our `MetaTagsService` manages these tags so that your <abbr title="Single Page Application">SPA</abbr> can make changes based on state. You will notice that there are special provisions for the `<title>` tag, and the nuances of the OpenGraph markup.
 
-This approach does not use a Component or Directive, instead modifying the `<head>` tag directly from within the Service. This is unusual within AngularJS, but I will explain the rationale shortly.
+This approach does not use a Component or Directive, instead modifying the `<head>` tag directly from within the Service. This is unusual within AngularJS, but I will explain the rationale at the end of the article.
 
 ```js
 function MetaTagsService(){
@@ -93,6 +93,15 @@ function MetaTagsService(){
   function setDefaultTags(tags){
     angular.copy(tags, defaultTags);
     setTags({});
+  }
+  function setTags(tags){
+    clearTags();
+    mergeDefaultTags(tags);
+    angular.forEach(tags, function(content, name){
+      var tagElement = getTagElement(content, name);
+      document.head.appendChild(tagElement);
+      tagElements.push(tagElement);
+    });
   }
   function mergeDefaultTags(tags){
     angular.forEach(defaultTags, function(defaultTagContent, defaultTagName){
@@ -119,15 +128,6 @@ function MetaTagsService(){
       return meta;
     }
   }
-  function setTags(tags){
-    clearTags();
-    mergeDefaultTags(tags);
-    angular.forEach(tags, function(content, name){
-      var tagElement = getTagElement(content, name);
-      document.head.appendChild(tagElement);
-      tagElements.push(tagElement);
-    });
-  }
   function clearTags(){
     angular.forEach(tagElements, function(tagElement){
       document.head.removeChild(tagElement);
@@ -138,11 +138,20 @@ function MetaTagsService(){
 app.service('MetaTagsService', MetaTagsService);
 ```
 
+With the service in place, our HTML can be drastically simplified:
+
+```html
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css" />
+</head>
+```
+
 The service exposes two methods: `setDefaultTags` and `setTags`.
 
-Use `setDefaultTags` during a your apps `run` block to set the fallback values. This can be as comprehensive as you like.
+Use `setDefaultTags` to set fallback values for any meta tag. This can be as comprehensive as you like.
 
-Use `setTags` to show the state of your UI, usually alongside routing. These values are *merged* with any default tags that have been set.
+Then, use `setTags` to show the state of your UI. The values here are *merged* with any default tags that have been set.
 
 ```js
 // Set the default "site" tags
@@ -181,7 +190,9 @@ MetaTagsService.setTags({
 });
 ```
 
-Typically you would set your default tags on run, and update meta-data during routing changes. You could handle routing changes with a `$transition` lifecycle hook, or within a route Controller.
+Typically you would set your default tags during `run`, and set your state tags at an appropriate point in your app lifecycle for this; routing is a great starting point.
+
+You can handle routing changes with a `$transition` lifecycle hook, or within a route Controller.
 
 ```js
 appRun.$inject = ['MetaTagsService'];
@@ -226,46 +237,6 @@ function appRun(MetaTagsService){
 app.run(appRun);
 ```
 
-## Why not use a Controller, Directive or Component?
-
-*WIP WIP WIP*
-
-Using a Controller with ngRepeat
-
-```html
-<head ng-controller="MetaTagsController as ctrl">
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="style.css" />
-  <meta
-    ng-repeat="tag in ctrl.tags"
-    name="{{ tag.name }}"
-    property="{{ tag.property }}"
-    content="{{ tag.content }}">
-</head>
-```
-
-Using a Directive
-
-```html
-<head meta-tags>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="style.css" />
-  <!-- The Directive can compile and append <meta> tags here -->
-</head>
-```
-
-Using a Component
-
-```html
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="style.css" />
-  <meta-tags>
-    <!-- The Component template can add <meta> tags here -->
-  </meta-tags>
-</head>
-```
-
 ## Testing and Debugging
 
 Most social platforms have debuggers and validators that let you to test your URLs against their parsers. It is worth doing this occasionally as the platforms sometimes make  breaking changes to their requirements.
@@ -303,3 +274,91 @@ There are many pre-rendering services that will run your javascript code and ret
 * [Prerender.cloud](https://prerender.cloud/)
 
 There is an open-source version of [Prerender.io](https://prerender.io/) that you can self-host, if you so wish.
+
+## Why not use a Controller, Directive or Component?
+
+AngularJS aficionados might be appalled at the _Service_ performing _DOM_ manipulations (the horror!). Surely *HTML compilation* is for Markup, Directives and Components? Well, the `<head>` element is a special-case and comes with limitations, namely:
+
+* There can only be one `<head>` element.
+* The `<head>` element can only contain:
+  * `<title>`
+  * `<base>`
+  * `<link>`
+  * `<meta>`
+  * `<style>`
+  * `<script>`
+  * `<noscript>`
+
+With this in mind, let's review our options.
+
+### Using a Directive
+
+```html
+<head meta-tags>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css" />
+  <!-- The Directive can compile and append <meta> tags here -->
+</head>
+```
+
+This was my initial approach. I had a `metaTags` Directive and `MetaTagsService`, the two would communicate, variables would be in scope and HTML would be compiled. The Directive part nagged at me, here's my train of thought:
+
+1. The purpose of a Directive is to add logic to *any* element
+1. I'm only insterested in the `<head>` element
+1. A single `<head>` element is guaranteed to exist
+1. What is the purpose of the Directive?
+
+Further to this, I wasn't happy with the overhead of keeping these variables in scope and having them reviewed during the `$digest` phase. It seemed like overkill.
+
+### Using a Controller with static markup
+
+```html
+<head ng-controller="MetaTagsController as ctrl">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css" />
+  <title>{{ ctrl.tags.title }}</title>
+  <meta property="og:type" content="{{ ctrl.tags.ogType }}" ng-if="ctrl.tags.ogType" />
+  <meta property="og:site_name" content="{{ ctrl.tags.ogSiteDomain }}" ng-if="ctrl.tags.ogType" />
+  <!-- ...and repeat for every tag -->
+</head>
+```
+
+The [ngMeta](https://github.com/vinaygopinath/ngMeta) module uses a similar approach. The problems here should be obvious:
+
+1. Lots of markup
+1. Adding new tags means modifying markup
+
+### Using a Controller with ngRepeat
+
+```html
+<head ng-controller="MetaTagsController as ctrl">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css" />
+  <title>{{ ctrl.tags.title }}</title>
+  <meta
+    ng-repeat="tag in ctrl.tags"
+    name="{{ tag.name }}"
+    property="{{ tag.property }}"
+    content="{{ tag.content }}">
+</head>
+```
+
+This is somewhat better. However I'm still not keen on the fact that careful markup has to be added. Note that the `name` and `property` attributes exist for _all_ `<meta>` tags, even though they are only used in some situations.
+
+### Using a Component
+
+```html
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css" />
+  <meta-tags>
+    <!-- The Component template can add <meta> tags here -->
+  </meta-tags>
+</head>
+```
+
+This one's simple to rule out, it's invalid markup. The allowed children of `<head>` are restricted. While this _may_ work on some social validators, the fact it's invalid makes me wary. Avoid.
+
+### Conclusion
+
+> The exception proves the rule.

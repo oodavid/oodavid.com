@@ -9,6 +9,15 @@ function MetaTagsService(){
     angular.copy(tags, defaultTags);
     setTags({});
   }
+  function setTags(tags){
+    clearTags();
+    mergeDefaultTags(tags);
+    angular.forEach(tags, function(content, name){
+      var tagElement = getTagElement(content, name);
+      document.head.appendChild(tagElement);
+      tagElements.push(tagElement);
+    });
+  }
   function mergeDefaultTags(tags){
     angular.forEach(defaultTags, function(defaultTagContent, defaultTagName){
       if(!tags[defaultTagName]){
@@ -34,21 +43,62 @@ function MetaTagsService(){
       return meta;
     }
   }
-  function setTags(tags){
-    clearTags();
-    mergeDefaultTags(tags);
-    angular.forEach(tags, function(content, name){
-      var tagElement = getTagElement(content, name);
-      document.head.appendChild(tagElement);
-      tagElements.push(tagElement);
-    });
-  }
   function clearTags(){
     angular.forEach(tagElements, function(tagElement){
       document.head.removeChild(tagElement);
     });
     tagElements.length = 0;
   }
+}
+
+
+
+function ArticleService(){
+  var service = this;
+  this.getArticle = getArticle;
+  var articles = {
+    'one': {
+      title: 'AngularJS Meta Tags Management',
+      description: 'How to manage and update meta tags in your AngularJS app. This AngularJS service lets you manage the <meta> tags used by various social networks and search engines. From Google to Facebook and Twitter to Pinterest.',
+      image: '/demo/angularjs-meta-tags-management/meta-tags.png',
+      twitter_id: '@oodavid',
+    },
+    'two': {
+      title: 'AngularJS Pagination Component',
+      description: 'A simple component that adds pagination to your pages. The debounce feature is especially useful for rapid cycling of pages without overloading your server.',
+      image: '/demo/angularjs-meta-tags-management/pagination.png',
+      twitter_id: '@oodavid',
+    },
+  }
+  function getArticle(articleId){
+    return articles[articleId];
+  }
+}
+
+
+
+appConfig.$inject = ['$locationProvider', '$stateProvider'];
+function appConfig($locationProvider, $stateProvider){
+  $locationProvider.html5Mode(true);
+  $stateProvider
+    .state('home', {
+      url: '/',
+      template: '<h1>This is the home page</h1>'
+    })
+    .state('article', {
+      url: '/article/:articleId',
+      template: '<h1>{{ ctrl.article.title }}</h1><p>{{ ctrl.article.description }}</p><p><img ng-src="{{ ctrl.article.image }}"></p><p>To see how <strong>prerender.io</strong> renders this route, <a ng-href="http://service.prerender.io/{{ ctrl.url }}" target="_blank">click here</a>.</p>',
+      controller: ['$location', 'resolvedArticle', function($location, resolvedArticle){
+        this.url = $location.absUrl();
+        this.article = resolvedArticle;
+      }],
+      controllerAs: 'ctrl',
+      resolve: {
+        resolvedArticle: ['$stateParams', 'ArticleService', function($stateParams, ArticleService) {
+          return ArticleService.getArticle($stateParams.articleId);
+        }]
+      },
+    });
 }
 
 
@@ -100,54 +150,6 @@ function appRun($transitions, MetaTagsService){
 
 
 
-
-function ArticleService(){
-  var service = this;
-  this.getArticle = getArticle;
-  var articles = {
-    'one': {
-      title: 'AngularJS Meta Tags Management',
-      description: 'How to manage and update meta tags in your AngularJS app. This AngularJS service lets you manage the <meta> tags used by various social networks and search engines. From Google to Facebook and Twitter to Pinterest.',
-      image: '/demo/angularjs-meta-tags-management/meta-tags.png',
-      twitter_id: '@oodavid',
-    },
-    'two': {
-      title: 'AngularJS Pagination Component',
-      description: 'A simple component that adds pagination to your pages. The debounce feature is especially useful for rapid cycling of pages without overloading your server.',
-      image: '/demo/angularjs-meta-tags-management/pagination.png',
-      twitter_id: '@oodavid',
-    },
-  }
-  function getArticle(articleId){
-    return articles[articleId];
-  }
-}
-
-
-
-
-appConfig.$inject = ['$locationProvider', '$stateProvider'];
-function appConfig($locationProvider, $stateProvider){
-  $locationProvider.html5Mode(true);
-  $stateProvider
-    .state('home', {
-      url: '/',
-      template: '<h1>This is the home page</h1>'
-    })
-    .state('article', {
-      url: '/article/:articleId',
-      template: '<h1>{{ ctrl.article.title }}</h1><p>{{ ctrl.article.description }}</p><p><img ng-src="{{ ctrl.article.image }}"></p>',
-      controller: function(resolvedArticle){
-        this.article = resolvedArticle;
-      },
-      controllerAs: 'ctrl',
-      resolve: {
-        resolvedArticle: ['$stateParams', 'ArticleService', function($stateParams, ArticleService) {
-          return ArticleService.getArticle($stateParams.articleId);
-        }]
-      },
-    });
-}
 
 
 
