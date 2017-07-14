@@ -104,37 +104,33 @@ function MetaTagsService(){
     });
     return tags;
   }
-  function getHeadElement(){
-    return document.getElementsByTagName('head')[0];
-  }
   function getTagElement(content, name){
     if(name == 'title'){
       // Special provision for the title element
-      return angular
-        .element('<title>')
-        .text(content)[0];
+      var title = document.createElement('title');
+      title.textContent = content;
+      return title;
     } else {
       // Opengraph uses [property], but everything else uses [name]
       var nameAttr = (name.indexOf('og:') === 0) ? 'property' : 'name';
-      return angular
-        .element('<meta>')
-        .attr(nameAttr, name)
-        .attr('content', content)[0];
+      var meta = document.createElement('meta');
+      meta.setAttribute(nameAttr, name);
+      meta.setAttribute('content', content);
+      return meta;
     }
   }
   function setTags(tags){
     clearTags();
     mergeDefaultTags(tags);
-    var headElement = getHeadElement();
     angular.forEach(tags, function(content, name){
       var tagElement = getTagElement(content, name);
-      headElement.append(tagElement);
+      document.head.appendChild(tagElement);
       tagElements.push(tagElement);
     });
   }
   function clearTags(){
     angular.forEach(tagElements, function(tagElement){
-      tagElement.remove();
+      document.head.removeChild(tagElement);
     });
     tagElements.length = 0;
   }
@@ -231,6 +227,8 @@ app.run(appRun);
 ```
 
 ## Why not use a Controller, Directive or Component?
+
+*WIP WIP WIP*
 
 Using a Controller with ngRepeat
 
