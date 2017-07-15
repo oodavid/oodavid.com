@@ -275,6 +275,12 @@ There are many pre-rendering services that will run your javascript code and ret
 
 There is an open-source version of [Prerender.io](https://prerender.io/) that you can self-host, if you so wish.
 
+Finally, you can quickly check the results of prerender.io by creating a URL like so:
+
+```text
+http://service.prerender.io/http://example.com/angular/app
+```
+
 ## Why not use a Controller, Directive or Component?
 
 AngularJS aficionados might be appalled at the _Service_ performing _DOM_ manipulations (the horror!). Surely *HTML compilation* is for Markup, Directives and Components? Well, the `<head>` element is a special-case and comes with limitations, namely:
