@@ -426,7 +426,8 @@ body {
 body {
   font-family: "Source Sans Pro", Helvetica, sans-serif;
   font-weight: 300;
-  line-height: 1.65; }
+  line-height: 1.65;
+  font-size: 17px; }
 
 a {
   transition: color 300ms ease-in-out, border-bottom 300ms ease-in-out;
@@ -474,7 +475,8 @@ figure {
     font-style: italic; }
 
 img {
-  vertical-align: middle; }
+  vertical-align: middle;
+  max-width: 100%; }
 
 hr {
   height: 1px;

@@ -2,6 +2,7 @@ body {
   font-family: $font_family;
   font-weight: 300;
   line-height: 1.65;
+  font-size: 17px;
 }
 
 a {
@@ -62,6 +63,7 @@ figure {
 
 img {
   vertical-align: middle;
+  max-width: 100%;
 }
 
 hr {
