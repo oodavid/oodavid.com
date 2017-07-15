@@ -1,0 +1,13 @@
+{{- $files := readDir "/static/images/tech" -}}
+<div id="tech">
+  {{- range $files }}
+		{{- if eq "png" (index (split .Name ".") 1) }}
+      <div>
+        <div>
+          <img src="/images/tech{{ .Name | relURL }}" width="64" height="64">
+          {{ index (split .Name ".") 0 }}
+        </div>
+      </div>
+		{{- end }}
+  {{- end }}
+</div>

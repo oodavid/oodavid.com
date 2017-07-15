@@ -4,7 +4,6 @@ date: 2017-07-04T14:23:53+01:00
 draft: false
 ---
 
-1. Page > About Me - *45 min*
 1. Page > My Work - *1h 30*
 1. Announce Launch - *15 min*
 1. Contact Form > Simple, netlify, add to: - *30 min*

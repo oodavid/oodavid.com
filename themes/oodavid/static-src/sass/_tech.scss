@@ -1,0 +1,23 @@
+div#tech {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -2px;
+  > div {
+    flex: 0 0 33.333%;
+    padding: 2px;
+    > div {
+      padding: 5px;
+      background-color: #eeeeee;
+      img {
+        margin-right: 5px;
+      }
+      @media (max-width: 700px) {
+        text-align: center;
+        img {
+          display: block;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
