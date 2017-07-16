@@ -10,3 +10,7 @@ googleAnalytics = "UA-24181653-1"
 # Code Highlighting
 PygmentsCodeFences = true
 PygmentsStyle = "monokai"
+
+# Markdown
+[blackfriday]
+  hrefTargetBlank = true

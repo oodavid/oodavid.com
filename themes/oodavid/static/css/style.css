@@ -499,6 +499,8 @@ code {
 blockquote {
   border-left: 3px solid #a89cc8;
   background-color: #f0eef6; }
+  blockquote blockquote {
+    padding: 1px 10px; }
 
 p.page_meta,
 p.date {
@@ -529,6 +531,18 @@ p.date {
 
 .text-right {
   text-align: right; }
+
+table {
+  width: 100%;
+  border-collapse: collapse; }
+  table thead tr {
+    background-image: linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
+    color: white;
+    text-align: left; }
+  table td,
+  table th {
+    padding: 3px 6px;
+    border: 1px solid #636363; }
 
 .container {
   width: 800px;
@@ -682,9 +696,13 @@ div#tech {
     list-style: none; }
     #nav ul li {
       float: left;
-      width: 33%; }
-      #nav ul li:nth-child(2) {
-        width: 34%; }
+      width: 50%;
+      /*
+      width: 33%;
+      &:nth-child(2){
+        width: 34%;
+      }
+      */ }
     #nav ul:after {
       content: "";
       display: table;

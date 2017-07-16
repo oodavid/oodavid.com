@@ -9,10 +9,13 @@
     // Equal width + clearfix
     li {
       float: left;
+      width: 50%;
+      /*
       width: 33%;
       &:nth-child(2){
         width: 34%;
       }
+      */
     }
     &:after {
       content: "";

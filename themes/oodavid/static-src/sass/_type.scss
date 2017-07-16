@@ -91,6 +91,9 @@ code {
 blockquote {
   border-left: 3px solid $palette__accent3;
   background-color: lighten($palette__accent3, 25%);
+  blockquote {
+    padding: 1px 10px;
+  }
 }
 
 p.page_meta,
@@ -124,4 +127,21 @@ p.date {
 
 .text-right {
   text-align: right;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  thead {
+    tr {
+      background-image: linear-gradient(90deg, $palette__accent1, $palette__accent3, $palette__accent5);
+      color: white;
+      text-align: left;
+    }
+  }
+  td,
+  th {
+    padding: 3px 6px;
+    border: 1px solid $palette__font;
+  }
 }
