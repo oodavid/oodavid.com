@@ -145,3 +145,62 @@ table {
     border: 1px solid $palette__font;
   }
 }
+
+
+
+
+
+
+.container {
+  ul {
+    list-style: none;
+    > li {
+      position: relative;
+      &::before {
+        content: "\f105";
+        display: block;
+        font-family: FontAwesome;
+        position: absolute;
+        left: -1em;
+        color: $palette__accent1;
+      }
+    }
+  }
+
+  ul.task-list {
+    list-style-type: none;
+    padding-left: 15px;
+    > li::before {
+      display: none;
+    }
+    .task-list {
+      padding-left: 40px;
+    }
+  }
+
+  input[type=checkbox] {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    &::before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $palette__bg_alt;
+      border: 1px solid $palette__accent5;
+    }
+    &:checked::before {
+      content: "\2713";
+      background-color: $palette__accent5;
+      color: white;
+      text-align: center;
+      line-height: 16px;
+      font-size: 14px;
+    }
+  }
+}

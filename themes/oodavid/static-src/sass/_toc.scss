@@ -8,8 +8,14 @@
   #TableOfContents {
     // H1 - Hidden
     > ul {
-      list-style-type: none;
+      > li::before {
+        display: none;
+      }
       padding: 0;
+      // Plain bullets
+      li::before {
+        color: inherit;
+      }
       > li {
         // H2 - Visible
         > ul {

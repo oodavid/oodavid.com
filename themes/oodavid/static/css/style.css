@@ -544,6 +544,49 @@ table {
     padding: 3px 6px;
     border: 1px solid #636363; }
 
+.container ul {
+  list-style: none; }
+  .container ul > li {
+    position: relative; }
+    .container ul > li::before {
+      content: "\f105";
+      display: block;
+      font-family: FontAwesome;
+      position: absolute;
+      left: -1em;
+      color: #efa8b0; }
+
+.container ul.task-list {
+  list-style-type: none;
+  padding-left: 15px; }
+  .container ul.task-list > li::before {
+    display: none; }
+  .container ul.task-list .task-list {
+    padding-left: 40px; }
+
+.container input[type=checkbox] {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px; }
+  .container input[type=checkbox]::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f7f7f7;
+    border: 1px solid #8cc9f0; }
+  .container input[type=checkbox]:checked::before {
+    content: "\2713";
+    background-color: #8cc9f0;
+    color: white;
+    text-align: center;
+    line-height: 16px;
+    font-size: 14px; }
+
 .container {
   width: 800px;
   margin: 0 auto; }
@@ -615,8 +658,11 @@ ul.pagination {
     font-size: 30px;
     margin: 0; }
   #toc #TableOfContents > ul {
-    list-style-type: none;
     padding: 0; }
+    #toc #TableOfContents > ul > li::before {
+      display: none; }
+    #toc #TableOfContents > ul li::before {
+      color: inherit; }
 
 div#tech {
   display: flex;
@@ -696,13 +742,9 @@ div#tech {
     list-style: none; }
     #nav ul li {
       float: left;
-      width: 50%;
-      /*
-      width: 33%;
-      &:nth-child(2){
-        width: 34%;
-      }
-      */ }
+      width: 33%; }
+      #nav ul li:nth-child(2) {
+        width: 34%; }
     #nav ul:after {
       content: "";
       display: table;
