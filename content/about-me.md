@@ -1,7 +1,8 @@
 ---
 title: "About Me"
-date: 2017-07-04T13:23:30+01:00
+date: 2017-07-16T13:23:30+01:00
 draft: false
+toc: true
 ---
 
 I'm **David King**, a full-stack developer based in the UK, I focus on Javascript and Typescript and have worked my way through many platforms and frameworks. From Angular to Firebase, Node to MongoDb, Gameclosure to CouchDb and PouchDb. My skills are broad and well suited to the online space.
@@ -20,7 +21,7 @@ When proposing software solutions for business, it is rarely enough to take clie
 
 > "You never really understand a person until you consider things from his point of view... Until you climb into his skin and walk around in it."
 >
-> ~ Atticus Finch, To Kill a Mockingbird
+> ~ **Atticus Finch**, To Kill a Mockingbird
 
 Many software-engineers will focus solely on technical problems and fail to fully explore their clients' wishes from a business perspective. I have made it my mantra to continually learn about my clients' business as though they were my own, immersing myself in the day-to-day working of each company. This enables me to create streamlined, tailor-made processes that help businesses grow and profit.
 
@@ -45,7 +46,7 @@ This reflects the clients I've worked with, and those I wish to work with in the
 
 You can see my personality and writing style in [my articles](/) and review [my work](/my-work).
 
-Technical Abilities
+### Technical Abilities
 
 Picking the best tool for the job is a critical part of any project. I like to review the available languages and frameworks on a case-by-case basis.
 
@@ -61,7 +62,7 @@ These are the languages and technologies that I've used in production work:
 
 {{< tech >}}
 
-_**NB** - A few of these are whole ecosystems and represent a huge number of technologies. It would be absurd to say "I know AWS", few people truly could. I've used many of their services and systems on a day-to-day basis._
+_**NB** - A few of these are ecosystems that represent a huge number of technologies. It would be absurd to say "I know AWS", few people truly could. I've used many of their services and systems on a day-to-day basis._
 
 ## Hands on Experience
 
@@ -69,7 +70,7 @@ To execute a project successfully, a solid plan must be in place. This often mea
 
 I prefer a slightly different approach. Before I get to the mockup stage, I like to truly understand my clients business and their need for software.
 
-### Asbestos Management - _a huge project_
+### Case Study, Lucion Services
 
 I was asked to create a system to collate and deliver asbestos surveys at scale.
 
@@ -104,7 +105,7 @@ I write in plain English. I have a clear and expressive writing style. This is t
 
 I have created systems that handle vast sums of money; somewhere in the order of £100m. In doing so I have learned all about quoting, contracts, invoicing, aged-debt and credit-notes.
 
-The same system even handles salary calculations, expenses and mileage claims.
+The same systems even handle salary calculations, expenses and mileage claims.
 
 ### Electronics
 
