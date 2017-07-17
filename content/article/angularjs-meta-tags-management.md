@@ -1,6 +1,6 @@
 +++
 title = "AngularJS Meta Tags Management"
-date = 2017-07-14T12:00:00+01:00
+date = 2017-07-18T12:00:00+01:00
 draft = false
 slug = ""
 tags = []
@@ -25,7 +25,7 @@ In this article I demonstrate a simple AngularJS Service that allows you to mana
 
 ## How are meta-tags used?
 
-When sharing a links to a social network such as Facebook, LinkedIn, Pinterest or Twitter, we must provide meta data to create a rich experience.
+When sharing a links to a social network such as Facebook, LinkedIn, Pinterest or Twitter, we must provide meta data to create a rich experience. By doing so we can dictate the exact images, text and titles that are displayed when shared.
 
 For example, if we share a link to [The Tick](http://www.imdb.com/title/tt5540054/) on IMDb to Facebook and Twitter, we see these objects:
 
