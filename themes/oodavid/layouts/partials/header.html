@@ -84,8 +84,11 @@
         <a href="{{ .Site.BaseURL }}about-me" {{ if eq .File.Path "about-me.md" }}class="active"{{ end }}>About Me</a>
       </li>
       <li>
-        <a href="{{ .Site.BaseURL }}my-work" {{ if eq .File.Path "my-work.md" }}class="active"{{ end }}>My Work</a>
+        <a href="{{ .Site.BaseURL }}todo" {{ if eq .File.Path "todo.md" }}class="active"{{ end }}>Todo</a>
       </li>
+      <!--li>
+        <a href="{{ .Site.BaseURL }}my-work" {{ if eq .File.Path "my-work.md" }}class="active"{{ end }}>My Work</a>
+      </li-->
     </ul>
   </nav>
 
