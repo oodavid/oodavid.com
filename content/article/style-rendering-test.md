@@ -68,6 +68,11 @@ _This is italic text_
 ### Unordered
 
 + Create a list by starting a line with `+`, `-`, or `*`
+* List
+* List
+* List
+* List
+* List
 + Sub-lists are made by indenting 2 spaces:
   - Ac tristique libero volutpat at
   - Facilisis in pretium nisl aliquet
@@ -84,10 +89,10 @@ _This is italic text_
 
 ### Tasks
 
-- [ ] a task list item
-- [ ] list syntax required
-- [ ] incomplete
-- [x] completed
+* [ ] incomplete
+* [x] completed
+  * [ ] a task list item
+  * [ ] list syntax required
 
 ## Code
 
