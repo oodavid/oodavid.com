@@ -1,7 +1,11 @@
 {{ partial "header.html" . }}
 
 <h1>{{ .Title }}</h1>
+
 {{ partial "page_meta.html" . }}
+
+{{ partial "toc.html" . }}
+
 {{ .Content }}
 
 {{ partial "footer.html" . }}
