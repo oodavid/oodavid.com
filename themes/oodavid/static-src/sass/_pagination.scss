@@ -4,6 +4,9 @@ ul.pagination {
   text-align: center;
   li {
     display: inline-block;
+    &::before {
+      display: none;
+    }
     a {
       display: inline-block;
       min-width: 25px;

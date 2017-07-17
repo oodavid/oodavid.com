@@ -643,6 +643,8 @@ ul.pagination {
   text-align: center; }
   ul.pagination li {
     display: inline-block; }
+    ul.pagination li::before {
+      display: none; }
     ul.pagination li a {
       display: inline-block;
       min-width: 25px;
