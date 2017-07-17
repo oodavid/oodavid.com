@@ -25,6 +25,7 @@ I don't need a kanban board... _yet_
 * [x] Article > AngularJS Meta Tags
 * [x] Launch on oodavid.com
 * [x] Articles > Add a [Table of Contents](https://gohugo.io/extras/toc/)
+* [ ] Favicon
 * [ ] Meta > Prepare for OpenGraph etc. (see `README.md`) - *30m*
 * [ ] Page > My Work - *3h*
 * [ ] Announce Launch - *15 min*
