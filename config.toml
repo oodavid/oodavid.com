@@ -4,6 +4,9 @@ title = "David King"
 theme = "oodavid"
 paginate = 5
 
+# Comments
+disqusShortname = "oodavid-com"
+
 # Analytics
 googleAnalytics = "UA-24181653-1"
 

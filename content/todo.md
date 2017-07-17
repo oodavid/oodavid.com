@@ -43,7 +43,7 @@ I don't need a kanban board... _yet_
 * [ ] Articles > Port old blog posts from Jekyll to Hugo
 * [ ] Nav > Add Search - *1h 30*
 * [ ] Move the Demo / GitHub links to the frontmatter and deal with it on the archetype template
-* [ ] Enable Disqus - *15 min*
+* [x] Enable Disqus
 * [ ] Add sharing meta data & local testing with ngrok
   * [ ] Add ngrok to the build system
   * [ ] Add meta-data for sharing
