@@ -1,0 +1,45 @@
+---
+date: 2015-03-04T00:00:00Z
+title: The Inverse Kinematics of Lord Mountbutton
+url: /2015/03/04/the-inverse-kinematics-of-lord-mountbutton/
+---
+
+<p>On the surface Button Up! is a simple casual game, but there's more than meets the eye when it comes to the FTUE (First Time User-Experience).</p>
+<p>I've been through several iterations of <em>content</em>, but the one element that felt &quot;just right&quot; is the dynamics of Lord Mountbutton. With a little back and forth with <a href="gavinmcphail.com">Gavin McPhail</a> (graphics) I rigged him up in a few days.</p>
+<p>Here I will describe the basic logic that goes into the Inverse Kinematics with a stretchy twist.</p>
+<figure>
+	<img src="http://i.imgur.com/t4A10CV.gif">
+	<img src="http://i.imgur.com/C9KS8HJ.gif">
+	<figcaption>Lord Mountbutton can point at anything on-screen</figcaption>
+</figure>
+<p>In most Inverse Kinematics tutorials you will read about skeletons and bones etc. terms used to describe components of fixed length. Lord Mountbutton however, has a &quot;telescopic&quot; needle that allows us to extend the range of pointing. This required an extra step in the kinematic logic</p>
+<p>The forearm image contains the arm, hand <em>and</em> telescopic needle, &quot;3-slicing&quot; allows the image to stretch along the needle shaft:</p>
+<figure>
+	<img src="http://i.imgur.com/w8Q7Eou.png">
+	<figcaption>Forearm logic</figcaption>
+</figure>
+<dl>
+	<dt>length a</dt>
+		<dd>the known variable length</dd>
+	<dt>length b</dt>
+		<dd>fixed length based on internal geometry</dd>
+	<dt>length c</dt>
+		<dd>sits exactly on the X-Axis, 3-slice scaling stretches this segment leaving the rest intact</dd>
+	<dt>angle A</dt>
+		<dd>fixed angle based on internal geometry</dd>
+	<dt>angle B</dt>
+		<dd>used to offset the overall asset angle to keep the arm visually straight</dd>
+	<dt>angle C</dt>
+		<dd>unused</dd>
+</dl>
+<p>Essentially, we need to convert <strong>length a</strong> into <strong>length c</strong> and <strong>angle B</strong>, this can be acheived by <a href="https://www.mathsisfun.com/algebra/trig-solving-ssa-triangles.html" target="_blank">solving the triangle</a>. After that, it's a case of restricting the motion of the arm to natural looking angles and deciding which routine to use.</p>
+<ol>
+	<li>Attempt to calculate using inverse kinematics (<a href="https://www.khanacademy.org/computer-programming/inverse-kinematics-robot-arm/5648684600524800" target="_blank">example</a>)</li>
+	<li>Bind the angles to a natural range</li>
+	<li>If the point has not been &quot;touched&quot;, stretch the forearm, accounting for internal geometry</li>
+</ol>
+<p>Simple as that!</p>
+<figure>
+	<img src="http://i.imgur.com/kE63hwi.png">
+	<figcaption>The deconstructed Lord Mountbutton looks terrifying</figcaption>
+</figure>

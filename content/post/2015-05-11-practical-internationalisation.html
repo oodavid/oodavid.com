@@ -1,0 +1,146 @@
+---
+date: 2015-05-11T00:00:00Z
+title: Practical Internationalisation
+url: /2015/05/11/practical-internationalisation/
+---
+
+<p>The biggest part of the latest release of Button Up! (v0.9.9) was translating the game to 11 new languages. The first stage was being able to load the game with a language pre-selected, then I decided I wanted to be able to toggle the language in-game, which meant that all &quot;static&quot; text must be dynamic.</p>
+<figure>
+	<img src="http://i.imgur.com/iakDew9.png">
+	<img src="http://i.imgur.com/x0efGLx.png">
+	<figcaption>The game auto-detects the users language, but also allows new languages to be manually selected.</figcaption>
+</figure>
+<h3>A few moving parts</h3>
+<p>When it came to translating, the planning and programming was straightforward, as was getting machine translations, here's the basic requirements:</p>
+<ol>
+	<li>I need seperate JSON assets for each translation, ie:
+		<ul>
+			<li>en.json</li>
+			<li>fr.json</li>
+			<li>de.json</li>
+			<li>...</li>
+		</ul>
+	</li>
+	<li>I must programatically download translation data to create the JSON assets
+		<ul>
+			<li>Google Sheets is ideal as it can expose data in simple formats</li>
+			<li>Google Sheets allows anyone to edit online</li>
+		</ul>
+	</li>
+	<li>I should auto-detect the users language preference
+		<ul>
+			<li>GameClosure exposes the javascript property <strong>navigator.language</strong></li>
+			<li>...which maps to <a href="http://developer.android.com/reference/java/util/Locale.html" target="_blank">Locale</a> on Android</li>
+			<li>...and <a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSLocale_Class/">NSLocale</a> on iOS</li>
+		</ul>
+	</li>
+	<li>I need to create a <strong>lang</strong> object with exposes some simple methods, ie:
+		<ul>
+			<li>lang.setLang('auto')</li>
+			<li>lang.setLang('de')</li>
+			<li>lang.getLanguageCode()</li>
+			<li>lang.getAvailableLanguages()</li>
+			<li>lang.get('notification_full_lives')</li>
+		</ul>
+	</li>
+</ol>
+<h3>Converting Google Sheets into JSON</h3>
+<p>Our Google Sheet is setup with the languages as columns, and the keys as rows. In the title I've also added the language name, code and native name for reference:</p>
+<figure>
+	<iframe width="600" height="400" src="https://docs.google.com/spreadsheets/d/1VkwercRy30p6XVQj7bITTTuQMRJBWFuj509jc9tQeqg/pubhtml?widget=true&amp;headers=false"></iframe>
+	<figcaption>The Button Up! translations, <a href="https://docs.google.com/spreadsheets/d/1VkwercRy30p6XVQj7bITTTuQMRJBWFuj509jc9tQeqg/pubhtml" target="_blank">view in new tab</a> for easier reading</figcaption>
+</figure>
+<p>Pulling the data down into individual JSON assets is straightforward:</p>
+<ul>
+	<li>Firstly, publish the Google Sheet and get a link to it in CSV format:
+		<ul>
+			<li>File &gt; Publish to the web...</li>
+			<li>On the dialog change <strong>Entire Document</strong> to <strong>Sheet1</strong></li>
+			<li>... and <strong>Web Page</strong> to <strong>Comma-separated values (.csv)</strong></li>
+			<li>Then copy the link</li>
+		</ul>
+	</li>
+	<li>Using your favourite programming language, read and parse the file into individual JSON assets</li>
+</ul>
+<p>My PHP code is as follows:</p>
+<pre class="brush: php">
+&lt;?php
+$url    = 'https://docs.google.com/spreadsheet/pub?key=1VkwercRy30p6XVQj7bITTTuQMRJBWFuj509jc9tQeqg&amp;single=true&amp;gid=0&amp;output=csv';
+$data   = array(); // Our structured data
+$langs  = array(); // Used to lookup the language related with a column number
+$native = array(); // List of language names, in their native language
+$key    = false;
+$rowNum = 1;
+if(($handle = fopen($url, 'r')) !== FALSE){
+	while(($row = fgetcsv($handle, 10000, ',')) !== FALSE){
+		$cols = count($row);
+		switch($rowNum){
+			case 1:
+				// First Row is the English name of the language, ie: French, German, Italian
+				//   Do nothing
+				break;
+			case 2:
+				// Second Row is the language tag, ie: en, es, fr
+				for($c=1; $c&lt;$cols; $c++){
+					$langs[$c]      = $row[$c]; // 1=en, 2=es...
+					$data[$row[$c]] = array();  // en={}, es={}
+				}
+				break;
+			case 3:
+				// Third Row is the language tag, ie: en, es, fr
+				for($c=1; $c&lt;$cols; $c++){
+					$lang = $langs[$c];
+					$native[$lang] = $row[$c];  // en=English, es=Español, fr=Français
+				}
+				break;
+			default:
+				// All remaining rows are the key:value store
+				// The first column is the key - if it's BLANK then it's just representing more values for last key
+				if($row[0]){
+					$key = $row[0];
+					foreach($data AS $k =&gt; $v){
+						$data[$k][$key] = array();
+					}
+				}
+				// Loop the columns, append to the translation arrays
+				for($c=1; $c&lt;$cols; $c++){
+					$lang = $langs[$c];
+					$data[$lang][$key][] = $row[$c];
+				}
+				break;
+
+		}
+		$rowNum++;
+	}
+	fclose($handle);
+	// Process the data, tidying up blanks etc.
+	foreach($data AS $lang =&gt; &amp;$props){
+		foreach($props AS $key =&gt; &amp;$value){
+			$value = array_filter($value);      // Remove empty values from the array
+			if(count($value) == 0){
+				unset($data[$lang][$key]);      // Blank arrays are removed
+			} else if(count($value) == 1){
+				$data[$lang][$key] = $value[0]; // Arrays with one element are converted to strings
+			}
+		}
+	}
+	unset($props);
+	// Clear out the old JSON files
+	$files = glob('resources/lang/*');
+	foreach($files as $file){
+		if(is_file($file)){
+			unlink($file);
+		}
+	}
+	// Great, now create the JSON files
+	foreach($data AS $lang =&gt; $props){
+		file_put_contents(&quot;resources/lang/{$lang}.json&quot;, json_encode($props, JSON_PRETTY_PRINT));
+	}
+	// And the languages
+	file_put_contents('resources/lang/langs.json', json_encode($native, JSON_PRETTY_PRINT));
+}
+</pre>
+<p>To update the game with new translations, simply add the translations to the sheet, then run the script. Smashing.</p>
+<h2>Getting the translations</h2>
+<p>Initially I wanted to use <a href="https://unbabel.com/">Unbabel</a> to have human translations, but ended up just using a free Google Sheet addon called <strong>Translate My Sheet</strong> (Add-Ons &gt; Get add-ons &gt; search for &quot;translate&quot;) - I'll probably move to Unbabel in due course, I just need to take a moment to read their documentation.</p>
+<p>I've not had any native speakers take a look at the translations, and I'm sure that Google has done some strange things, but what the hell, it's in the wild now! If anyone can cast a knowing eye over the game, I'd be very grateful!</p>

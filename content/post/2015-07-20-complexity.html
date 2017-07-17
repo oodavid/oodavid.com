@@ -1,0 +1,53 @@
+---
+date: 2015-07-20T00:00:00Z
+title: Complexity
+url: /2015/07/20/complexity/
+vsi: "392"
+---
+
+<p>I've just finished reading <a href="http://www.amazon.co.uk/Complexity-Very-Short-Introduction-Introductions/dp/0199662541" target="_blank">Complexity, A Very Short Introduction</a>, what a cracking book! The idea that dynamic hierarchies can emerge from a simple set of physical or theoretical rules has been something that I've always believed to be true, now I have a smattering of new vocabulary and ideas to draw upon when thinking about the subject, I feel blessed.</p>
+<figure>
+	<img src="http://i.imgur.com/pGGljUS.jpg">
+	<img src="http://i.imgur.com/MKdcnfm.jpg">
+</figure>
+<p>I was pretty fortuitous in reading this book directly after <a href="http://www.amazon.co.uk/Flash-Boys-Michael-Lewis/dp/0241003636" target="_blank">Flash Boys</a> as they harmonised wonderfully, the former giving me a gripping story to reference when reading the latter.</p>
+<p><em>Flash Boys</em> is an interesting exposé about high-tech thieves lurking within the logical rules of the Stock Market - their existance isn't surprising (crooked banks? how cliché), the real story is how the perpetrators hid in plain sight by adding a few simple rules to the market, knowing exactly how to exploit them for massive profits. Their logic and approach is impressive, to be able to predict and adapt to the patterns that emerge from a few simple rule changes is something very few people can do, nobel laureate level intelligence.</p>
+<p>It's a pretty big subject, but I want to show you a quick example of this before looking at complexity.</p>
+<h4>How it <em>should</em> work</h4>
+<ol>
+	<li><strong>Trader A</strong> buys 1,000 shares of <strong>Company A</strong> on a single Stock Exchange</li>
+	<li>The Exchange then attempts to buy the shares from other traders on the same exchange who are selling</li>
+	<li>If the Exchange can't fulfil the order internally then it will pass the order to <strong>other Exchanges</strong> until the 1,000 shares have been sold</li>
+</ol>
+<h4>How adding a single rule screws things up</h4>
+<p>The above model shows how simple it should be, it looks innocent enough, but if you add an extra order-type that can be sent </p>
+<blockquote>
+	<p>Wait in the queue until someone tries to buy these shares, then buy shares first</p>
+</blockquote>
+<p>Lets assume a 3rd party &quot;<strong>Trader X</strong>&quot; has sent a buy command with this new order-type, remember he doesn't actually get the share until someone else tries to buy it, and because he sent the command first, he gets priorty, lets see how that routine looks now.</p>
+<ol>
+	<li><strong>Trader A</strong> buys 1,000 shares of <strong>Company A</strong> on a single Stock Exchange</li>
+	<li>The Exchange then attempts to buy the shares from other traders on the same exchange who are selling
+		<ul>
+			<li><strong>Trader X</strong> was ahead of the queue with the &quot;wait and buy&quot; command</li>
+			<li><strong>Trader X</strong> gets 1 share of <strong>Company A</strong></li>
+			<li><strong>Trader X</strong> uses this as a &quot;notification&quot; to buy shares in <strong>Company A</strong> on <strong>other Exchanges</strong>, it does this <em>very</em> quickly</li>
+		</ul>
+	</li>
+	<li>If the Exchange can't fulfil the order internally then it will pass the order to <strong>other Exchanges</strong> until the 1,000 shares have been sold
+		<ul>
+			<li>It just so happens that <strong>Trader X</strong> has shares on <strong>other Exchanges</strong>, at a <em>slightly</em> higher price than expected.</li>
+		</ul>
+	</li>
+</ol>
+<p>As you can see, adding a simple rule has made the routine look a lot more complicated, and <strong>Trader A</strong> doesn't notice anything different as this happens in a fraction of a second. As far as he's concerned, he bought some shares from one exchange, and some from another, pretty normal. These techniques are called Front Running (using insider information to buy shares first) and Scalping (driving up the price ever so slightly and taking a little profit off the top).</p>
+<p>It's not all doom and gloom, <a href="http://iextrading.com/" target="_blank">IEX</a> and <a href="http://www.liquidnet.com/" target="_blank">Liquidnet</a>, are new markets attempting to simplify the system once more, as is <a href="http://www.irmagazine.com/articles/stock-exchanges-listings/20178/nyse-eliminate-several-complex-order-types-rein-hft/">the NYSE</a> <em>(I'm not sure if I believe this one)</em>.</p>
+<h4>Complexity</h4>
+<p>The science of Complexity is blurry, it's still being explored and discovered so there's no true consensus on how to define it. However it does have some agreed properties:</p>
+<ul>
+	<li>It has a few simple parts / rules</li>
+	<li>That interact with each other in multiple ways</li>
+	<li>And hierarchies emerge</li>
+</ul>
+<p>In the case of a stock exchange we have rules (buy, sell, wait-and-buy), the interactions are many (front-running, scalping, baiting), we see hierarchies emerge (the market, exchanges, traders, high-frequency traders).</p>
+<p>Overall, I couldn't recommend this book highly enough, it gets a bit mathematical in places, but it's worth it!</p>

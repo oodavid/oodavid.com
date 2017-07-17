@@ -1,0 +1,29 @@
+---
+date: 2012-02-16T00:00:00Z
+title: A nice search solution and interface :-)
+url: /2012/02/16/a-nice-search-solution-and-interface/
+---
+
+<p><em>You'll probably get lost in this post. I should doodle a diagram... Apologies.</em></p>
+<p>So today I've tasked myself with improving the search feature on the NexGen project (itself a post for another day), the scenario is this:</p>
+<ul>
+	<li>A Company has Contracts</li>
+	<li>Contracts are linked to Accounts and Primary Contacts</li>
+	<li>Contracts are made up of Jobs<br/><em>There may be hundreds or thousands of Jobs in the case of rolling contracts</em></li>
+	<li>Jobs are linked to Sites and various other bits and bobs</li>
+</ul>
+<p>The search should allow you to get you from the homepage to the exact piece of information you need based on the information at hand - you might have a Site Address, Client Name, Reference ID etc.</p>
+<p>The search itself is fully functional, however I've not been 100% happy with the interface - <em>until today!</em> The old interface was pretty bog standard:</p>
+<ul>
+	<li>Show a list of results that match the search criteria</li>
+	<li>Don't show results that don't match the search criteria</li>
+</ul>
+<p>Pretty simple right? Indeed, but the interface actually requires MORE components:</p>
+<p>Lets say we searched for the Site: &quot;Durham Castle&quot; - it's used by 2 Jobs within a single Contract. That Contract has other Jobs at different sites. If we only show those two Jobs then how do we see the other Jobs? We need:</p>
+<ul>
+	<li>A show-all Jobs button</li>
+</ul>
+<p>Not so bad right? Well, I think it is awful - the interface bit is OK, the coding bit is OK, but the users of the system have to be aware that &quot;we're only showing the Jobs that match your search&quot; - it might not be obvious that there's other Jobs in that Contract!!</p>
+<p>So my solution is to show all the Jobs (well, paginated) but with the search results at the top. In the prime spot :-)</p>
+<pre class="brush: sql;">SELECT * FROM `jobs` ORDER BY site=22 DESC, id ASC;</pre>
+<p>I'm really happy with this one even if you don't get it.</p>

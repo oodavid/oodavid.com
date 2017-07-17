@@ -1,0 +1,28 @@
+---
+date: 2011-07-11T00:00:00Z
+tags:
+- nerd
+title: Pure CSS ribbon titles
+url: /2011/07/11/pure-css-ribbon-titles/
+---
+
+<p>Being a bit of a non-designer, if I want to add a quick bit of &quot;wheee&quot; to a page I sometimes put my ribbon titles onto my h1, h2, h3 etc tags in order to make them pop a little bit.</p>
+<figure>
+	<img src="http://media.tumblr.com/tumblr_lo6sw97INH1qk6dpq.png" alt="'Ribbon' Effect using pure CSS"/>
+</figure>
+<p>But until submitting <a title="Ribbon Titles" href="http://css1k.com/#ribbon">my entry onto CSS1K</a> using such a technique I hadn't realised that it was considered such a neat trick; I guess you just never know what you're sitting on!</p>
+<p>So the trick is wholly inspired by <a title="Pure CSS Speech Bubbles" href="http://nicolasgallagher.com/pure-css-speech-bubbles/demo/">Nicolas Gallagher's pure css speech bubbles</a>; however I use 2 pseudo-tags instead of 1. Whether you've read and assimilated that link or not, lets code</p>
+<pre class="brush: xml;">&lt;div id="container"&gt;
+	&lt;h1&gt;This is my title&lt;/h1&gt;
+&lt;/div&gt;
+&lt;style&gt;
+	/* Just to align the container */
+	#container {width: 400px; margin: 30px auto; text-align: center; padding: 100px 0; background: #EEEEEE;}
+	/* The important bit */
+	h1 {position: relative; margin: 0 -25px; font-size: 40px; background: #0088AA; color: #FFFFFF; text-shadow: 1px 1px 0px #1A5D6E; box-shadow: 0 0 10px #AAA;}
+	h1:after,
+	h1:before {content: ""; display: block; position: absolute; bottom: -25px; width: 0; height: 0; border-style: solid; border-color: #1A5D6E transparent;}
+	h1:before {border-width: 25px 0 0 25px; left: 0;}
+	h1:after  {border-width: 25px 25px 0 0; right: 0;}
+&lt;/style&gt;</pre>
+<p>And BOOOOOM; ribbons with no extra markup. Awesome. Just tweak the numbers for different sizes, and view the inspiration for the logic and workings (it's not my place to take credit for that!)</p>

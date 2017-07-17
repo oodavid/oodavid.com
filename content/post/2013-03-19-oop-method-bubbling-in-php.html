@@ -1,0 +1,30 @@
+---
+date: 2013-03-19T00:00:00Z
+gist: https://gist.github.com/oodavid/5195592
+title: OOP - Method Bubbling in PHP
+url: /2013/03/19/oop-method-bubbling-in-php/
+---
+
+<p>Contrary to my online handle <em>&quot;Object-Oriented David&quot;</em> I use Object-Oriented Programming very sparingly. I <em>do</em> however try to use the right tool for the job and take on as many of the concepts that I love about frameworks and libraries I admire.</p>
+<p>In creating a &quot;query builder&quot; for the NexGen platform I ended up wanting to use syntax that I would associate with jQuery; chained and namespaced with a common bubbling of methods and properties. Thus I designed a very simple class (it's simple, but it took me about 2 hours of experimentation to make!)</p>
+<p><strong>Here's the code - with example</strong></p>
+<ul>
+	<li><a href="https://gist.github.com/oodavid/5195592">https://gist.github.com/oodavid/5195592</a></li>
+</ul>
+<p>In my implementation you can run queries like these:</p>
+<pre class="brush: php;">query-&gt;sql('SELECT TABLES')-&gt;execute()-&gt;debug();
+query-&gt;select('*')-&gt;from('users')-&gt;join('avatar')-&gt;where('id', 1)-&gt;limit(1)-&gt;execute()-&gt;debug();
+query-&gt;delete()-&gt;from('users')-&gt;where('id', 10)-&gt;limit(1)-&gt;execute()-&gt;debug();
+query-&gt;upsert('users')-&gt;data(array( 'id'=&gt;NULL, 'email'=&gt;'david@oodavid.com' ))-&gt;return(TRUE)-&gt;execute()-&gt;debug();</pre>
+<p><span>As you can see, each use execute() and debug(), lets explain what happens:</span></p>
+<p><strong>execute()</strong></p>
+<ul>
+	<li><span>...is defined on the child objects sql, select, upsert and delete</span></li>
+	<li><span>They each build a SQL variable and store it as a property on the parent query object.</span></li>
+	<li><span>They also access the parents database handler and execute the query.</span></li>
+</ul>
+<p><strong>debug()</strong></p>
+<ul>
+	<li><span>...is NOT defined on any of the child objects, thus the method bubbles up to the parent query object.</span></li>
+	<li><span>Since the child-&gt;execute() methods set the SQL property on the parent, this common method runs an analysis of the query showing timings, </span><span>bottlenecks and other useful information</span></li>
+</ul>

@@ -1,0 +1,47 @@
+---
+date: 2011-11-13T00:00:00Z
+tags:
+- nerd
+title: CultureHackNorth - poke that!
+url: /2011/11/13/culturehacknorth-poke-that/
+---
+
+<p>So I'm at the arse-end of the <a href="http://culturehacknorth.co.uk/">Culture Hack North</a> in Leeds; I've been awake for about 30 hours and I thought it'd be nice to write a blog and introduce my project and walk through the process...</p>
+<h1><a href="http://khakaure.oodavid.com/">Khakaure!!!</a> &lt; get yer click on</h1>
+<figure>
+	<img src="http://media.tumblr.com/tumblr_lulhxwDF1u1qk6dpq.jpg" alt="Pencil sketch of the interface"/>
+	<figcaption>after settling on an idea, I drafted the original plan. Like a fool I made it in portrait...</figcaption>
+</figure>
+<figure>
+	<img src="http://media.tumblr.com/tumblr_lulhyvG8hC1qk6dpq.jpg" alt="Revised sketch"/>
+	<figcaption>new plan in a more webby sensible layout</figcaption>
+</figure>
+<p>At this point I wrote myself some tasklists, things like &quot;mockup interface layout&quot; and &quot;setup webserver&quot; etc after all the obvious bits and bobs I was in unknown territory; how to do those mad graph <em>thingies</em>... You know, the wibbly wobbly ones...</p>
+<figure>
+	<img src="http://media.tumblr.com/tumblr_lulhzwDndx1qk6dpq.png" alt="First bit of coding, a greyscale graph"/>
+	<figcaption>well, the first step was to see about drawing lines and circles, I did that with <a href="http://raphaeljs.com/">raphael.js</a></figcaption>
+</figure>
+<p>Since my memory is terrible it took me about an hour to remember the name of themodels I was thinking of; FORCE-DIRECTED GRAPHS innit! Well, some googling and wikipedia research showed me that you can make a rather decent FDG by:</p>
+<ul>
+	<li><strong>Modelling your connections as SPRINGS</strong><br/><em>the circles want to be a certain distance apart</em></li>
+	<li><strong>Making all the circles repel each other a bit</strong><br/><em>so they bustle for space and spread out sensibly</em></li>
+</ul>
+<p>or if you prefer, Hooke's Law and Coulomb's Law. Bosh</p>
+<figure>
+	<img src="http://media.tumblr.com/tumblr_luli2svE4f1qk6dpq.png" alt="After applying force-directed code to the graph it looks like a parachute"/>
+	Hooke's law models the springs and Coolomb's law models the distribution
+</figure>
+<p>Making the force-directed graph took a reasonable amount of testing as when you have 6 variables that all change the way the system feels it quickly baffles you, which is why I mocked up a little settings panel to quickly try lots of different values of each</p>
+<figure>
+	<img src="http://media.tumblr.com/tumblr_lulifuXaRn1qk6dpq.png" alt="Ability to tweak the internal settings like spring strength, length and forces"/>
+	<figcaption>this thing is so bloody fun to use I left it in as a feature!</figcaption>
+</figure>
+<p>All that was left now was the side-pane that adapts to the data inside each node of the graph; that was pretty strightforward, it can detect:</p>
+<ul>
+	<li><strong>titles</strong></li>
+	<li><strong>descriptions</strong></li>
+	<li><strong>images</strong></li>
+	<li><strong>maps (google baby!)</strong></li>
+</ul>
+<p>everything else gets output in a table-like way so you can make your own mind up about what it means. The database, while designed and functional is sadly devoid of data in a structure that plays well with the system; we're looking at that <em>right now</em> and I hope to improve it at some point soon. Suffice to say I've thoroughly enjoyed the hack; this &quot;nodegarden&quot; is an idea I've been toying with for just too long and this was the perfect opportunity to have a go!</p>
+<p>Now, where's my bed...? Oh yeah, 6 hours away...</p>

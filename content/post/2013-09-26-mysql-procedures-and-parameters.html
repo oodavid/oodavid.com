@@ -1,0 +1,76 @@
+---
+date: 2013-09-26T00:00:00Z
+title: MySQL Procedures and Parameters
+url: /2013/09/26/mysql-procedures-and-parameters/
+---
+
+<p>When it comes to databases, I've tried to keep myself in the know about all the tools, features and best-practices even if I never utilise them. It's useful to be aware of the things you have yet to learn so that should you ever come accross a new problem your ability to think outside of the box is improved by an incling of an idea.</p>
+<p>Anyhow, this week I've finally needed to use MySQL PROCEDURES and TRIGGERS to help compliment some of the more complex queries we need to run <em>(the details of which are beyond the scope of this wee blog post)</em>. And I quickly came about an issue regarding PARAMETERS that has had me scratching my head for some time.</p>
+<!--figure>
+	<img src="/assets/blog/trigger.jpg" />
+	<figcaption>the internal mechanism of TRIGGERs were still a mystery</figcaption>
+</figure-->
+
+<h2>The evolution of a PROCEDURE</h2>
+<p>Lets start with a simple SQL query, you want to increment a column for a specific row:</p>
+<pre id="sql1" class="brush: sql">
+	UPDATE `mytable`
+		SET `mycolumn` = `mycolumn` + 1
+		WHERE `id` = 1234;
+</pre>
+<p>Then you want to make your query more dynamic by utilising User-Defined Variables:</p>
+<p><em>...maybe you are using prepared statements to similar effect...</em></p>
+<pre id="sql2" class="brush: sql">
+	SET @myid = 1234;
+	UPDATE `mytable`
+		SET `mycolumn` = `mycolumn` + 1
+		WHERE `id` = @myid;
+</pre>
+<p>Finally you decide create a PROCEDURE that you can call like a function:</p>
+<pre id="sql3" class="brush: sql">
+	DELIMITER $$
+		DROP PROCEDURE IF EXISTS `MyProcedure` $$
+		CREATE PROCEDURE MyProcedure(IN myid INT)
+		BEGIN
+			UPDATE `mytable`
+				SET `mycolumn` = `mycolumn` + 1
+				WHERE `id` = myid;
+		END $$
+	DELIMITER ;
+</pre>
+<p>That procedure is then stored within the database and can be used by any connection later:</p>
+<pre class="brush: sql">
+	CALL MyProcedure(1234);
+</pre>
+<p>Works a treat. But to get to that functional PROCEDURE I took a massive, confusing detour...</p>
+
+<h2>Where I went wrong</h2>
+<p>If you look at the 3 statements above you will notice:</p>
+<ol>
+	<li>The first uses an explicit <a href="#sql1">1234</a> within the statement</li>
+	<li>The second uses the <a href="#sql2">@myid</a> User-Defined Variable</li>
+	<li>The third uses a <a href="#sql3">myid</a> Parameter variable
+		<ul><li><em>Note the lack of @-sign</em></li></ul>
+	</li>
+</ol>
+<p>The following PROCEDURE uses BOTH @variables and paramenters:</p>
+<pre class="brush: sql">
+	DELIMITER $$
+		DROP PROCEDURE IF EXISTS `MyProcedure` $$
+		CREATE PROCEDURE MyProcedure(IN myvar VARCHAR(255))
+		BEGIN
+			SELECT myvar, @myvar ;
+		END $$
+	DELIMITER ;
+	-- SET @myvar then call the procedure
+	SET @myvar = 'variable';
+	CALL MyProcedure('parameter');
+
+	-- +----------+-----------+
+	-- | myvar    | @myvar    |
+	-- +----------+-----------+
+	-- | variable | parameter |
+	-- +----------+-----------+
+</pre>
+<p>You can see that the PROCEDURE has access to both the User-Defined variables AND the parameters. Very confusing.</p>
+<p>Lessons learned? MySQL PROCEDURES have access to Session scope. I don't know why, but I wouldn't have expected that.</p>

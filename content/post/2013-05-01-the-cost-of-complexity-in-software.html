@@ -1,0 +1,126 @@
+---
+date: 2013-05-01T00:00:00Z
+tags:
+- software development
+- management
+title: The Cost of Complexity in Software
+url: /2013/05/01/the-cost-of-complexity-in-software/
+---
+
+<p>When a product grows in complexity it can be difficult to justify to clients, stakeholders and even other developers why adding a single feature can be such an involved process.</p>
+<p>There are many methodologies to use when developing complex software <em>(Agile, TDD, DRY, XP etc)</em> however I would like to share an analogy to explain the rationale behind such practices.</p>
+
+<h2>The Spagetti Analogy</h2>
+<p>Lets imagine a simple, completed application; it has 5 views (A-E) and all is functional.</p>
+<figure>
+	<script type="gviz" data-layout="dot"><![CDATA[
+	digraph G {
+		graph [
+			truecolor=true
+			bgcolor="#FFFFFF00"
+		];
+		node [
+			style=filled
+			fillcolor="#FFFFFF"
+		];
+		// Graph
+		A; B; C; D; E;
+	}
+	]]></script>
+	<figcaption>Your client may think of the app like this, ie: only what they can see</figcaption>
+</figure>
+<p>In reality there is more than meets the eye; those 5 views might pass data around, update a database and do other wonderful things in the background, a more accurate expression of the app might be:</p>
+<figure>
+	<script type="gviz" data-layout="circo"><![CDATA[
+	digraph G {
+		graph [
+			truecolor=true
+			bgcolor="#FFFFFF00"
+		];
+		node [
+			style=filled
+			fillcolor="#FFFFFF"
+		];
+		// Graph
+		A -> B -> C -> D -> E -> A;
+		D -> B -> A;
+		C -> E;
+		C -> A;
+		C -> C;
+	}
+	]]></script>
+	<figcaption>As a developer you will know how they link together</figcaption>
+</figure>
+<p>Even now you're talking a different language to your client!</p>
+
+<h2>Just add a new view</h2>
+<p>When we want to add a new view (X) to the app, your client can be forgiven if they think we only need to do this - after all their view of the product can be substantially different to yours</p>
+<figure>
+	<script type="gviz" data-layout="dot"><![CDATA[
+	digraph G {
+		graph [
+			truecolor=true
+			bgcolor="#FFFFFF00"
+		];
+		node [
+			style=filled
+			fillcolor="#FFFFFF"
+		];
+		X [
+			fillcolor="#000000"
+			color=transparent
+			fontcolor="#FFFFFF"
+		];
+		// Graph
+		A; B; C; D; E; X;
+	}
+	]]></script>
+</figure>
+<p>If only it were that simple! Lets consider how this new view might sit inside the app as we know it:</p>
+<figure>
+	<script type="gviz" data-layout="circo"><![CDATA[
+	digraph G {
+		graph [
+			truecolor=true
+			bgcolor="#FFFFFF00"
+		];
+		node [
+			style=filled
+			fillcolor="#FFFFFF"
+		];
+		X [
+			fillcolor="#000000"
+			color=transparent
+			fontcolor="#FFFFFF"
+		];
+		A -> B -> C -> D -> E -> A;
+		D -> B -> A;
+		C -> E;
+		C -> A;
+		C -> C;
+		X -> A [style=dotted color="#FFFFFF"];
+		X -> B [style=dotted color="#FFFFFF"];
+		X -> C [style=dotted color="#FFFFFF"];
+		X -> D [style=dotted color="#FFFFFF"];
+		X -> E [style=dotted color="#FFFFFF"];
+	}
+	]]></script>
+</figure>
+<p>Previously we had 10 connections to manage, now we have 15! That's significantly more work than we originally expected!</p>
+
+<h2>How is this possible?</h2>
+<p>Well, as software grows in size I believe it grows exponentially in complexity - or rather, it <em>can</em> grow exponentially. There are many things that you can do to minimise the issue of complexity that I would consider good programming practices but ultimately as you work on your application it will become more and more time-consuming.</p>
+<p>Don't despair, just be an awesome programmer and manage expectations!</p>
+
+<h2>It's just this little thing</h2>
+<p>The next time you hear a peer or client ask for just a little tweak and you have trouble explaining the issue at large, send them this way, hopefully I can save you a bit of trouble vocalising it :-)</p>
+<ul>
+	<li>Just add this button</li>
+	<li>Just show this page</li>
+	<li>Just update that view</li>
+	<li>Just use facebook logins</li>
+	<li>Just allow file uploads</li>
+	<li>Just make it work on tablets</li>
+	<li><em>etc.</em></li>
+</ul>
+<p>That word &quot;just&quot; makes my hairs stand on end - it trivialises the task before you've had time to do investigate...</p>

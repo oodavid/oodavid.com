@@ -1,0 +1,29 @@
+---
+date: 2012-03-26T00:00:00Z
+gist: https://gist.github.com/2206527
+title: Automatically backup MySQL to Amazon S3 (and a dog)
+url: /2012/03/26/automatically-backup-mysql-to-amazon-s3-and-a-dog/
+---
+
+<p>I've been revisiting my backup scripts today and I decided to publish my notes on how to backup your MySQL databases to Amazon S3 - I forgot just how simple it was:</p>
+<ul>
+	<li>Install s3cmd</li>
+	<li>Write a bash script that...
+		<ul>
+			<li>lists your databases</li>
+			<li>dumps them to a temporary file</li>
+			<li>uploads them to s3</li>
+			<li>deletes the temporary file</li>
+		</ul>
+	</li>
+	<li>Run it with cron every night</li>
+</ul>
+<div>The full instructions are here:</div>
+<ul>
+	<li><a href="https://gist.github.com/2206527">https://gist.github.com/2206527</a></li>
+</ul>
+<figure>
+	<img src="http://media.tumblr.com/tumblr_m1i5hmW6Qu1qk6dpq.jpg" alt=""/>
+	<figcaption>and a dog...!</figcaption>
+</figure>
+<p><em>I'm gonna meet this pup at <a href="http://www.nessr.net/node/73" title="North East Springer Spaniel Rescue">the NESSR Easter Event</a> next weekend</em></p>

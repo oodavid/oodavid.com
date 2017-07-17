@@ -1,0 +1,45 @@
+---
+date: 2013-03-07T00:00:00Z
+title: A Server Monitor that doesn't explode your eyeballs
+url: /2013/03/07/a-server-monitor-that-doesnt-explode-your-eyeballs/
+---
+
+<p>I've been looking forward to the final item on my weekly todo, so much so that all other items have been completed with gusto! Time to:</p>
+<blockquote>
+	<p>&quot;Write a server monitor that looks effing awesome&quot;</p>
+</blockquote>
+<p>The rationale behind this tangential quest is that while playing with <a href="http://nagios.org" title="The Industry Standard IT Monitor" target="_blank">nagios</a> I can't help but think that, while functionally useful it's visually unappealing - viz. I will never look at it.</p>
+<figure>
+	<img alt="image" src="http://media.tumblr.com/fd66155fc900c304036e27a47acc35be/tumblr_inline_mjadzxvFtM1qz4rgp.png"/>
+	<figcaption>The Industry Standard - a bit ugly!</figcaption>
+</figure>
+<p>Y'see, I'm used to using things like <a href="http://conky.sourceforge.net/" target="_blank">conky</a>.</p>
+<p><span>Conky is lightweight linux program that renders an overlay on your desktop background image, mine's configured to show system errors, new emails, CPU usage, network load and various system variables. It's super handy because it's just always there. LIVE Errors are most important, thus I make them really pop out at me:</span></p>
+<figure>
+	<img alt="image" src="http://media.tumblr.com/fceb9a6c500924693f5e8921a8591afa/tumblr_inline_mjaeg68R3r1qz4rgp.png"/>
+	<figcaption>Visually nicer, but limited in functionality</figcaption>
+</figure>
+<p>So my plan is to combine the functionality of nagios, the simplicity of conky with a few ideas I have rattling around... <span>I want:</span></p>
+<ul>
+	<li><span>A system monitor that is always visible</span><strong> - a wall-mounted display</strong></li>
+	<li>That requires no interaction<strong> - until I need to dig deeper</strong></li>
+	<li>That I can access from anywhere<strong> - on the www</strong></li>
+	<li>That is chunky and obvious from afar</li>
+	<li>That is visually appealing</li>
+	<li>That shows me everything I need to know<strong> - including business metrics</strong></li>
+</ul>
+<p>I already have a number of scripts and programs that help me get notified of errors / hiccups / statistics etc but they're all so very disparate.</p>
+<p>It is with these things in mind that I am dedicating the next few days to create a basic prototype that doesn't suck.</p>
+<p>In a nutshell:</p>
+<blockquote>
+	<p>&quot;A chunky interface that cycles through core metrics and statistics, slowing down on views with errors.&quot;</p>
+</blockquote>
+<p>There's going to be a lot of fun in making:</p>
+<ul>
+	<li><span>A <a href="http://getspringy.com/" target="_blank">force-directed graph</a> that represents my database</span></li>
+	<li><span>A grid of recently processed images</span></li>
+	<li><span>Topline database statistics</span></li>
+	<li><span>Recent server errors - as chunky as all hell</span></li>
+	<li><span><a href="http://www.soleilnoir.net/believein/" target="_blank">Inspired by something beautiful</a></span></li>
+</ul>
+<p>Wish me luck!</p>

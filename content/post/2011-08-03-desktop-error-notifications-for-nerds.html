@@ -1,0 +1,44 @@
+---
+date: 2011-08-03T00:00:00Z
+tags:
+- nerd
+title: Desktop error notifications - FOR NERDS
+url: /2011/08/03/desktop-error-notifications-for-nerds/
+---
+
+<p>Hello *nix nerds!</p>
+<p>So this morning (yes, before breakfast) I awoke the beast of a poota to see a terminal tailing an error log. The tail command with -f flag outputs any changes made to a file, which is well handy to see live errors on your logfiles etc. So if you run something like this in your terminal:</p>
+<pre class="brush: bash;">tail -f /var/log/mysql/error.log</pre>
+<p>you would see any mysql errors as they happen, which is pretty cool, but you have to keep a terminal open, switch to it to see the errors etc, which lets be honest is a waste of clicks!</p>
+<p>Back to this morning, I decided that I wanted my errors piped to a notification service and came up with:</p>
+<pre class="brush: bash;">tail -n0 -f ~/Documents/LOGS/adlink.co.uk.error.log | while read line; do notify-send "adlink.co.uk.error.log" "$line"; done</pre>
+<p>which pushes changes to the notification area, it's visually lovely:</p>
+<figure>
+	<img src="http://media.tumblr.com/tumblr_lpcfvkdGQK1qk6dpq.png" alt="A 'growl-like' notification on the desktop"/>
+</figure>
+<p>but quickly becomes a pain-in-the-arse for files that are active as each message must wait for the previous to disappear before appearing - resulting in an amazing amount of waiting. So I dug a little deeper and discovered a little program called osd_cat, with which I wrote this command:</p>
+<pre class="brush: bash;">tail -f ~/Documents/LOGS/adlink.co.uk.error.log | osd_cat --pos bottom --offset 33 --color black --delay 10</pre>
+<p>which as you can see is a bit more nerdy and changes are reflected immediately and layered ontop of everything - perfect!</p>
+<figure>
+	<img src="http://media.tumblr.com/tumblr_lpcg0bNlbm1qk6dpq.png" alt="A textual overlay on the screen - instanty access to error messages"/>
+	<figcaption>so what are you waiting for nerds? GET ON IT</figcaption>
+</figure>
+<p>EDIT - I knocked up a bash script that will tail all the error logs within a directory, so I now run this at startup:</p>
+<pre class="brush: bash;">#!/bin/bash
+
+# traverse the directory
+for filename in *
+do
+	# what's the filename?
+	fname=`basename $filename`
+	# if it's an error log
+	if [[ $fname == *.error.* ]]
+	then
+		# tail the file and pipe it to osd_cat
+		echo $fname
+		tail -f $fname | osd_cat --pos bottom --offset 33 --color black --delay 10 &amp;
+	fi
+done
+
+exit $?</pre>
+<p>Extra nerdy++</p>

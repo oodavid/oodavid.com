@@ -1,0 +1,26 @@
+---
+date: 2012-01-13T00:00:00Z
+tags:
+- nerd
+title: CSS / jQuery how to toggle scrollbars for a lightbox
+url: /2012/01/13/css-jquery-how-to-toggle-scrollbars-for-a-lightbox/
+---
+
+<p>A few months back I was reverse engineering the Facebook photo overlay and noticed that they have employed a very neat trick with-regard-to scrolling; when the photo &quot;popup&quot; is active, the body underneath does not scroll.</p>
+<p>It's a very subtle UI feature but fixes a thoroughly annoying &quot;bug&quot; for many people. Normally when you view scrollable content in a &quot;lightbox&quot; you would scroll to the bottom of the lightbox and then the PAGE UNDERNEATH STARTS TO SCROLL too, what a buggerlug.</p>
+<p>The trick is to simply prevent the body from scrolling; using a little CSS we can set the <strong>body</strong> overflow to be hidden (removes the scrollbars) and put a margin on the <strong>html</strong> to stop the page moving about (body would expand into the space the scrollbar was otherwise):</p>
+<pre class="brush: javascript;">/* Don't scroll */
+html.noscrollbar {margin-right: 15px;}
+html.noscrollbar body {overflow: hidden;}</pre>
+<p>Or if (like me) you'd prefer to leave your CSS be and implement it with jQuery:</p>
+<pre class="brush: javascript;">// Remove the scroll
+$('html').css('margin-right', '');
+$('body').css('overflow', '');<br/>
+// Return the scroll to normal
+$('html').css('margin-right', '15px');
+$('body').css('overflow', 'hidden');</pre>
+<p>I use the jQuery method in a hush-hush project that I've been working on for the past few months (and for the foreseeable future*) here's a not-too-revealing screenie</p>
+<figure>
+	<img alt="A screenshot" height="400" src="http://img11.imageshack.us/img11/2987/scrollbars.png" width="640"/>
+</figure>
+<p><em>* a blog post in itself</em></p>

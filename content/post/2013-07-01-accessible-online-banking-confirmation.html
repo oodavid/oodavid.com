@@ -1,0 +1,58 @@
+---
+date: 2013-07-01T00:00:00Z
+title: Accessible Online Banking Confirmation
+url: /2013/07/01/accessible-online-banking-confirmation/
+---
+
+<p>When you setup a new recipient online, your bank will ask to jump through a telephonic security hoop to confirm that you aren't a naughty hacker. Quite rightly so.</p>
+<p>However this becomes an issue if you have hearing issues, back in August 2011 I had a conversation with <a href="https://twitter.com/AskLloydsTSB/status/109233455879036928">@AskLloydsTSB</a> about adding some on-screen instructions detailing the timings of the call as a simple workaround.</p>
+<p><strong>They did it within a few hours</strong>. I consider this the best piece of reactive design I have ever experienced.</p>
+<h2>It's no longer suitable</h2>
+<p>Even though my hearing is fine, I <em>always</em> use the non-hearing approach to make sure that it's still functional. Today it failed me. The automated message has changed and I have realised that the transfer amount also affects the timings.</p>
+<blockquote>
+  <p>&quot;TEN PENCE&quot; - a mere moment</p>
+  <p>&quot;ONE THOUSAND, NINE HUNDRED AND TWENTY THREE POUNDS AND SEVENTY TWO PENCE&quot; - somewhat longer</p>
+</blockquote>
+<h2>The proposal</h2>
+<p>By sending the 4-digit code to the user via SMS they could enter it on-screen for the same level of security (verifying the user is who they say they are). Furthermore it will be FULLY accessible to the hard-of-hearing community.</p>
+<p>Interface-wise we only need one additional page to deal with the SMS instructions and input; there's no need to have an additional screen to choose between SMS and Voice as this choice can be added to the &quot;create new recipient page&quot;.</p>
+<figure>
+	<img src="/assets/blog/lloyds-auth-A.png">
+	<figcaption>Current User-Experience would be unchanged as Voice is selected by default<figcaption>
+</figure>
+<figure>
+  <img src="/assets/blog/lloyds-auth-B.png">
+  <figcaption>Those requiring SMS confirmation get the alternative Confirmation screen<figcaption>
+</figure>
+<figure>
+<script type="gviz" data-layout="dot"><![CDATA[
+digraph G {
+  graph [
+    truecolor=true
+    bgcolor="#FFFFFF00"
+  ];
+  node [
+    style=filled
+    fillcolor="#FFFFFF"
+    color="#0F192A"
+    fontcolor="#0F192A"
+    penwidth=2
+    shape=box
+  ];
+  new         [label="Setup New Recipient\nHow would you like to confirm?"];
+  chooseSMS   [label="Confirm with SMS"  shape="none" fillcolor="transparent" fontcolor="#F6B82F"];
+  chooseVoice [label="Confirm with Call" shape="none" fillcolor="transparent" fontcolor="#F62F41"];
+  receive     [label="Receive Code via SMS"];
+  enter       [label="Enter Code On-Screen"];
+  view        [label="Show Code On-Screen"];
+  call        [label="Receive Phone Call"];
+  enter2      [label="Enter Code On-Call"];
+  thanks      [label="Thanks for confirming your identity"];
+  new -> chooseSMS -> receive -> enter -> thanks [color="#F6B82F" penwidth=2];
+  new -> chooseVoice -> view -> call -> enter2 -> thanks [color="#F62F41" penwidth=2];
+}
+]]></script>
+  <figcaption>As you can see, the changes would have minimal effect on the interface, and with my experience<br>as a programmer I'd be confident that the backend logic would be straightforward too.</figcaption>
+</figure>
+<p><strong>Addendum</strong>: To the LloydsTSB employees reading this; I hope that you take these graphics and arguments, take them to your boss and impress the shit out of them. I don't even care if you pass it off as your brainchild and get a fat rise and employee of the month, if it gets done you will make the hard-of-hearing community proud!</p>
+<p>And with that I must bid LloydsTSB Godspeed!</p>

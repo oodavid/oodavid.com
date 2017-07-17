@@ -1,0 +1,38 @@
+---
+date: 2012-01-01T00:00:00Z
+tags:
+- nerd
+title: Hello world... of node.js
+url: /2012/01/01/hello-world-of-node-js/
+---
+
+<p><strong>Previously:</strong> <a href="http://oodavid.tumblr.com/post/15090798307/how-to-install-node-js-on-linux" title="How to install node.js on Linux">How to install node.js on Linux</a><strong><br/></strong></p>
+<p>Today we learn how to create a simple webserver with node, it'll take you about 3 minutes :-)</p>
+<p>Create a file called <strong>server.node.js</strong> and dump this into it:</p>
+<pre class="brush: javascript;">/**
+ * Hello world server
+ *   every request to the ip gets the same response
+ */
+
+// Require the http library
+var http = require('http');
+// Create the server
+var server = http.createServer(function (request, response) {
+	// Every request outputs "hello world"
+	response.writeHead(200, {'Content-Type': 'text/plain'});
+	response.end('Hello World\n');
+	// And also logs 
+	console.log('Page requested at ' + new Date() + ', for ' + request.url);
+});
+// It listens on port 1337 and IP 127.0.0.1
+server.listen(1337, "127.0.0.1");
+// For the joy
+console.log('Server running at <a href="http://127.0.0.1:1337/'">http://127.0.0.1:1337/'</a>);</pre>
+<p>Open up the terminal and run:</p>
+<pre class="brush: bash;">node server.node.js</pre>
+<p>Then navigate to the server URL, you can watch the terminal output messages to the following effect:</p>
+<pre class="brush: bash;">Server running at <a href="http://127.0.0.1:1337/">http://127.0.0.1:1337/</a>
+Page requested at Sun Jan 01 2012 16:23:12 GMT+0000 (GMT) /
+Page requested at Sun Jan 01 2012 16:23:12 GMT+0000 (GMT) /favicon.ico</pre>
+<p>Pretty simple stuff really, and you should be able to quickly see how node.js can become a useful tool to add to your arsenal.</p>
+<p><strong>Next up:</strong> <a href="http://oodavid.tumblr.com/post/15290994800/node-js-a-static-file-server" title="node.js - a static file server">node.js - a static file server</a></p>

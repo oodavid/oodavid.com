@@ -1,0 +1,16 @@
+---
+date: 2013-04-09T00:00:00Z
+gist: https://gist.github.com/oodavid/5344381
+tags:
+- jekyll
+- tumblr
+- php
+title: Convert From Tumblr to Jekyll Using PHP
+url: /2013/04/09/convert-from-tumblr-to-jekyll-using-php/
+---
+
+<p>As you know I've recently upgraded my site to use github's &quot;Jekyll pages&quot;, a big reason for the move was to migrate my more active tumblr to my less active personal site. Mostly to drive traffic directly here in order to promote my other work.</p>
+<p>Having tinkered with the Tumblr API I know that it would be really easy to loop my blog articles and dump out Jekyll formatted posts. There were various ruby gems available that claimed to work, but this being my first foray into ruby I kept encountering dependency errors; long-story-short I decided to just smash out a PHP script to the same effect.</p>
+<p>PHP script to convert tumblr blog articles to jekyll posts, modify the settings then simply run this in your terminal: <strong>php tumblr2jekyll.php</strong></p>
+<p><a href="{{page.gist}}">tumblr2jekyll.php</a></p>
+<script src="{{page.gist}}.js"></script>

@@ -1,0 +1,119 @@
+---
+date: 2013-09-30T00:00:00Z
+scripts:
+- /assets/blog/workout.js
+title: A Workout for Productivity
+url: /2013/09/30/a-workout-for-productivity/
+---
+
+<style>
+	#setup			{margin: 0 0 20px 0; text-align: center;}
+	#setup input	{width: 40px; border: none; padding: 3px; text-align: center;}
+	#setup span		{display: none; padding: 0 0 0 5px; color: #F6B82F; font-weight: bold;}
+	.exercise		{width: 320px; margin: 10px 14px; padding: 5px; border: 1px solid #DDDDDD; float: left; text-align: center; font-size: 18px;}
+	.exercise img	{display: block; margin: 0 auto 6px;}
+</style>
+
+<p>My friends and more regular readers will know that I used to be part of a startup called <a target="_blank" href="http://happie.st">happie.st</a>; we made a system that tracked and rewarded activites that make you happy; such as eating well, meditating, being grateful and <strong>exercising</strong>.</p>
+
+<p>In a funny sort of way, I really miss that company; it might just be that I (still) think the idea is splendid and just badly executed, but the concept struck a cord with me that I'm unwilling to unstrike. Perpetual self-improvement is thoroughly embedded in <em>American</em> mainstream thinking it seems weird that there's barely a market here in the UK.</p>
+
+<p>A few weeks ago I decided to find an equipment-less exercise routine that I could do at home and came across the <a href="biggestloser.com/fitness/exercises/daily-home-workout">Biggest Loser Daily Home Workout</a> and have been exercising with this routine every day. And holy moly has it made a difference to my productivity at work!</p>
+
+<p>Since I have a compulsion to research, review and improve on everything; I've ended up tweaking the routine to add some light dumbell exercises, stretches and powerball usage. And I've also knocked up a little widget that scales up the workout with consequitive sessions.</p>
+
+<form id="setup" onsubmit="return false;">
+	Workout number: <input type="number" value="1" min="1" step="1">
+	<button>Start Workout</button>
+	<span>maximum!</span>
+</form>
+
+<p>On day 1 you get the minimum routine (about 10 minutes) and by day 30 all exercises scale up to the maximum I have time to do (about 25 minutes).</p>
+
+<div class="clearfix">
+
+	<!--a class="exercise" href="#">
+		Dynamic Stretching A
+	</a-->
+
+	<!--a class="exercise" href="#">
+		Dynamic Stretching B
+	</a-->
+
+	<a class="exercise" target="_blank" href="http://www.biggestloser.com/resources/exercises/50-jumping-jacks">
+		<img src="http://www.biggestloser.com/sites/default/files/BLDolvett2.1.13_033_0.jpg" width="320" height="180">
+		<span data-min="50" data-max="100">??</span> Jumping Jacks
+	</a>
+
+	<a class="exercise" target="_blank" href="http://www.biggestloser.com/resources/exercises/15-crunches">
+		<img src="http://www.biggestloser.com/sites/default/files/BLDolvett2.1.13_037.jpg" width="320" height="180">
+		<span data-min="15" data-max="30">??</span> Crunches
+	</a>
+
+	<a class="exercise" target="_blank" href="http://www.biggestloser.com/resources/exercises/10-tricep-dips">
+		<img src="http://www.biggestloser.com/sites/default/files/BLDolvett2.1.13_034.jpg" width="320" height="180">
+		<span data-min="10" data-max="25">??</span> Tricep Dips
+	</a>
+
+	<a class="exercise" target="_blank" href="http://www.biggestloser.com/resources/exercises/5-push-ups">
+		<img src="http://www.biggestloser.com/sites/default/files/BLDolvett2.1.13_041.jpg" width="320" height="180">
+		<span data-min="5" data-max="20">??</span> Push Ups
+	</a>
+
+	<a class="exercise" target="_blank" href="http://www.biggestloser.com/resources/exercises/10-squats">
+		<img src="http://www.biggestloser.com/sites/default/files/BLDolvett2.1.13_048.jpg" width="320" height="180">
+		<span data-min="10" data-max="30">??</span> Squats
+	</a>
+
+	<a class="exercise" target="_blank" href="http://www.biggestloser.com/resources/exercises/10-lunges-each-leg">
+		<img src="http://www.biggestloser.com/sites/default/files/BLDolvett2.1.13_052.jpg" width="320" height="180">
+		<span data-min="10" data-max="25">??</span> Lunges (Each Leg)
+	</a>
+
+	<a class="exercise" target="_blank" href="http://www.biggestloser.com/resources/exercises/10-standing-calf-raises">
+		<img src="http://www.biggestloser.com/sites/default/files/BLDolvett2.1.13_055.jpg" width="320" height="180">
+		<span data-min="10" data-max="30">??</span> Standing Calf Raises
+	</a>
+
+	<a class="exercise" target="_blank" href="http://www.biggestloser.com/resources/exercises/15-toe-touches-each-leg">
+		<img src="http://www.biggestloser.com/sites/default/files/BLDolvett2.1.13_067.jpg" width="320" height="180">
+		<span data-min="10" data-max="25">??</span> Toe Touches
+	</a>
+
+	<a class="exercise" target="_blank" href="http://www.biggestloser.com/resources/exercises/15-rotating-elbow-planks">
+		<img src="http://www.biggestloser.com/sites/default/files/BLDolvett2.1.13_063.jpg" width="320" height="180">
+		<span data-min="15" data-max="30">??</span> Rotating Elbow Planks
+	</a>
+
+	<a class="exercise" target="_blank" href="http://www.biggestloser.com/resources/exercises/30-sec-plank">
+		<img src="http://www.biggestloser.com/sites/default/files/BLDolvett2.1.13_046.jpg" width="320" height="180">
+		<span data-min="30" data-max="60">??</span>-sec Plank
+	</a>
+
+	<a class="exercise" target="_blank" href="http://www.dumbbell-exercises.com/top-10/index.html#2">
+		<img src="http://www.dumbbell-exercises.com/exercises/biceps/images/2.gif">
+		<span data-min="10" data-max="25">??</span> Alternated Biceps Curls
+	</a>
+
+	<a class="exercise" target="_blank" href="http://www.dumbbell-exercises.com/top-10/index.html#3">
+		<img src="http://www.dumbbell-exercises.com/exercises/shoulders/images/5.gif">
+		<span data-min="10" data-max="25">??</span> Shoulder Press
+	</a>
+
+	<a class="exercise" target="_blank" href="#">
+		<span data-min="20" data-max="45">??</span>-sec Powerball Forearm (each)
+	</a>
+
+	<a class="exercise" target="_blank" href="#">
+		<span data-min="20" data-max="45">??</span>-sec Powerball Bicep (each)
+	</a>
+
+	<a class="exercise" href="#">
+		4-min Shower
+	</a>
+
+	<a class="exercise" href="#">
+		Breakfast
+	</a>
+
+</div>

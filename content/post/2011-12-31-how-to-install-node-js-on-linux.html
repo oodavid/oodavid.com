@@ -1,0 +1,25 @@
+---
+date: 2011-12-31T00:00:00Z
+tags:
+- nerd
+title: How to install node.js on Linux
+url: /2011/12/31/how-to-install-node-js-on-linux/
+---
+
+<p>How to install node.js on Debian-based Linux distros (Debian, Ubuntu, Mint etc)</p>
+<p>1 - Install the dependencies (chances are you've already got most of these)</p>
+<pre class="brush: bash;">sudo apt-get install g++ curl libssl-dev apache2-utils</pre>
+<p>2 - Then install git (you may already have that too)</p>
+<pre class="brush: bash;">sudo apt-get install git-core</pre>
+<p>3 - Clone the node git repo...</p>
+<pre class="brush: bash;">git clone git://github.com/ry/node.git</pre>
+<p>4 - Then install</p>
+<pre class="brush: bash;">cd node
+./configure
+make
+sudo make install</pre>
+<p>The terminal output will show whether everything went OK, but if you want to be sure</p>
+<pre class="brush: bash;">man node</pre>
+<p>Badabing</p>
+<p><strong>Next up: <a href="http://oodavid.tumblr.com/post/15129292268/hello-world-of-node-js" title="Hello world... of node.js">Hello world… of node.js</a></strong></p>
+<p><em>Right then, time to go to a New-Years-Eve party :-)</em></p>

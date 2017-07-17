@@ -1,0 +1,14 @@
+---
+date: 2011-07-22T00:00:00Z
+tags:
+- nerd
+title: How to test many fonts on your site?
+url: /2011/07/22/how-to-test-many-fonts-on-your-site/
+---
+
+<p>I've been pondering today about how the quickest and easiest way to test-drive different fonts, like hundreds of them, on a website... tinkering with the fontsquirrel and google fonts libraries I found myself speccing up a browser plugin / extension based around this piece of code:</p>
+<pre class="brush: js;">$('head').append('&lt;link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster+Two&amp;v1&amp;v1" /&gt;');
+$('body').css('font-family', "'Lobster Two', arial, serif");</pre>
+<p>...as you can see, if you dumped this into into the console on a site with jQuery it will switch out the font assigned to the body allowing it to cascade down through the DOM.</p>
+<p>Which leaves me with the question; would it be productive to write a chrome extension where you can select any of the freely available hotlinkable fronts and apply it to a website? I think it would! Weekend project here we go :-)</p>
+<p>Beer first.</p>

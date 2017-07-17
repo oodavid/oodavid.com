@@ -1,0 +1,53 @@
+---
+date: 2012-01-20T00:00:00Z
+tags:
+- nerd
+title: Psuedocode - How to rapidly plan your work
+url: /2012/01/20/psuedocode-how-to-rapidly-plan-your-work/
+---
+
+<p>At some point in my coding life I got into the habit of writing a sort of comment-soup-pseudocode as a way of planning the work ahead of me. Depending on the language and environment I often end up with a mix of basic programming structures (functions, objects etc) flooded with notes about the work I need to do.</p>
+<p>For example I am (right now) writing a sites manager for a client, they need to be able to search for addresses on google, see what sites are nearby on their database and given that information they can then go on to use an existing site, or create a new one.</p>
+<p>To plan the first part (finding sites) I wrote this psuedo-code:</p>
+<pre class="brush: javascript;">NG.sites_manager = {};
+NG.sites_manager.show = function(){
+	// Check we have google
+		// Activate the map
+};
+NG.sites_manager.geocode_address = function(address, site_id){
+	// Geocode the address
+		// If we have a site_id
+			// NG.sites_manager.add_site(lat, lng, address, site_id, true)
+		// Otherwise
+			// NG.sites_manager.add_site(lat, lng, address)
+};
+NG.sites_manager.add_site = function(lat, lng, title, site_id, focal){
+	// If it's focal
+		// NG.sites_manager.clear_sites();
+	// If we have a site_id
+		// If the site exists in the nearby-sites list, exit the function
+		// Add the link on the nearby-sites list
+	// Add a marker to the map
+	// Increment the counter
+	// If it's focal
+		// Centre the map
+		// Request nearby sites
+};
+NG.sites_manager.clear_sites = function(){
+	// Reset the counter
+	// Empty the nearby-sites list
+	// Remove the markers
+};
+NG.sites_manager.get_nearby_sites = function(lat, lng){
+	// Request nearby sites
+		// For each site
+			// NG.sites_manager.add_site(lat, lng, title, site_id)
+};</pre>
+<p>It serves many useful purposes</p>
+<ol>
+	<li>As you write your psuedocode you can visualise the work ahead of you, and the code will already be written in your head by the time you start proper.</li>
+	<li>Making changes at this stage is trivial.<em><br/></em></li>
+	<li>It is NOT a waste of time, the comments remain in your code.</li>
+	<li>Something else that I've forgotten... err... damn brain.</li>
+</ol>
+<p>Does anyone else work in a similar manner? I'd love to hear some tips and tricks in this area! Now to write my sites-manager...</p>

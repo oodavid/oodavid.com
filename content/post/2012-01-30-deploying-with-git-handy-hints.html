@@ -1,0 +1,53 @@
+---
+date: 2012-01-30T00:00:00Z
+title: Deploying with Git > handy hints
+url: /2012/01/30/deploying-with-git-handy-hints/
+---
+
+<p>With regards to deploying your site with git, there's some potentially confusing posts out there; a quick google for &quot;git deployment&quot; will turn up a few (seemingly) outdated posts (I'm using <strong>git version 1.7.4.1</strong> at the time of writing), ie:</p>
+<ul>
+	<li>
+		<a href="http://ryanflorence.com/simple-git-deployment/">http://ryanflorence.com/simple-git-deployment/</a><br/>
+		<em>I had a few problems with this one when I got to the push stage, apparently this occurs with newer versions of git.</em>
+	</li>
+	<li>
+		<a href="http://blog.zerosum.org/2010/11/01/pure-git-deploy-workflow.html">http://blog.zerosum.org/2010/11/01/pure-git-deploy-workflow.html</a><br/>
+		<em>while written for specific deployment platforms I ran into the same problems as the ryanfolrence post</em>
+	</li>
+	<li>
+		<a href="http://toroid.org/ams/git-website-howto">http://toroid.org/ams/git-website-howto</a><br/>
+		<em>now we're talking! Not only is this kept up-to-date but works a treat :-)</em>
+	</li>
+</ul>
+<p>If you take a peek at the <strong>toroid</strong> post you'll read:</p>
+<blockquote>
+	<p>The one-line summary: push into a remote repository that has a detached work tree, and a post-receive hook that runs &quot;git checkout -f&quot;.</p>
+</blockquote>
+<p>Which I now understand to mean:</p>
+<blockquote>
+	<p>When you push to a remote repo a script will run that updates another directory (that's the &quot;detached work tree&quot; bit)</p>
+</blockquote>
+<p>Perfect! I've already got my servers up and running so I don't want to start moving directories about the place, so for me this is what I did to pretty seamlessly add git deployments</p>
+<ul><li>Create a git repo in <strong>/var/www/html.git/</strong></li>
+<li>Have that repo update my working directory <strong>/var/www/html/</strong></li>
+<li><em>err... that's it!</em></li>
+</ul><p>SSH into the remote machine...</p>
+<pre class="brush: bash;"># Move to the /var/www/ folder
+cd /var/www/
+# Make a new folder for our bare git repo
+mkdir html.git
+cd html.git
+# Intialise a bare git repo
+git init --bare
+# Create our post-receive hook file (this simply writes 2 lines to the file)
+echo -ne '#!/bin/sh\nGIT_WORK_TREE=/var/www/html git checkout -f' &gt; hooks/post-receive
+# Make our post-receive file executable
+chmod +x hooks/post-receive</pre>
+<p>On your local machine you can now push to the remote repository and your working directory will be updated:</p>
+<pre class="brush: bash;"># Add the remote repo
+git remote add www ssh://username@IPorURL/var/www/html.git
+# Now push
+git push www master</pre>
+<p>And you're done. That was simple!</p>
+<p><strong>Quick word of warning</strong></p>
+<p>My local repo also runs on a local server, for me I must be careful of my /uploads/ folder as scripts can write to that directory, I don't want those files tracked by git so I use a .gitignore file to make sure that no hiccups occur in that department :-)</p>

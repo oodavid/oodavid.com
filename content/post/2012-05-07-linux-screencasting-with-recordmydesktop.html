@@ -1,0 +1,41 @@
+---
+date: 2012-05-07T00:00:00Z
+title: Linux Screencasting with recordmydesktop
+url: /2012/05/07/linux-screencasting-with-recordmydesktop/
+---
+
+<p>I have today encountered an item on my todo list <em>(the list is so long I can't actually remember writing this item... madness!)</em> - which is to record a set of tutorial screencasts for a SaaS that I am developing - quicker than writing help-documents and probably a bit more fun. Something I've been meaning to try my hand at for a long time!</p>
+<p>So there was a little chinstroking and headscratching trying to get this setup to my liking - I encountered some common linux audio problems like static / whitenoise on my mic etc. but in the end the steps to get setup were pretty straightforward; install some apps, set some settings and off we go.</p>
+<p><strong>The scenario</strong></p>
+<p>I have:</p>
+<ul>
+	<li>Ubuntu Linux 12.10 (running XFCE)</li>
+	<li>PulseAudio</li>
+	<li>A USB Mic that works well with Skype</li>
+</ul>
+<p>I want to:</p>
+<ul>
+	<li>Record screencasts of my desktop</li>
+	<li>Capture my crisp sounding USB Mic</li>
+</ul>
+<p><strong>Software Choices</strong></p>
+<p>I tried a <strong>lot</strong> of different programs, some with fancy GUIs, old ones, news ones, VLC had a lookin but in the end these are the programs I like best - they're snappy, simple (or no) interface, and they each &quot;just work&quot; without extra bloat:</p>
+<ul>
+	<li><strong>recordmydesktop</strong><em> - command-line screencapturing (very smart)</em></li>
+	<li><strong>gtk-recordmydesktop</strong> - a <em>very</em> simple GUI for the above</li>
+	<li><strong>pavucontrol</strong><em> - &quot;advanced&quot; pulse audio GUI</em></li>
+</ul>
+<p>To install:</p>
+<pre class="brush: bash;">sudo apt-get install recordmydesktop gtk-recordmydesktop pavucontrol</pre>
+<p><strong>Setup</strong></p>
+<p>I will address this part... WITH A SCREENCAST!</p>
+<figure>
+	<iframe width="720" height="435" src="http://www.youtube.com/embed/SvdljjkLB8w?vq=hd720" allowfullscreen></iframe>
+	<figcaption>How apt.</figcaption>
+</figure>
+<p><strong>References</strong></p>
+<p>While I had to wade through quite a few guides, videos and manpages, these were the only guides I needed in the end:</p>
+<ul>
+	<li><a href="https://help.ubuntu.com/community/SkypeTroubleshooting">https://help.ubuntu.com/community/SkypeTroubleshooting</a><br/>shows how to select a microphone device with pavucontrol</li>
+	<li><a href="http://www.youtube.com/watch?v=sN10CXyOC0E">http://www.youtube.com/watch?v=sN10CXyOC0E</a><br/>shows to set your sound device to &quot;pulse&quot; on recordmydesktop</li>
+</ul>

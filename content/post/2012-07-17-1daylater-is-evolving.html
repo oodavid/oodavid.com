@@ -1,0 +1,84 @@
+---
+date: 2012-07-17T00:00:00Z
+title: 1DayLater is evolving...
+url: /2012/07/17/1daylater-is-evolving/
+---
+
+<p>For the past year or so we have been working on building a new 1DayLater from the ground and I'm letting myself get excited about it; this blog post is clearly premature, but what the hey, I want to write a little about what we're doing.</p>
+<ul><li><a href="http://new.1daylater.com/">http://new.1daylater.com/</a><em> - our holding page, isn't it nice?</em></li>
+</ul>
+<figure>
+	<img src="http://media.tumblr.com/tumblr_m79oy4O9Y11qk6dpq.png" alt="Image showing the evolution of man from amoeba"/>
+	<figcaption>your 1DayLater is evolving...</figcaption>
+</figure>
+<p><strong>Technology Wise</strong></p>
+<p>The easiest changes to describe are our technologies, almost every choice made in the original system has been reviewed and (mostly) found wanting. We've really matured the software with this new version and myself as a programmer too; I'm growing ever more comfortable with the iterative development process to the point that I consider a bad day as NOT pushing a new release live.</p>
+<p>A lot of this has come from building the NexGen software with Lucion Environmental <em>(more on this another time)</em> suffice to say that when you support a diverse and growing company you see the fruits of your labour almost instantly. If the person in the room next door has a bug and they see it fixed instantly there's gratitude aplenty!</p>
+<p>I digress, here's some of the changes we've made on the new 1DayLater... and why</p>
+<ul>
+	<li><strong>Version Control</strong>: Subversion &gt; Git<br/><em>once you get over the initial learning curve, git has many advantages</em></li>
+	<li><strong>Deployment</strong>: FTP &gt; Git Hooks<br/><em>we can update the site with simply &quot;git push&quot; and all the right files will be in place</em></li>
+	<li><strong>Hosting</strong>: Rackspace &gt; Amazon Web Services<br/><em><em>an excellent developer community and lower price makes this logical</em></em></li>
+	<li><strong>Database</strong>: MyISAM &gt; InnoDB<br/><em>currently 1DayLater is non-relational, we now require a more logical relational structure</em></li>
+	<li><strong>Markup</strong>: Handcoded &gt; Twitter Bootstrap<br/><em>frankly, I can't afford to spend too much time pushing pixels - this makes it much quicker to knock up pages</em></li>
+	<li><strong>Templating</strong>: Custom &gt; Handlebars<br/><em>I wrote my own templating engine and it was very patchy, we picked the most popular and active engine for the new system</em></li>
+	<li><strong>PDF Printing</strong>: wkhtmltopdf &gt; PrinceXML<br/><em>once we go live we will (gulp) fork out the licence fee for a commercial printing program; after all this will be our new product</em></li>
+</ul>
+<p><strong>Product Wise</strong></p>
+<ul>
+	<li><a href="http://new.1daylater.com/">http://new.1daylater.com/</a><em> - the holding page should explain it nicely, with pictures and all!</em></li>
+</ul>
+<p>But if you prefer I can quickly explain what we're making:</p>
+<ul>
+	<li>Our <strong>Users</strong> can create <strong>Quotes</strong> to send to their clients</li>
+	<li><strong>Quotes</strong> are made up of <strong>Line-Items</strong> with an estimate tally</li>
+	<li><strong>Users</strong> can then <strong>Log their Activity</strong> against these Line-Items</li>
+	<li>They can then convert their Activity into <strong>Invoices </strong>to send to their clients</li>
+</ul>
+<p>For example</p>
+<ul>
+	<li>Tony the plasterer Quotes for a small Job</li>
+	<li>It is made up of these Line-Items
+		<ul>
+			<li>3 Days on site at £250 / day</li>
+			<li>1 Disposable tarpaulin at £30<em> (estimated)</em></li>
+			<li>1 Day of Van hire at £60</li>
+		</ul>
+	</li>
+	<li>On site he logs his work against these activities, on the second day he notices his client has torn the tarpaulin so he gets another one and so logs two of that</li>
+	<li>He can then draw up an Invoice</li>
+</ul>
+<p>The idea is that Tony does the MINIMUM amount of admin but gets access to some <em><strong>very</strong></em> valuable information and tools, ie:</p>
+<ul>
+	<li>Send Invoices and Quotes to his clients</li>
+	<li>Get notified when his clients view his Invoices and Quotes</li>
+	<li>Find the Quotes with outstanding work (ie money)</li>
+	<li>See which Invoices are overdue</li>
+	<li>Visualise his profitability</li>
+</ul>
+<p>Furthermore he can inviate collaborators to log their activities against his Quotes (maybe he hires staff etc.)</p>
+<p><strong>Business Wise</strong></p>
+<p>Well, we've paid off the business loan, we're financially stable (profitable in fact) and are busy investing in the company. On the financial front we're pretty happy at the moment but (as all businesses should) we want to be <em><strong>very</strong></em> profitable and hire more staff for support and whatnot.</p>
+<p>With the new product we spent a great deal of time pondering how to price the product and catch customers at each stage of the curve, this is what we thought:</p>
+<ul>
+	<li><strong>When is the product valuable?</strong>
+		<ul>
+			<li>When the client sends an Invoice</li>
+			<li><em>we thought that the data, visuals, outstanding work etc were valuable, but that they're also so intangible that would be difficult to describe and sell</em></li>
+		</ul>
+	</li>
+	<li><strong>How much is an Invoice worth?</strong>
+		<ul>
+			<li>ONE POUND</li>
+			<li><em>We decided that it couldn't impact on the value of the invoice but had to be a nice round number, a QUID seems decent. We'll review this soon enough</em></li>
+		</ul>
+	</li>
+	<li><strong>How can our users pay for it?</strong>
+		<ul>
+			<li>On a subscription (Monthly or Yearly)</li>
+			<li>Buy a set number of Invoices (Tokens)</li>
+		</ul>
+	</li>
+</ul>
+<p>Last time round the finances were second to the product, this time we've actually gone ahead and designed and implemented our payment pages first. Yup, before the product is even finished; we don't want bugfixes and whatnot getting in the way of our cashflow, after all if 1DayLater wasn't financially viable (for us) those bugfixes and improvements would be worthless as the service would eventually disappear.</p>
+<p>Lessons have been learned. I am excited.</p>

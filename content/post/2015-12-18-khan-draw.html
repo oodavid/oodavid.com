@@ -1,0 +1,27 @@
+---
+date: 2015-12-18T00:00:00Z
+github: https://github.com/oodavid/khan-draw
+title: Khan Draw
+url: /2015/12/18/khan-draw/
+---
+
+<p>I've been spending a lot of time using <a href="http://khanacademy.org">Khan-Academy</a> to brush off some Math and Biology cobwebs. Great fun!</p>
+<p>The format of the videos appeals to me; a simple sketch with voice-over. I decided to see if I could replicate their toolchain in the browser:</p>
+<ul>
+	<li>A Sketching App</li>
+	<li>...which records the screen</li>
+	<li>...captures the microphone audio</li>
+	<li>...and spits out a video</li>
+</ul>
+<p>I was initially concerned that screen recording would be impossible, but a quick search led me to a couple of great projects:</p>
+<ul>
+	<li><a href="https://github.com/muaz-khan/RecordRTC">RecordRTC</a> - for recording videos in the browser</li>
+	<li><a href="https://bgrins.github.io/videoconverter.js/">videoconverter.js</a> - a javascript port of ffmpeg, for merging and converting seperate video and audio streams</li>
+</ul>
+<p>Standing on the shoulders of these giants, I created <a href="https://draw.oodavid.com/">khan-draw</a>! This is the output:</p>
+<figure>
+	<iframe width="420" height="315" src="https://www.youtube.com/embed/ipukSqk1pTY" frameborder="0" allowfullscreen></iframe>
+	<figcaption>I made this in the browser!</figcaption>
+</figure>
+<p>The source-code is <a href="https://github.com/oodavid/khan-draw">available on github</a>, but please give it a go at <a href="https://draw.oodavid.com/">draw.oodavid.com</a>.</p>
+<p>There are a few limitations to the project, I've made note of them on the project (click the &quot;info&quot; button)</p>

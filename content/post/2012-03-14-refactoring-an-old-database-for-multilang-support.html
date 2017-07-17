@@ -1,0 +1,55 @@
+---
+date: 2012-03-14T00:00:00Z
+title: Refactoring an old database for multilang support
+url: /2012/03/14/refactoring-an-old-database-for-multilang-support/
+---
+
+<p>I've recently had the opportunity to revisit and re-factor a database that I wrote designed a decade ago; it's still up-and-running with heavy traffic however it's become difficult for the current developer to maintain <em>(hey Dad)</em> and the client is looking to add a multi-language slant.</p>
+<figure>
+	<img src="http://media.tumblr.com/tumblr_m0vio9duHD1qk6dpq.png" alt="EER diagram showing non-relational database with no scope for i18n support"/>
+	<figcaption>the old, non-relational database</figcaption>
+</figure>
+<figure>
+	<img src="http://media.tumblr.com/tumblr_m0vio12Oju1qk6dpq.png" alt="Refactored EER diagram showing fully-relational database with scope for i18n support"/>
+	<figcaption>the new relational database + multilang translations</figcaption>
+</figure>
+<p>Table-wise we decided to keep with pretty much the same to make the transition painless, however when you compare the original and the new you can see everything has more structure and logic:</p>
+<ul>
+	<li>Converted from MyISAM to InnoDB<br/><em>the new MySQL standard</em></li>
+	<li>Foreign-Keys have been added</li>
+	<li>Additional Unique indexes for structural integrity</li>
+	<li>Split the content into
+		<ul>
+			<li>Structural tables</li>
+			<li>Content tables (for multi-lang)</li>
+		</ul>
+	</li>
+</ul>
+<figure>
+	<img src="http://media.tumblr.com/tumblr_m0vke31FY41qk6dpq.png" alt="Simplified EER to show only the i18n parts of the diagram"/>
+	<figcaption>structure on the top, content on the bottom</figcaption>
+</figure>
+<p>With this structure we can do some pretty nifty queries that pull out the language of choice but fall-back to English on a <strong>per-column-basis</strong>, observe:</p>
+<pre class="brush: sql;">SELECT
+	u.id,
+	COALESCE(lang1.title,     lang2.title)      AS title,
+	COALESCE(lang1.body,      lang2.body)       AS body,
+	COALESCE(lang1.voiceover, lang2.voiceover)  AS voiceover,
+	COALESCE(lang1.handout,   lang2.handout)    AS handout
+FROM `units` AS u
+	LEFT JOIN units_lang AS lang1 ON lang1.unit = u.id AND lang1.lang = 'zh'
+	LEFT JOIN units_lang AS lang2 ON lang2.unit = u.id AND lang2.lang = 'en'
+WHERE u.id = 32;</pre>
+<p>In this statement:</p>
+<ul>
+	<li><strong>u</strong> is the structural <strong>units</strong> table with common info (only id in this case)</li>
+	<li><strong>lang1</strong> is the multilang table <strong>units_lang</strong> in Chinese (zh)</li>
+	<li><strong>lang2</strong> is the multilang table <strong>units_lang</strong> in English (en)</li>
+	<li><strong>COALESCE</strong>picks out the first NON-NULL column, so these go:
+		<ul>
+			<li>Chinese table<br/><em>then</em></li>
+			<li>English table</li>
+		</ul>
+	</li>
+</ul>
+<p>Pretty nifty huh?</p>

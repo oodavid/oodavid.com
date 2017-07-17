@@ -1,0 +1,12 @@
+---
+date: 2011-09-09T00:00:00Z
+tags:
+- nerd
+title: Chmod issues? A simple fix
+url: /2011/09/09/chmod-issues-a-simple-fix/
+---
+
+<p>If (for whatever reason) you mess up the CHMOD permissions for the files and folders, you can run these commands to recursively &quot;reset&quot; all files and folders to their defaults.</p>
+<pre class="brush: bash;">find /home/david/Documents/ -type d -print0 | xargs -0 chmod 755
+find /home/david/Documents/ -type f -print0 | xargs -0 chmod 644</pre>
+<p>BING!</p>

@@ -1,0 +1,42 @@
+---
+date: 2013-04-12T00:00:00Z
+github: https://github.com/oodavid/gviz
+published: true
+title: GViz Mister! Embeddable graphViz
+url: /2013/04/12/gviz-mister-embeddable-graphviz-charts/
+---
+
+<p>As a visual thinker I always keep at hand a scrapbook, notepad or whiteboard covered in diagrams of various design; my favourite being flowcharts and spider diagrams. I find it very easy to group similar concepts or dependencies by visualising my scribblings, I can still picture a valuable diagram that has long been tossed in the paperbasket.</p>
+<p>I've recently become a <strong>big</strong> fan of <a href="http://graphviz.org/">graphViz</a>, a program that allows you to create &quot;graphs&quot; by defining the connections between nodes. It's a splendid piece of kit that is childs play to use, for example this diagram...</p>
+<figure>
+	<script type="gviz" data-layout="dot"><![CDATA[
+		digraph G {
+			graph [
+				truecolor=true
+				bgcolor="#FFFFFF00"
+			];
+			node [
+				shape=box
+				style=filled
+				fillcolor="#FFFFFF"
+				fontcolor="#0F192A"
+			];
+			david -> notepad -> offline;
+			david -> scrapbook -> offline;
+			david -> whiteboard -> offline;
+			david -> graphviz -> online;
+		}
+	]]></script>
+</figure>
+<p>...is trivial to describe using the graphviz language, the layout and format is automatically calculated for you:</p>
+<pre class="brush: xml">
+	digraph G {
+		david -> notepad -> offline;
+		david -> scrapbook -> offline;
+		david -> whiteboard -> offline;
+		david -> graphviz -> online;
+	}
+</pre>
+<h2>Let's make that embeddable...</h2>
+<p>Normally you would have to fire up the command-line and run graphviz to convert your definition into an image to then view, however I've found these diagrams to be a critical part of my toolbox and have created an online webservice that allows them to be embedded directly into a webpage. No more command-line needed, just instant gratification!</p>
+<p>Head over to my <a href="/gviz/">GViz documentation</a> page to see how to embed graphs directly on your webpage...</p>

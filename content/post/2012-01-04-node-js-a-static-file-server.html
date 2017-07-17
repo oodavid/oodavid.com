@@ -1,0 +1,82 @@
+---
+date: 2012-01-04T00:00:00Z
+tags:
+- nerd
+title: node.js - a static file server
+url: /2012/01/04/node-js-a-static-file-server/
+---
+
+<p><strong>Previously</strong>: <a href="http://oodavid.tumblr.com/post/15129292268/hello-world-of-node-js" title="Hello world... of node.js">Hello world… of node.js</a></p>
+<p>Serving up a plaintext &quot;Hello world&quot; for every file (see previous) isn't exactly <em>that</em> useful, but it exposed the basic mechanisms we need to make a file server. Today we will update the code to serve <em>any</em> file requested, there's no validation, it's stupid like that.</p>
+<p>Open up (or create) server.node.js and dump this into it:</p>
+<pre class="brush: javascript;">/**
+ * Static file server
+ *   request a file, get a file
+ */
+
+// Required libraries
+var http	= require('http');
+var fs		= require('fs');
+
+/***************** Simple file server *****************/
+
+// Create the server
+var server = http.createServer(function (request, response) {
+	// Log the request
+	console.log(new Date() + ' [' + request.method + '] ' + request.url);
+	// Serve static files
+	if (request.method === "GET"){
+		// Manually translate "/" into "/index.html"
+		var url = '.' + (request.url == '/' ? '/index.html' : request.url);
+		// Read the file and return it
+		fs.readFile(url, function(error, content) {
+			if (error) {
+				// Oh dear.
+				console.log('error loading file ' + url + ': ', error);
+				// Lets just say missing for now
+				response.writeHead(404);
+				response.end();
+			} else {
+				// Lookup the mimetype of the file
+				var tmp		= url.lastIndexOf(".");
+				var ext		= url.substring((tmp + 1));
+				var mime	= mimes[ext] || 'text/plain';
+				// Write the file
+				response.writeHead(200, { 'Content-Type': mime });
+				response.end(content, 'utf-8');
+			}
+		});
+	}
+});
+
+// Listen on port 1337 and IP 127.0.0.1
+server.listen(1337, "127.0.0.1");
+console.log('Server running at 127.0.0.1:1337');
+
+/********************* MIME TABLE *********************/
+
+var mimes = {
+	'css':	'text/css',
+	'js':	'text/javascript',
+	'htm':	'text/html',
+	'html':	'text/html',
+	'ico':	'image/vnd.microsoft.icon'
+};</pre>
+<p>Once again, open up the terminal and run:</p>
+<pre class="brush: bash;">cd /path/to/folder/
+node server.node.js</pre>
+<p><strong>NOTE</strong> - we have changed to the directory of the script file as it would seem that (with my code above) the filesystem library (fs) reads relative to the node process rather than the server file. Which is an interesting learning.</p>
+<p>So now you should create a few new files with your own content:</p>
+<ul>
+	<li>/index.html</li>
+	<li>/style.css</li>
+	<li>/script.js</li>
+	<li>/favicon.ico</li>
+</ul>
+<p>Then navigate to the server URL, the terminal will output messages like so:</p>
+<pre class="brush: bash;">Server running at 127.0.0.1:1337
+Tue Jan 03 2012 23:54:20 GMT+0000 (GMT) [GET] /
+Tue Jan 03 2012 23:54:20 GMT+0000 (GMT) [GET] /script.js
+Tue Jan 03 2012 23:54:20 GMT+0000 (GMT) [GET] /style.css
+Tue Jan 03 2012 23:54:20 GMT+0000 (GMT) [GET] /favicon.ico</pre>
+<p>As you can see, index.html references script.js and style.css and my browser has requested favicon.ico on my behalf, they are all served normally. So now we can start making some basic websites with this little server script :-)</p>

@@ -1,0 +1,38 @@
+---
+date: 2013-06-24T00:00:00Z
+gist: https://gist.github.com/oodavid/5800765
+title: Converting Google Spreadsheeets to JSON
+url: /2013/06/24/converting-google-spreadsheeets-to-json/
+---
+
+<p>Todays Blog post has been brought to you in the format of an exremely busy person.</p>
+<p>Brevity is the new levity.</p>
+<ul>
+	<li>Create a <a href="https://docs.google.com/spreadsheet/ccc?key=0AmqTMmxb4MxEdE9vUHVPdWs1WjlJR1JlbFJubi14VkE&amp;usp=sharing">simple Google Spreadsheet</a></li>
+	<li>Publish it (it can still be privately editable)</li>
+	<li>Download my <a href="{{ page.gist }}">script (github gist)</a></li>
+	<li>Tweak the settings in the code
+		<ul>
+			<li>Link to the published CSV file</li>
+			<li>Set the column names</li>
+			<li>Run the page</li>
+		</ul>
+	</li>
+	<li>Et viola! You have a formatted JSON object for use in your projects.</li>
+</ul>
+<h2>Making use of the tool</h2>
+<p><em>The usefulness might not be immediately apparent...</em></p>
+<p>When working on NexGen I am required to complete projects and add features in a rapid manner. We have all-but-removed the need for meetings instead agreeing that prototype development by gut-instinct eclipses the time spent deliberating and group planning. Standard Agile stuff really.</p>
+<h3>The Setup</h3>
+<ul>
+	<li>Our Mobile App has many (Risk) definitions in JSON format.</li>
+	<li>These Risks are created and managed by one of our Directors on Google Drive.</li>
+	<li>Changes are infrequent, but important.</li>
+</ul>
+<h3>The Solution</h3>
+<ul>
+	<li>The Director continues to work in his usual manner</li>
+	<li>I use <a href="https://support.google.com/drive/answer/91588?hl=en" target="_blank">&quot;onchange&quot; notifications</a> to make sure I know when he updates the spreadsheet.</li>
+	<li>This script is then manually used by me, and the mobile app updated.</li>
+</ul>
+<script src="{{ page.gist }}.js"></script>

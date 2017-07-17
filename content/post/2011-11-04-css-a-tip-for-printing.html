@@ -1,0 +1,19 @@
+---
+date: 2011-11-04T00:00:00Z
+tags:
+- nerd
+title: CSS a tip for printing :-)
+url: /2011/11/04/css-a-tip-for-printing/
+---
+
+<p>Super quick tip today, if you want to style your pages for printing then you really <strong>must</strong> add this to your arsenal of snippets:</p>
+<pre class="brush: css;">.selector {
+	page-break-inside: avoid;
+	page-break-after: auto;
+}</pre>
+<p>which stops elements from being sliced in half when they get printed.</p>
+<figure>
+	<img src="http://media.tumblr.com/tumblr_lu4truslXN1qk6dpq.png" alt="Shows a block element split over two printed pages"/>
+	<img src="http://media.tumblr.com/tumblr_lu4ts0965d1qk6dpq.png" alt="Shows the same element but the whole thing has dropped onto the second page"/>
+	<figcaption>before and after</figcaption>
+</figure>

@@ -1,0 +1,79 @@
+---
+date: 2013-04-18T00:00:00Z
+tags:
+- brogrammers
+- linux
+title: Linux Shell - Cheat Sheet
+url: /2013/04/18/linux-shell-cheat-sheet/
+---
+
+<p>Quite honestly this is just a memory exercise before I start work today, how many of my favourite Linux commands can I splurge before 9am?</p>
+<p>As a <a href="http://en.wikipedia.org/wiki/High-level_programming_language">High-Level-Programmer</a> I don't do a great deal of work with threading, system processes or anything remotely concerned with system architecture - which is reflective of the kinds of shell commands I use on a day-to-day-basis.</p>
+<pre class="brush: bash">
+	#############
+	## HISTORY ##
+	#############
+
+		# View shell history
+		history
+
+		# Search through shell history
+		[CTRL]+[R]
+
+	###########
+	## FILES ##
+	###########
+
+		# Dump a file to the terminal in it's entirety
+		cat "/path/to/file"
+
+		# Read the first 10 lines of a file
+		head -n 10 "/path/to/file"
+
+		# Read the last 10 lines of a file
+		tail -n 10 "/path/to/file"
+
+		# Read the last 10 lines of a file AND follow it for changes
+		tail -n 10 -f "/path/to/log.txt"
+
+		# Read huge files in a lazy manner with keyboard scrolling
+		less "/path/to/file"
+
+		# Open a file with it's default application...
+		# ...using a new thread so the shell isn't locked
+			# XFCE
+			setsid exo-open "/path/to/file"
+			# Gnome
+			setsid gnome-open "/path/to/file"
+
+		# Recursively restore "default" CHMOD permissions for files and folders
+		find "/path/to/folder/" -type d -print0 | xargs -0 chmod 755
+		find "/path/to/folder/" -type f -print0 | xargs -0 chmod 644
+
+	###################
+	## FINDING STUFF ##
+	###################
+
+		# Locate files with an exact name, case-insensitive
+		locate -i -b '\avatar.png'
+		
+		# Locate files using a regex pattern... ie:
+			# ending with .png
+			locate -r '\.png$'
+			# ending with .png in a folder called "img"
+			locate -r '\/img\/.*\.png$'
+
+		# Using grep to narrow down a shell output
+			# You need to know your ethernet Mac address so you type...
+			ifconfig
+			# ...but you're feeling lazy and don't want to read the whole thing!
+			ifconfig | grep -i ethernet
+			# Or you need to quickly find a particular error in your server logs
+			grep -i "file does not exist" "/path/to/log.txt"
+
+		# Finding the full path to a command
+		whereis cat
+		whereis less
+		whereis whereis # This command tells you the path of the command that tells you the path of a command...
+</pre>
+<p>Hopefully there's something interesting there, if not, why not?</p>
