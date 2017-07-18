@@ -25,40 +25,42 @@ I don't need a kanban board... _yet_
 * [x] Article > AngularJS Meta Tags
 * [x] Launch on oodavid.com
 * [x] Articles > Add a [Table of Contents](https://gohugo.io/extras/toc/)
+* [x] Enable Disqus
 * [x] Subscribe Form
-  * [x] Netlify > Zapier
-  * [x] Zapier > Mailchimp
+  * [x] Netlify > Zapier > Mailchimp
   * [x] Make the form pretty
   * [x] Add a thank-you page
   * [x] Add partial to all relevent pages
-* [ ] Trigger mailchimp emails with each new article (RSS?)
-  * [ ] RSS > Zapier
-  * [ ] Zapier > Mailchimp
+* [x] RSS > Zapier > Twitter / Facebook
 * [ ] Add Meta Data (for OpenGraph / Twitter) (see `README.md`) - *30m*
+* [x] Trigger mailchimp emails with each new article
 * [ ] Favicon
+  * [ ] https://cookicons.co/
 * [ ] Announce Launch - *15 min*
 
 The following are lower priority, and unsorted
 
-* [ ] Page > My Work - *3h*
+* [ ] Update my Twitter branding
+* [ ] Update my Facebook branding
+* [ ] New Page > My Work - *3h*
 * [ ] Add Contact Form to Footer - *1h*
-  * [ ] Netlify > Zapier
-  * [ ] Zapier > Mailchimp
+  * [ ] Netlify > Zapier > Email
   * [ ] Make the form pretty
   * [ ] Add a thank-you page
-  * [ ] Add partial to all footer
+  * [ ] Add partial to footer
+* [ ] RSS > Zapier > Slack
 * [ ] Compile a list of Angular and Javascript sites that accept submissions
   * [ ] Submit my articles there
+  * [ ] Twitter is an excellent starting point
 * [ ] Articles > Consider adding github links to frontmatter
 * [ ] Articles > Port old blog posts from Jekyll to Hugo
-* [ ] Nav > Add Search - *1h 30*
 * [ ] Move the Demo / GitHub links to the frontmatter and deal with it on the archetype template
-* [x] Enable Disqus
-* [ ] Consider adding integrating Disqus into Zapier...
+* [ ] Disqus > Zapier > ?
 * [ ] Add sharing meta data & local testing with ngrok
   * [ ] Add ngrok to the build system
   * [ ] Add meta-data for sharing
   * [x] Add "test on opengraph / twitter" link to all pages
+* [ ] Nav > Add Search - *1h 30*
 
 ## Automatic Rebuilds?
 

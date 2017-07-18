@@ -8,4 +8,10 @@
       Edit this page on GitHub
     </a>
   {{ end }}
+  <br>
+  {{ if .Site.BuildDrafts }}
+    <a href="https://developers.facebook.com/tools/debug/sharing/?q={{ .URL | absURL }}">opengraph</a>
+    -
+    <a href="https://cards-dev.twitter.com/validator">twitter</a>
+  {{ end }}
 </p>
