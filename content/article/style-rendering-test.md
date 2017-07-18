@@ -69,9 +69,9 @@ _This is italic text_
 
 + Create a list by starting a line with `+`, `-`, or `*`
 + Sub-lists are made by indenting 2 spaces:
-  - Ac tristique libero volutpat at
-  - Facilisis in pretium nisl aliquet
-  - Nulla volutpat aliquam velit
+    - Ac tristique libero volutpat at
+    - Facilisis in pretium nisl aliquet
+    - Nulla volutpat aliquam velit
 + Very easy!
 
 ### Ordered
@@ -86,8 +86,8 @@ _This is italic text_
 
 * [ ] incomplete
 * [x] completed
-  * [ ] a task list item
-  * [ ] list syntax required
+    * [ ] a task list item
+    * [ ] list syntax required
 
 ## Code
 

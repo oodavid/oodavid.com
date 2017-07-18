@@ -1,6 +1,6 @@
 +++
-title = "{{ replace .TranslationBaseName "-" " " | title }}"
-date = {{ .Date }}
+title = "Angularjs Unsaved Changes"
+date = 2017-07-18T22:26:38+01:00
 draft = true
 slug = ""
 tags = [ "AngularJS", "Angular", "Firebase" ]

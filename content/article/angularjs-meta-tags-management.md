@@ -3,7 +3,7 @@ title = "AngularJS Meta Tags Management"
 date = 2017-07-18T12:00:00+01:00
 draft = false
 slug = ""
-tags = []
+tags = [ "AngularJS" ]
 categories = []
 locale = "en-GB"
 +++

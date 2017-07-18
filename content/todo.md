@@ -15,52 +15,76 @@ I don't need a kanban board... _yet_
 * [x] Article > Style Test
 * [x] Netlify > Add prerendering for my demo code
 * [x] CSS > Render all markdown
-  * [x] Tables
-  * [x] Lists
-  * [x] Task-Lists
-  * [x] Horizontal Rule
-  * [x] Headings
-  * [x] Blockquotes
-  * [x] Code / Pre
+    * [x] Tables
+    * [x] Lists
+    * [x] Task-Lists
+    * [x] Horizontal Rule
+    * [x] Headings
+    * [x] Blockquotes
+    * [x] Code / Pre
 * [x] Article > AngularJS Meta Tags
 * [x] Launch on oodavid.com
 * [x] Articles > Add a [Table of Contents](https://gohugo.io/extras/toc/)
 * [x] Enable Disqus
 * [x] Subscribe Form
-  * [x] Netlify > Zapier > Mailchimp
-  * [x] Make the form pretty
-  * [x] Add a thank-you page
-  * [x] Add partial to all relevent pages
+    * [x] Netlify > Zapier > Mailchimp
+    * [x] Make the form pretty
+    * [x] Add a thank-you page
+    * [x] Add partial to all relevent pages
 * [x] RSS > Zapier > Twitter / Facebook
 * [ ] Add Meta Data (for OpenGraph / Twitter) (see `README.md`) - *30m*
 * [x] Trigger mailchimp emails with each new article
 * [ ] Favicon
-  * [ ] https://cookicons.co/
+    * [ ] https://cookicons.co/
 * [ ] Announce Launch - *15 min*
 
-The following are lower priority, and unsorted
+The following are lower priority, and only roughly unsorted
 
+* [ ] Apply Tags to articles
+    * [ ] Angular, AngularJS, Firebase
+    * [ ] Display on Article
+    * [ ] Add Filter to Homepage
+* [ ] Review post archive, can anything be updated / rewritten?
+* [ ] Change header silhouette to match article tag (Firebase)?
+* [ ] Add Contact Form to Footer - *1h*
+    * [ ] Netlify > Zapier > Email
+    * [ ] Make the form pretty
+    * [ ] Add a thank-you page
+    * [ ] Add partial to footer
+* [ ] Analytics > Add goals (signup)
+* [ ] RSS > More Zapier Integrations
+    * [ ] Push to Slack
+        * [ ] Accredible > Development
+        * [ ] UltimateAngular > Angular or AngularJS (title / tag dependent)
+        * [ ] Firebase > General (title / tag dependent)
+    * [ ] Push to Facebook
+        * [x] My own page
+        * [ ] Join appropriate communities, send there
+    * [ ] Push to LinkedIn
 * [ ] Update my Twitter branding
 * [ ] Update my Facebook branding
 * [ ] New Page > My Work - *3h*
-* [ ] Add Contact Form to Footer - *1h*
-  * [ ] Netlify > Zapier > Email
-  * [ ] Make the form pretty
-  * [ ] Add a thank-you page
-  * [ ] Add partial to footer
-* [ ] RSS > Zapier > Slack
 * [ ] Compile a list of Angular and Javascript sites that accept submissions
-  * [ ] Submit my articles there
-  * [ ] Twitter is an excellent starting point
+    * [ ] Submit my articles there
+    * [ ] Twitter is an excellent starting point
 * [ ] Articles > Consider adding github links to frontmatter
 * [ ] Articles > Port old blog posts from Jekyll to Hugo
 * [ ] Move the Demo / GitHub links to the frontmatter and deal with it on the archetype template
 * [ ] Disqus > Zapier > ?
 * [ ] Add sharing meta data & local testing with ngrok
-  * [ ] Add ngrok to the build system
-  * [ ] Add meta-data for sharing
-  * [x] Add "test on opengraph / twitter" link to all pages
+    * [ ] Add ngrok to the build system
+    * [ ] Add meta-data for sharing
+    * [x] Add "test on opengraph / twitter" link to all pages
 * [ ] Nav > Add Search - *1h 30*
+
+## Aggregators
+
+Get some articles on the radar of these chaps:
+
+* [ ] https://twitter.com/AngularJS_News
+* [ ] https://twitter.com/ngnewsletter
+
+(skim who _they_ follow, and build up my list)
 
 ## Automatic Rebuilds?
 
@@ -88,3 +112,10 @@ When publishing modules, I must be careful to encourage further exploration of m
 * [ ] Link to the blog article that spawned it
 * [ ] Link to appangular (in due course)
 * [ ] Make sure **oodavid** is prominent
+
+## Moonshot
+
+To be followed by:
+
+* [ ] [@angular](https://twitter.com/angular/following)
+* [ ] [@firebase](https://twitter.com/angular/following)
