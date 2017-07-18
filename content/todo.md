@@ -25,10 +25,6 @@ I don't need a kanban board... _yet_
 * [x] Article > AngularJS Meta Tags
 * [x] Launch on oodavid.com
 * [x] Articles > Add a [Table of Contents](https://gohugo.io/extras/toc/)
-* [ ] Favicon
-* [ ] Meta > Prepare for OpenGraph etc. (see `README.md`) - *30m*
-* [ ] Page > My Work - *3h*
-* [ ] Announce Launch - *15 min*
 * [x] Subscribe Form
   * [x] Netlify > Zapier
   * [x] Zapier > Mailchimp
@@ -38,10 +34,19 @@ I don't need a kanban board... _yet_
 * [ ] Trigger mailchimp emails with each new article (RSS?)
   * [ ] RSS > Zapier
   * [ ] Zapier > Mailchimp
-* [ ] Contact Form - *45 min*
-  * [ ] Footer
-  * [ ] About Me
-  * [ ] My Work
+* [ ] Add Meta Data (for OpenGraph / Twitter) (see `README.md`) - *30m*
+* [ ] Favicon
+* [ ] Announce Launch - *15 min*
+
+The following are lower priority, and unsorted
+
+* [ ] Page > My Work - *3h*
+* [ ] Add Contact Form to Footer - *1h*
+  * [ ] Netlify > Zapier
+  * [ ] Zapier > Mailchimp
+  * [ ] Make the form pretty
+  * [ ] Add a thank-you page
+  * [ ] Add partial to all footer
 * [ ] Compile a list of Angular and Javascript sites that accept submissions
   * [ ] Submit my articles there
 * [ ] Articles > Consider adding github links to frontmatter
