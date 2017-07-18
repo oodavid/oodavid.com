@@ -685,6 +685,35 @@ div#tech {
             display: block;
             margin: 0 auto; } }
 
+form.subscribe {
+  background-color: #5f4d93;
+  color: white; }
+  form.subscribe h3,
+  form.subscribe p,
+  form.subscribe div {
+    margin: 20px 0;
+    line-height: 1; }
+  form.subscribe input {
+    background-color: white;
+    border: none;
+    width: 70%;
+    height: 40px;
+    vertical-align: middle;
+    padding: 0 10px; }
+  form.subscribe button {
+    border: none;
+    background-color: #c5bdda;
+    float: right;
+    width: 25%;
+    height: 40px;
+    vertical-align: middle; }
+  @media (max-width: 500px) {
+    form.subscribe button,
+    form.subscribe input {
+      display: block;
+      width: 100%;
+      float: none; } }
+
 #header {
   background-color: #a1628b;
   background-image: url("images/overlay.png"), linear-gradient(45deg, #a1628b 15%, #5f4d93 85%);
@@ -776,7 +805,8 @@ div#tech {
     padding: 1px 0;
     padding-left: 50px;
     padding-right: 50px; }
-    #main > .container > blockquote {
+    #main > .container > blockquote,
+    #main > .container > .yank {
       margin-left: -50px;
       margin-right: -50px;
       padding: 35px 47px; }
@@ -789,7 +819,8 @@ div#tech {
       #main > .container {
         padding-left: 40px;
         padding-right: 40px; }
-        #main > .container > blockquote {
+        #main > .container > blockquote,
+        #main > .container > .yank {
           margin-left: -40px;
           margin-right: -40px;
           padding: 35px 37px; }
@@ -798,11 +829,12 @@ div#tech {
           margin-right: -40px; }
           #main > .container > div.highlight pre {
             padding: 35px 37px; } }
-    @media (max-width: 700px) {
+    @media (max-width: 500px) {
       #main > .container {
         padding-left: 20px;
         padding-right: 20px; }
-        #main > .container > blockquote {
+        #main > .container > blockquote,
+        #main > .container > .yank {
           margin-left: -20px;
           margin-right: -20px;
           padding: 35px 17px; }

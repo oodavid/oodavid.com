@@ -29,10 +29,15 @@ I don't need a kanban board... _yet_
 * [ ] Meta > Prepare for OpenGraph etc. (see `README.md`) - *30m*
 * [ ] Page > My Work - *3h*
 * [ ] Announce Launch - *15 min*
-* [ ] Subscribe Form - *1h 30*
-  * [ ] Use Netlify Forms
-  * [ ] Pipe data into mailchimp, ittt or zapier
-  * [ ] Trigger mailchimp emails with each new article (RSS?)
+* [x] Subscribe Form
+  * [x] Netlify > Zapier
+  * [x] Zapier > Mailchimp
+  * [x] Make the form pretty
+  * [x] Add a thank-you page
+  * [x] Add partial to all relevent pages
+* [ ] Trigger mailchimp emails with each new article (RSS?)
+  * [ ] RSS > Zapier
+  * [ ] Zapier > Mailchimp
 * [ ] Contact Form - *45 min*
   * [ ] Footer
   * [ ] About Me
@@ -44,6 +49,7 @@ I don't need a kanban board... _yet_
 * [ ] Nav > Add Search - *1h 30*
 * [ ] Move the Demo / GitHub links to the frontmatter and deal with it on the archetype template
 * [x] Enable Disqus
+* [ ] Consider adding integrating Disqus into Zapier...
 * [ ] Add sharing meta data & local testing with ngrok
   * [ ] Add ngrok to the build system
   * [ ] Add meta-data for sharing
@@ -55,6 +61,11 @@ This snippet will output the date that the site next needs to be rebuilt. I need
 
 1. Get Hugo to output this to a plain file, like `_rebuild` ([link](https://discourse.gohugo.io/t/how-to-generate-a-file-without-file-extension/7449))
 1. Get Netlify to support this feature
+
+See:
+
+* https://gohugo.io/content-management/front-matter/
+* https://gohugo.io/templates/output-formats/
 
 ```
 {{ range first 1 (where .Data.Pages.ByDate ".Date.Unix" ">" .Now.Unix ) }}
