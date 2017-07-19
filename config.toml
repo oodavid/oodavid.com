@@ -1,8 +1,17 @@
 baseurl = "https://oodavid.com/"
 languageCode = "en-gb"
-title = "David King"
+title = "oodavid.com"
 theme = "oodavid"
-paginate = 5
+paginate = 8
+
+# Site Params
+[params]
+  author = "David King"
+  title = "David King"
+  name = "oodavid.com"
+  twitter = "@oodavid"
+  image = "/images/oodavid.png"
+  description = "A blog about Angular, AngularJS and Firebase"
 
 # Comments
 disqusShortname = "oodavid-com"

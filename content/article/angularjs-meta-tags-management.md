@@ -6,7 +6,7 @@ slug = ""
 tags = [ "AngularJS" ]
 categories = []
 locale = "en-GB"
-image = "/images/1200x630.png"
+image = "/images/article/meta-tags.png"
 +++
 
 Meta tags have played a huge role in search-engine history. While they no longer affect SEO rankings in the same way, they are more vital than ever in the "social sharing" ecosystem.
@@ -65,8 +65,8 @@ The following `<head>` element contains a number of `<meta>` tags. They describe
   <meta property="og:description" content="How to manage and update meta tags in your AngularJS app" />
   <meta property="og:url" content="https://oodavid.com/demo/angularjs-metadata-directive/" />
   <meta property="og:image" content="https://oodavid.com/demo/angularjs-meta-tags-management/meta-tags.png" />
-  <meta property="og:image:width" content="680" ng-if="meta.image_width" />
-  <meta property="og:image:height" content="340" ng-if="meta.image_height" />
+  <meta property="og:image:width" content="680" />
+  <meta property="og:image:height" content="340" />
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@oodavid">

@@ -1,0 +1,29 @@
+
+    <!-- Title -->
+    {{ $.Scratch.Set "title" (print ($.Param "title") " - " .Site.Params.Name) }}
+    <!-- Description -->
+    {{ $.Scratch.Set "description" .Site.Params.Description }}
+    {{ if .Summary }}
+      {{ $.Scratch.Set "description" .Summary }}
+    {{ end }}
+    <!-- General SEO -->
+    <title>{{ $.Scratch.Get "title" }}</title>
+    <meta name="author" content="{{ .Site.Params.Author }}">
+    <meta name="description" content="{{ $.Scratch.Get "description" }}">
+    <!-- Indexing / Spiders -->
+    <meta name="googlebot" content="all">
+    <meta name="bingbot" content="all">
+    <meta name="robots" content="all">
+    <!-- OpenGraph -->
+    <meta property="og:type" content="{{ .Type }}" />
+    <meta property="og:site_name" content="{{ .Site.Params.Name }}" />
+    <meta property="og:title" content="{{ $.Scratch.Get "title" }}" />
+    <meta property="og:description" content="{{ $.Scratch.Get "description" }}" />
+    <meta property="og:url" content="{{ absURL .URL }}" />
+    <meta property="og:image" content="{{ absURL ($.Param "image") }}">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="{{ .Site.Params.Twitter }}">
+    <meta name="twitter:title" content="{{ $.Scratch.Get "title" }}">
+    <meta name="twitter:description" content="{{ $.Scratch.Get "description" }}">
+    <meta name="twitter:image" content="{{ absURL ($.Param "image") }}">

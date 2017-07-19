@@ -32,7 +32,7 @@ I don't need a kanban board... _yet_
     * [x] Add a thank-you page
     * [x] Add partial to all relevent pages
 * [x] RSS > Zapier > Twitter / Facebook
-* [ ] Add Meta Data (for OpenGraph / Twitter) (see `README.md`) - *30m*
+* [x] Add Meta Data (for OpenGraph / Twitter)
 * [ ] Announce Launch - *15 min*
 
 The following are lower priority, and only roughly unsorted
