@@ -9,6 +9,7 @@ $RECYCLE.BIN/
 .DS_Store
 
 # NPM, Hugo, Code
-/node_modules
-/public
+node_modules/
+public/
+.sass-cached/
 .vscode
