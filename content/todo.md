@@ -33,32 +33,43 @@ I don't need a kanban board... _yet_
     * [x] Add partial to all relevent pages
 * [x] RSS > Zapier > Twitter / Facebook
 * [x] Add Meta Data (for OpenGraph / Twitter)
-* [ ] Announce Launch - *15 min*
+* [ ] Announce Launch
 
 The following are lower priority, and only roughly unsorted
 
-* [ ] Trigger mailchimp emails with each new article
 * [ ] Favicon
-    * [ ] https://cookicons.co/
-* [ ] Pick some measurable goals
-  * [ ] Subscribers, Visitors, Followers are simple (but vanity driven)
-  * [ ] Quality re-shares etc. are nice (show network strength)
-  * [ ] Sales (of what?) are best
-* [ ] Pinned Articles (bubble to top on homepage, regardless of date)
-* [ ] Style test should include all [Shortcodes](https://gohugo.io/content-management/shortcodes/)
+    * [ ] Contact https://cookicons.co/
+    * [ ] Budget $500
+    * [ ] Implement
 * [ ] Apply Tags to articles
-    * [ ] Angular, AngularJS, Firebase
+    * [ ] Angular, AngularJS, Firebase, Hugo
     * [ ] Display on Article
     * [ ] Add Filter to Homepage
-* [ ] Any need to A/B test?
-* [ ] Review post archive, can anything be updated / rewritten?
-* [ ] Change header silhouette to match article tag (Firebase)?
-* [ ] Add Contact Form to Footer - *1h*
+* [ ] Create default meta images based on primary tag
+    * [ ] Facebook Template (`600x315` **or** `1200x630`)
+    * [ ] Twitter Card Template (`876x438` **or** `1200x600`)
+        * [ ] David King on Angular
+        * [ ] David King on AngularJS
+        * [ ] David King on FireBase
+        * [ ] David King on Hugo
+        * [ ] ....maybe do all `tech` icons?
+* [ ] Add Contact Form to Footer
     * [ ] Netlify > Zapier > Email
     * [ ] Make the form pretty
     * [ ] Add a thank-you page
     * [ ] Add partial to footer
-* [ ] Analytics > Add goals (signup)
+* [ ] Pinned Articles (bubble to top on homepage, regardless of date)
+* [ ] Trigger mailchimp emails with each new article
+* [ ] Pick some measurable goals
+  * [ ] Subscribers, Visitors, Followers are simple (but vanity driven)
+  * [ ] Quality re-shares etc. are nice (show network strength)
+  * [ ] Sales (of what?) are best
+* [ ] Style test should include all [Shortcodes](https://gohugo.io/content-management/shortcodes/)
+* [ ] Any need to A/B test?
+* [ ] Review post archive, can anything be updated / rewritten?
+* [ ] Change header silhouette to match article tag? (ie: Firebase)
+* [ ] Analytics > Add goals
+    * [ ] Subscribe
 * [ ] RSS > More Zapier Integrations
     * [ ] Push to Slack
         * [ ] Accredible > Development
@@ -70,7 +81,7 @@ The following are lower priority, and only roughly unsorted
     * [ ] Push to LinkedIn
 * [ ] Update my Twitter branding
 * [ ] Update my Facebook branding
-* [ ] New Page > My Work - *3h*
+* [ ] New Page > My Work
 * [ ] Compile a list of Angular and Javascript sites that accept submissions
     * [ ] Submit my articles there
     * [ ] Twitter is an excellent starting point
@@ -82,7 +93,7 @@ The following are lower priority, and only roughly unsorted
     * [ ] Add ngrok to the build system
     * [ ] Add meta-data for sharing
     * [x] Add "test on opengraph / twitter" link to all pages
-* [ ] Nav > Add Search - *1h 30*
+* [ ] Nav > Add Search
 
 ## Aggregators
 
@@ -120,9 +131,14 @@ When publishing modules, I must be careful to encourage further exploration of m
 * [ ] Link to appangular (in due course)
 * [ ] Make sure **oodavid** is prominent
 
-## Moonshot
+## Moonshot Goals
 
 To be followed by:
 
 * [ ] [@angular](https://twitter.com/angular/following)
 * [ ] [@firebase](https://twitter.com/angular/following)
+
+To speak at events
+
+* [ ] Firebase related
+* [ ] Angular related
