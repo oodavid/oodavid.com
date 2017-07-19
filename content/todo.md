@@ -33,17 +33,24 @@ I don't need a kanban board... _yet_
     * [x] Add partial to all relevent pages
 * [x] RSS > Zapier > Twitter / Facebook
 * [ ] Add Meta Data (for OpenGraph / Twitter) (see `README.md`) - *30m*
-* [x] Trigger mailchimp emails with each new article
-* [ ] Favicon
-    * [ ] https://cookicons.co/
 * [ ] Announce Launch - *15 min*
 
 The following are lower priority, and only roughly unsorted
 
+* [ ] Trigger mailchimp emails with each new article
+* [ ] Favicon
+    * [ ] https://cookicons.co/
+* [ ] Pick some measurable goals
+  * [ ] Subscribers, Visitors, Followers are simple (but vanity driven)
+  * [ ] Quality re-shares etc. are nice (show network strength)
+  * [ ] Sales (of what?) are best
+* [ ] Pinned Articles (bubble to top on homepage, regardless of date)
+* [ ] Style test should include all [Shortcodes](https://gohugo.io/content-management/shortcodes/)
 * [ ] Apply Tags to articles
     * [ ] Angular, AngularJS, Firebase
     * [ ] Display on Article
     * [ ] Add Filter to Homepage
+* [ ] Any need to A/B test?
 * [ ] Review post archive, can anything be updated / rewritten?
 * [ ] Change header silhouette to match article tag (Firebase)?
 * [ ] Add Contact Form to Footer - *1h*

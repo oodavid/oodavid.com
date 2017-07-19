@@ -6,11 +6,14 @@ slug = ""
 tags = []
 categories = []
 locale = "en-GB"
+image = "/images/1200x630.png"
 +++
 
 This post marks a new chapter for **oodavid.com**; alongside a more article-centric design, I've migrated away from [Jekyll](https://jekyllrb.com) running on [GitHub pages](https://pages.github.com/) to [Hugo](https://gohugo.io/) running on [Netlify](https://netlify.com).
 
-The migration has encouraged me to add a simple taskrunner (`npm` scripts that run `Hugo` and `SASS`) and to play with a more modern style. The design is heavily based on the [Stellar theme by HTML5Up](https://html5up.net/stellar), although my source code has been written from the ground-up. What can I say, I like to learn by doing!
+The migration has encouraged me to add a simple taskrunner (`npm` scripts that run `Hugo` and `SASS`) and to play with a more modern style. The design is heavily based on the [Stellar theme by HTML5Up](https://html5up.net/stellar), although my source code has been written from the ground-up. What can I say, I like to learn by doing.
+
+<!--more-->
 
 This short article demonstrates various [Markdown](https://en.wikipedia.org/wiki/Markdown) elements and syntax. The purpose is to give me somewhere to test my CSS.
 

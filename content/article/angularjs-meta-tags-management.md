@@ -6,11 +6,14 @@ slug = ""
 tags = [ "AngularJS" ]
 categories = []
 locale = "en-GB"
+image = "/images/1200x630.png"
 +++
 
 Meta tags have played a huge role in search-engine history. While they no longer affect SEO rankings in the same way, they are more vital than ever in the "social sharing" ecosystem.
 
 In this article I demonstrate a simple AngularJS Service that allows you to manage the `<meta>` tags in your app. I explain how AngularJS best practices aren't fit-for-purpose and offer a simple solution. I also explore debugging on Twitter, Pinterest and Facebook and the need for pre-rendering using 3rd party SaaS products.
+
+<!--more-->
 
 <p class="text-center">
   <a class="button" href="/demo/angularjs-meta-tags-management/" target="_blank">

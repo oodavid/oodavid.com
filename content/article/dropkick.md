@@ -1,6 +1,6 @@
 +++
-title = "Angularjs Performant Tooltips"
-date = 2017-07-18T22:30:21+01:00
+title = "Dropkick"
+date = 2017-07-19T12:27:31+01:00
 draft = true
 slug = ""
 tags = [ "AngularJS", "Angular", "Firebase" ]

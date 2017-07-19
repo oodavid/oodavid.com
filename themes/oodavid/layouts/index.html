@@ -14,11 +14,9 @@
     <p class="date">
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
     </p>
-    <p>
-      <a href="{{ .Permalink }}">
-        {{ .Summary }}...
-      </a>
-    </p>
+    <a href="{{ .Permalink }}">
+      {{ .Summary }}
+    </a>
     <p>
       <a href="{{ .Permalink }}" class="button">
         Read More
