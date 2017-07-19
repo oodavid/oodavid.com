@@ -60,22 +60,14 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/jquery.scrollex.min.js"></script>
-  <script src="/js/jquery.scrolly.min.js"></script>
-  <script src="/js/skel.min.js"></script>
-  <script src="/js/util.js"></script>
-  <!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
-  <script src="/js/main.js"></script>
-
-  {{ template "_internal/google_analytics.html" . }}
-
-  <script>
-    ga('send', 'pageview', {
-      'Branch':  '{{ getenv "BRANCH" }}'
-    });
-  </script>
+  {{ if in (print .Site.BaseURL) "oodavid.com"}}
+    {{ template "_internal/google_analytics.html" . }}
+    <script>
+      ga('send', 'pageview', {
+        'Branch':  '{{ getenv "BRANCH" }}'
+      });
+    </script>
+  {{ end }}
 
 </body>
 </html>

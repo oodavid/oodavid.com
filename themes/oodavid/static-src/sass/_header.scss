@@ -20,13 +20,6 @@
       display: table-cell;
       vertical-align: middle;
     }
-    // Fade-in on load (see main.js)
-    body.is-loading & {
-      opacity: 0;
-    }
-    transition: opacity 3s ease;
-    transition-delay: 0.5s;
-    opacity: 1;
   }
   // Style
   font-size: 1.2em;

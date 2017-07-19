@@ -1,5 +1,7 @@
 {{ partial "header.html" . }}
 
+{{ partial "subscribe.html" . }}
+
 {{ $paginator := .Paginate (where .Data.Pages "Type" "article") }}
 {{ range $paginator.Pages }}
   <section class="home">
