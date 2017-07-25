@@ -36,5 +36,6 @@ For this, use `superstatic`, like so:
 
 ```
 npm install -g superstatic
+cd static/
 superstatic
 ```
