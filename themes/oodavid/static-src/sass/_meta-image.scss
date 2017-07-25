@@ -1,0 +1,50 @@
+.meta-image {
+  background-color: $palette__bg;
+  background-image: url("images/overlay.png"),
+                    linear-gradient(45deg, $palette__bg1 15%, $palette__bg2 85%);
+  width: 600px;
+  height: 315px;
+	-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  color: white;
+  margin: 20px auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  > table {
+    width: auto;
+    margin: 0 auto;
+    table-layout: fixed;
+    * {
+      border: none;
+    }
+    td {
+      font-size: 38px;
+      line-height: 38px;
+      &:nth-child(1),
+      &:nth-child(3) {
+        width: 220px;
+      }
+      &:nth-child(2) {
+        width: 60px;
+        font-size: 27px;
+        font-style: italic;
+        vertical-align: bottom;
+      }
+      p {
+        margin: 15px 0 0 0;
+      }
+    }
+  }
+  .meta-image-david {
+    display: inline-block;
+    padding: 8px;
+    background-color: white;
+  }
+  .meta-image-david,
+  .meta-image-tech {
+    width: 180px;
+    height: 180px;
+  }
+}
