@@ -39,26 +39,25 @@ The following are lower priority, and only roughly unsorted
 
 * [ ] Favicon
     * [ ] Contact https://cookicons.co/
-    * [ ] Budget $500
+    * [ ] Budget `$500`
     * [ ] Implement
 * [ ] Apply Tags to articles
     * [ ] Angular, AngularJS, Firebase, Hugo
     * [ ] Display on Article
     * [ ] Add Filter to Homepage
 * [ ] Create default meta images based on primary tag
-    * [ ] Facebook Template (`600x315` **or** `1200x630`)
-    * [ ] Twitter Card Template (`876x438` **or** `1200x600`)
-        * [ ] David King on Angular
-        * [ ] David King on AngularJS
-        * [ ] David King on FireBase
-        * [ ] David King on Hugo
-        * [ ] ....maybe do all `tech` icons?
+    * [x] David King on Angular
+    * [x] David King on AngularJS
+    * [x] David King on FireBase
+    * [x] David King on Hugo
+    * [ ] Add logic to `meta.html`
 * [ ] Add Contact Form to Footer
     * [ ] Netlify > Zapier > Email
     * [ ] Make the form pretty
     * [ ] Add a thank-you page
     * [ ] Add partial to footer
 * [ ] Pinned Articles (bubble to top on homepage, regardless of date)
+    * [ ] Create a Hugo article about this
 * [ ] Trigger mailchimp emails with each new article
 * [ ] Pick some measurable goals
   * [ ] Subscribers, Visitors, Followers are simple (but vanity driven)
