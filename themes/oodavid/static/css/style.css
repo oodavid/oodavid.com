@@ -401,16 +401,16 @@ body {
   margin: 0;
   padding: 0; }
 
-#angular-silhouette {
+#avatar-silhouette {
   width: 0;
   height: 0;
   position: absolute; }
 
-.angular-silhouette {
+.avatar-silhouette {
   -webkit-clip-path: polygon(50% 0%, 100% 25%, 90% 75%, 50% 100%, 10% 75%, 0% 25%);
   clip-path: polygon(50% 0%, 100% 25%, 90% 75%, 50% 100%, 10% 75%, 0% 25%);
-  -webkit-clip-path: url("#angular-silhouette-path");
-  clip-path: url("#angular-silhouette-path"); }
+  -webkit-clip-path: url("#avatar-silhouette-path");
+  clip-path: url("#avatar-silhouette-path"); }
 
 @-ms-viewport {
   width: device-width; }
@@ -716,14 +716,16 @@ form.subscribe {
 
 .meta-image {
   background-color: #a1628b;
-  background-image: url("images/overlay.png"), linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
-  width: 600px;
-  height: 315px;
+  background-image: linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+  width: 1200px;
+  height: 630px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   color: white;
   margin: 20px auto;
+  margin-left: -230px;
+  box-shadow: 0 0 0 20px white;
   text-align: center;
   display: flex;
   align-items: center; }
@@ -734,25 +736,29 @@ form.subscribe {
     .meta-image > table * {
       border: none; }
     .meta-image > table td {
-      font-size: 38px;
-      line-height: 38px; }
+      font-size: 76px;
+      line-height: 76px; }
       .meta-image > table td:nth-child(1), .meta-image > table td:nth-child(3) {
-        width: 220px; }
+        width: 440px; }
       .meta-image > table td:nth-child(2) {
-        width: 60px;
-        font-size: 27px;
+        width: 120px;
+        font-size: 54px;
         font-style: italic;
         vertical-align: bottom; }
       .meta-image > table td p {
-        margin: 15px 0 0 0; }
+        margin: 30px 0 0 0; }
   .meta-image .meta-image-david {
-    display: inline-block;
-    padding: 8px;
+    padding: 16px;
     background-color: white; }
   .meta-image .meta-image-david,
   .meta-image .meta-image-tech {
-    width: 180px;
-    height: 180px; }
+    display: inline-block;
+    width: 360px;
+    height: 360px; }
+  .meta-image .meta-image-tech {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain; }
 
 #header {
   background-color: #a1628b;

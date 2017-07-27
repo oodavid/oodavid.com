@@ -1,0 +1,30 @@
+<html ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
+  <script src="./app.js"></script>
+</head>
+<body>
+  <div ng-controller="EditorController as ctrl">
+    <h1>History Factory</h1>
+    <p>Use the <code>HistoryFactory</code> to implement undo / redo on any number of <code>[ array ]</code> or <code>{ Object }</code> values.</p>
+    <p>
+      <button type="button" class="button" ng-click="ctrl.makeRandomChange()">
+        Make Random Change
+      </button>
+      <button type="button" class="button" ng-click="ctrl.undo()" ng-disabled="!ctrl.canUndo()">
+        Undo
+      </button>
+      <button type="button" class="button" ng-click="ctrl.redo()" ng-disabled="!ctrl.canRedo()">
+        Redo
+      </button>
+    </p>
+    <p><strong>{{ctrl. meta.title }}</strong></p>
+    <p><em>{{ ctrl.meta.description }}</em></p>
+    <p>Worlds:</p>
+    <ul>
+      <li ng-repeat="world in ctrl.worlds">{{ world }}</li>
+    </ul>
+  </div>
+</body>
+</html>
