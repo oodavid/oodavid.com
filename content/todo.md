@@ -38,19 +38,19 @@ I don't need a kanban board... _yet_
 The following are lower priority, and only roughly unsorted
 
 * [ ] Favicon
-    * [ ] Contact https://cookicons.co/
+    * [x] Contact https://cookicons.co/
     * [ ] Budget `$500`
     * [ ] Implement
 * [ ] Apply Tags to articles
-    * [ ] Angular, AngularJS, Firebase, Hugo
+    * [x] Angular, AngularJS, Firebase, Hugo
     * [ ] Display on Article
     * [ ] Add Filter to Homepage
-* [ ] Create default meta images based on primary tag
+* [x] Create default meta images based on primary tag
     * [x] David King on Angular
     * [x] David King on AngularJS
     * [x] David King on FireBase
     * [x] David King on Hugo
-    * [ ] Add logic to `meta.html`
+    * [x] Add logic to `meta.html`
 * [ ] Add Contact Form to Footer
     * [ ] Netlify > Zapier > Email
     * [ ] Make the form pretty

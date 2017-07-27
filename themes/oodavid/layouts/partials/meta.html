@@ -6,6 +6,13 @@
     {{ if .Summary }}
       {{ $.Scratch.Set "description" .Summary }}
     {{ end }}
+    <!-- Image -->
+    {{ $.Scratch.Set "image" .Site.Params.image }}
+    {{ if isset .Params "image" }}
+      {{ $.Scratch.Set "image" .Params.Image }}
+    {{ else if and ( (isset .Params "tags") (gt (len .Params.tags) 0 ) ) }}
+      {{ $.Scratch.Set "image" (print "/images/meta/" (index .Params.tags 0) ".png") }}
+    {{ end }}
     <!-- General SEO -->
     <title>{{ $.Scratch.Get "title" }}</title>
     <meta name="author" content="{{ .Site.Params.Author }}">
@@ -18,12 +25,14 @@
     <meta property="og:type" content="{{ .Type }}" />
     <meta property="og:site_name" content="{{ .Site.Params.Name }}" />
     <meta property="og:title" content="{{ $.Scratch.Get "title" }}" />
-    <meta property="og:description" content="{{ $.Scratch.Get "description" }}" />
+    <meta property="og:description" content="{{ $.Scratch.Get "description" }}... read more..." />
     <meta property="og:url" content="{{ absURL .URL }}" />
-    <meta property="og:image" content="{{ absURL ($.Param "image") }}">
+    <meta property="og:image" content="{{ absURL ($.Scratch.Get "image") }}">
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="{{ .Site.Params.Twitter }}">
     <meta name="twitter:title" content="{{ $.Scratch.Get "title" }}">
     <meta name="twitter:description" content="{{ $.Scratch.Get "description" }}">
-    <meta name="twitter:image" content="{{ absURL ($.Param "image") }}">
+    <meta name="twitter:image" content="{{ absURL ($.Scratch.Get "image") }}">
+
+

@@ -6,7 +6,6 @@ slug = ""
 tags = [ "Hugo" ]
 categories = []
 locale = "en-GB"
-image = "/images/meta/Hugo.png"
 +++
 
 Over the past few days I've been revamping **oodavid.com** in terms of direction and style. While considering my work I took the opportunity to also review my choice of static-site-generator (SSG).

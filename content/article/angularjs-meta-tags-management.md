@@ -6,7 +6,6 @@ slug = ""
 tags = [ "AngularJS" ]
 categories = []
 locale = "en-GB"
-image = "/images/article/meta-tags.png"
 +++
 
 Meta tags have played a huge role in search-engine history. While they no longer affect SEO rankings in the same way, they are more vital than ever in the "social sharing" ecosystem.
