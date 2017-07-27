@@ -1,11 +1,11 @@
-#angular-silhouette {
+#avatar-silhouette {
   width: 0;
   height: 0;
   position: absolute;
 }
-.angular-silhouette {
+.avatar-silhouette {
   -webkit-clip-path: polygon(50% 0%, 100% 25%, 90% 75%, 50% 100%, 10% 75%, 0% 25%);
   clip-path:         polygon(50% 0%, 100% 25%, 90% 75%, 50% 100%, 10% 75%, 0% 25%);
-  -webkit-clip-path: url("#angular-silhouette-path");
-  clip-path: url("#angular-silhouette-path");
+  -webkit-clip-path: url("#avatar-silhouette-path");
+  clip-path: url("#avatar-silhouette-path");
 }
