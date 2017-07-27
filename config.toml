@@ -10,7 +10,7 @@ paginate = 8
   title = "David King"
   name = "oodavid.com"
   twitter = "@oodavid"
-  image = "/images/oodavid.png"
+  image = "/images/meta/Stuff.png"
   description = "A blog about Angular, AngularJS and Firebase"
 
 # Comments

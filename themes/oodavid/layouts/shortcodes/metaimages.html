@@ -1,14 +1,14 @@
 {{- $files := readDir "/static/images/tech" -}}
 {{- range $files }}
-  {{- if eq "png" (index (split .Name ".") 1) }}
+  {{- if eq "svg" (index (split .Name ".") 1) }}
     <h2>{{ index (split .Name ".") 0 }}</h2>
     <p class="text-center">/images/meta/{{ index (split .Name ".") 0 }}.png</p>
     <div class="meta-image">
       <table>
         <tr>
           <td>
-            <div class="meta-image-david angular-silhouette">
-              <img src="/images/david.jpg" alt="David King" class="angular-silhouette">
+            <div class="meta-image-david avatar-silhouette">
+              <img src="/images/david-328.jpg" alt="David King" class="avatar-silhouette">
             </div>
             <p>oodavid</p>
           </td>
@@ -16,7 +16,7 @@
             on
           </td>
           <td>
-            <img class="meta-image-tech" src="/images/tech/{{ index (split .Name ".") 0 }}.png">
+            <div class="meta-image-tech" style="background-image: url('/images/tech/{{ index (split .Name ".") 0 }}.svg');"></div>
             <p>{{ index (split .Name ".") 0 }}</p>
           </td>
         </tr>
