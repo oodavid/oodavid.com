@@ -3,6 +3,29 @@
   <meta charset="utf-8">
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
   <script src="./app.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      font-size: 18px;
+      padding: 20px;
+      background-color: #eeeeee;
+    }
+    * {
+      font-family: inherit;
+      font-size: inherit;
+    }
+    input {
+      border: 1px solid #cccccc;
+      padding: 4px;
+    }
+    button {
+      border: 1px solid #cccccc;
+      background-color: #ffffff;
+    }
+    button[disabled] {
+      opacity: 0.5;
+    }
+  </style>
 </head>
 <body>
   <div ng-controller="EditorController as ctrl">
@@ -19,11 +42,14 @@
         Redo
       </button>
     </p>
+    <input type="checkbox" ng-model="ctrl.checkbox[0]" ng-change="ctrl.save()"> A
+    <input type="checkbox" ng-model="ctrl.checkbox[1]" ng-change="ctrl.save()"> B
+    <input type="checkbox" ng-model="ctrl.checkbox[2]" ng-change="ctrl.save()"> C
     <p><strong>{{ctrl. meta.title }}</strong></p>
     <p><em>{{ ctrl.meta.description }}</em></p>
     <p>Worlds:</p>
     <ul>
-      <li ng-repeat="world in ctrl.worlds">{{ world }}</li>
+      <li ng-repeat="world in ctrl.worlds"><input type="text" ng-model="world.value" ng-blur="ctrl.save()"></li>
     </ul>
   </div>
 </body>

@@ -64,9 +64,15 @@ function EditorController(HistoryFactory){
     title: 'The Many Worlds of David King',
     description: 'From the depths of the fractal noggin'
   };
-  ctrl.worlds = ['earth', 'wonderland', 'discworld', 'the up-side-down'];
+  ctrl.worlds = [
+    { value: 'earth' },
+    { value: 'wonderland' },
+    { value: 'discworld' },
+    { value: 'the up-side-down'},
+  ];
+  ctrl.checkbox = [ true, false, true ];
   // How to track
-  var History = new HistoryFactory(ctrl.meta, ctrl.worlds);
+  var History = new HistoryFactory(ctrl.meta, ctrl.worlds, ctrl.checkbox);
   // Expose the undo and redo methods
   ctrl.canUndo = History.canUndo;
   ctrl.redo    = History.redo;
@@ -75,17 +81,22 @@ function EditorController(HistoryFactory){
   // This method makes random changes
   ctrl.makeRandomChange = function() {
     var rand = Math.random();
-    if (rand < 0.25) {
+    if (rand < 0.2) {
       ctrl.meta.title = 'The ' + Math.random() + ' Worlds of David King';
-    } else if (rand < 0.5) {
+    } else if (rand < 0.4) {
       ctrl.meta.description = 'From the depths of noggin ' + Math.random();
-    } else if (rand < 0.75) {
-      ctrl.worlds.push('World ' + Math.ceil(Math.random() * 100));
+    } else if (rand < 0.6) {
+      ctrl.worlds.push({ value: 'World ' + Math.ceil(Math.random() * 100) });
+    } else if (rand < 0.8) {
+      var index = Math.floor(Math.random()*ctrl.checkbox.length);
+      ctrl.checkbox[index] = !ctrl.checkbox[index];
     } else {
       ctrl.worlds.shift();
     }
     History.save();
   };
+  // User interactions can manually trigger save
+  ctrl.save = History.save;
 }
 
 
