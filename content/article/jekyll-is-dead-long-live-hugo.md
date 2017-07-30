@@ -35,7 +35,10 @@ It may seem like a radical departure from the previous style, but that's largely
 
 UX is hard, until it isn't - for **oodavid.com** I couldn't justify the effort of departing from the perfectly functional structure.
 
-{{< figure src="/images/article/facebook-gradient.png" title="Even Facebook is getting in on the purple-pink action." >}}
+<figure>
+  <img src="/images/article/facebook-gradient.png">
+  <figcaption>Even Facebook is getting in on the purple-pink action.</figcaption>
+</figure>
 
 ## NPM Task Runner
 
@@ -62,4 +65,7 @@ This is a product that presents itself very simply (static site deployment), but
 
 ## In Memory of Jekyll
 
-{{< figure src="/images/article/oodavid-jekyll.png" title="oodavid on Jekyll - R.I.P." >}}
+<figure>
+  <img src="/images/article/oodavid-jekyll.png">
+  <figcaption>oodavid on Jekyll - R.I.P.</figcaption>
+</figure>

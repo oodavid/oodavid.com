@@ -15,11 +15,11 @@ In this article I demonstrate a simple AngularJS Service that allows you to mana
 <!--more-->
 
 <p class="text-center">
-  <a class="button" href="/demo/angularjs-meta-tags-management/" target="_blank">
+  <a class="button" href="/demo/angularjs-meta-tags-management/">
     <i class="fa fa-code" aria-hidden="true"></i>
     Demo
   </a>
-  <a class="button" href="https://github.com/oodavid/oodavid.com/tree/master/static/demo/angularjs-meta-tags-management/" target="_blank">
+  <a class="button" href="https://github.com/oodavid/oodavid.com/tree/master/static/demo/angularjs-meta-tags-management/">
     <i class="fa fa-github" aria-hidden="true"></i>
     GitHub
   </a>

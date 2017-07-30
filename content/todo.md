@@ -39,7 +39,7 @@ The following are lower priority, and only roughly unsorted
 
 * [ ] Favicon
     * [x] Contact https://cookicons.co/
-    * [ ] Budget `$500`
+    * [x] Budget `$400`
     * [ ] Implement
 * [ ] Apply Tags to articles
     * [x] Angular, AngularJS, Firebase, Hugo
