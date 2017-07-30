@@ -666,25 +666,6 @@ ul.pagination {
     #toc #TableOfContents > ul li::before {
       color: inherit; }
 
-div#tech {
-  display: flex;
-  flex-wrap: wrap;
-  margin: -2px; }
-  div#tech > div {
-    flex: 0 0 33.333%;
-    padding: 2px; }
-    div#tech > div > div {
-      padding: 5px;
-      background-color: #eeeeee; }
-      div#tech > div > div img {
-        margin-right: 5px; }
-      @media (max-width: 700px) {
-        div#tech > div > div {
-          text-align: center; }
-          div#tech > div > div img {
-            display: block;
-            margin: 0 auto; } }
-
 form.subscribe {
   background-color: #5f4d93;
   color: white; }
@@ -713,6 +694,29 @@ form.subscribe {
       display: block;
       width: 100%;
       float: none; } }
+
+twitterwidget {
+  margin-left: auto;
+  margin-right: auto; }
+
+div#tech {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -2px; }
+  div#tech > div {
+    flex: 0 0 33.333%;
+    padding: 2px; }
+    div#tech > div > div {
+      padding: 5px;
+      background-color: #eeeeee; }
+      div#tech > div > div img {
+        margin-right: 5px; }
+      @media (max-width: 700px) {
+        div#tech > div > div {
+          text-align: center; }
+          div#tech > div > div img {
+            display: block;
+            margin: 0 auto; } }
 
 .meta-image {
   background-color: #a1628b;

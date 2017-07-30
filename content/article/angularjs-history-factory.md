@@ -8,24 +8,32 @@ categories = []
 locale = "en-GB"
 +++
 
+The History Factory let's you add "Undo" and "Redo" to your AngularJS App. This is the sort of feature that adds a "wow" moment in your user-experience. It's also incredibly easy to implement.
 
+In this article I explain the logic of the Factory, give a demonstration of how we use it at Accredible, and explore some more great use-cases from around the web.
 
 <!--more-->
 
+<figure>
+  <img src="/images/article/history-factory.gif">
+  <figcaption>A trivial example of the History Factory</figcaption>
+</figure>
+
 <p class="text-center">
-  <a class="button" href="/demo/angularjs-history-factory/" target="_blank">
+  <a class="button" href="/demo/angularjs-history-factory/">
     <i class="fa fa-code" aria-hidden="true"></i>
     Demo
   </a>
-  <a class="button" href="https://github.com/oodavid/oodavid.com/tree/master/static/demo/angularjs-history-factory/" target="_blank">
+  <a class="button" href="https://github.com/oodavid/oodavid.com/tree/master/static/demo/angularjs-history-factory/">
     <i class="fa fa-github" aria-hidden="true"></i>
     GitHub
   </a>
 </p>
 
+{{< tweet 890891953512075264 >}}
+
 ## Todo
 
-* Create a demo
 * Write Article
     * What is it?
     * How does it work?
