@@ -3,6 +3,8 @@
   <meta charset="utf-8">
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
   <script src="./app.js"></script>
+  <script src="./MementoFactory.js"></script>
+  <script src="./EditorController.js"></script>
   <style>
     body {
       font-family: sans-serif;
@@ -32,13 +34,13 @@
     <h1>History Factory</h1>
     <p>Use the <code>HistoryFactory</code> to implement undo / redo on any number of <code>[ array ]</code> or <code>{ Object }</code> values.</p>
     <p>
-      <button type="button" class="button" ng-click="ctrl.makeRandomChange()">
+      <button type="button" ng-click="ctrl.makeRandomChange()">
         Make Random Change
       </button>
-      <button type="button" class="button" ng-click="ctrl.undo()" ng-disabled="!ctrl.canUndo()">
+      <button type="button" ng-click="ctrl.undo()" ng-disabled="!ctrl.canUndo">
         Undo
       </button>
-      <button type="button" class="button" ng-click="ctrl.redo()" ng-disabled="!ctrl.canRedo()">
+      <button type="button" ng-click="ctrl.redo()" ng-disabled="!ctrl.canRedo">
         Redo
       </button>
     </p>
