@@ -1,6 +1,6 @@
 
     <!-- Title -->
-    {{ $.Scratch.Set "title" (print ($.Param "title") " - " .Site.Params.Name) }}
+    {{ $.Scratch.Set "title" ($.Param "title") }}
     <!-- Description -->
     {{ $.Scratch.Set "description" .Site.Params.Description }}
     {{ if .Summary }}
