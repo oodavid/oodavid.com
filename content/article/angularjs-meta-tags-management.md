@@ -85,60 +85,7 @@ Our `MetaTagsService` manages these tags so that your <abbr title="Single Page A
 
 This approach does not use a Component or Directive, instead modifying the `<head>` tag directly from within the Service. This is unusual within AngularJS, but I will explain the rationale at the end of the article.
 
-```js
-function MetaTagsService(){
-  var service = this;
-  service.setDefaultTags = setDefaultTags;
-  service.setTags = setTags;
-  var defaultTags = {};
-  var tagElements = [];
-  function setDefaultTags(tags){
-    angular.copy(tags, defaultTags);
-    setTags({});
-  }
-  function setTags(tags){
-    clearTags();
-    mergeDefaultTags(tags);
-    angular.forEach(tags, function(content, name){
-      var tagElement = getTagElement(content, name);
-      document.head.appendChild(tagElement);
-      tagElements.push(tagElement);
-    });
-  }
-  function mergeDefaultTags(tags){
-    angular.forEach(defaultTags, function(defaultTagContent, defaultTagName){
-      if(!tags[defaultTagName]){
-        tags[defaultTagName] = defaultTagContent;
-      } else if(defaultTagName === 'title'){
-        tags['title'] += ' - '+defaultTagContent;
-      }
-    });
-    return tags;
-  }
-  function getTagElement(content, name){
-    if(name == 'title'){
-      // Special provision for the title element
-      var title = document.createElement('title');
-      title.textContent = content;
-      return title;
-    } else {
-      // Opengraph uses [property], but everything else uses [name]
-      var nameAttr = (name.indexOf('og:') === 0) ? 'property' : 'name';
-      var meta = document.createElement('meta');
-      meta.setAttribute(nameAttr, name);
-      meta.setAttribute('content', content);
-      return meta;
-    }
-  }
-  function clearTags(){
-    angular.forEach(tagElements, function(tagElement){
-      document.head.removeChild(tagElement);
-    });
-    tagElements.length = 0;
-  }
-}
-app.service('MetaTagsService', MetaTagsService);
-```
+{{% code file="/static/demo/angularjs-meta-tags-management/MetaTagsService.js" language="js" %}}
 
 With the service in place, our HTML can be drastically simplified:
 
@@ -196,48 +143,7 @@ Typically you would set your default tags during `run`, and set your state tags 
 
 You can handle routing changes with a `$transition` lifecycle hook, or within a route Controller.
 
-```js
-appRun.$inject = ['MetaTagsService'];
-function appRun(MetaTagsService){
-
-  MetaTagsService.setDefaultTags({
-    // General SEO
-    'title': 'oodavid.com',
-    'author': 'David King',
-    'description': 'oodavid.com',
-    // Indexing / Spiders
-    'googlebot': 'all',
-    'bingbot': 'all',
-    'robots': 'all',
-    // OpenGraph
-    'og:site_name': 'oodavid',
-    // Twitter
-    'twitter:site': '@oodavid',
-  });
-
-  $transitions.onFinish({ to: 'article.*' }, ['$transition', function($transition){
-    var state = $transition.to();
-    var article = $transition.injector().get('resolvedArticle');
-    MetaTagsService.setTags({
-      // General SEO
-      'title': article.title,
-      // OpenGraph
-      'og:type': 'article',
-      'og:title': article.title,
-      'og:description': article.description,
-      'og:image': article.image,
-      // Twitter
-      'twitter:card': 'summary_large_image',
-      'twitter:creator': article.twitter_id,
-      'twitter:title': article.title,
-      'twitter:description': article.description,
-      'twitter:image': article.image,
-    });
-  }]);
-
-}
-app.run(appRun);
-```
+{{% code file="/static/demo/angularjs-meta-tags-management/appRun.js" language="js" %}}
 
 ## Testing and Debugging
 
