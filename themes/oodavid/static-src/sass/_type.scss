@@ -204,3 +204,25 @@ table {
     }
   }
 }
+
+
+h1, h2, h3, h4, h5, h6 {
+  .hash-link {
+    position: relative;
+    right: 0.7em;
+    width: 0;
+    display: inline-block;
+    opacity: 0;
+    color: inherit;
+  }
+  &:hover {
+    .hash-link {
+      opacity: 0.3;
+      &:hover {
+        opacity: 1;
+        color: $palette__link;
+      }
+    }
+  }
+}
+
