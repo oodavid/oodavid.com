@@ -51,6 +51,7 @@ The following are lower priority, and only roughly unsorted
     * [x] David King on FireBase
     * [x] David King on Hugo
     * [x] Add logic to `meta.html`
+* [x] Add #link to article headings
 * [ ] Add Contact Form to Footer
     * [ ] Netlify > Zapier > Email
     * [ ] Make the form pretty
