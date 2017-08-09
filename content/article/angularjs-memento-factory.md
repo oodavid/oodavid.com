@@ -18,14 +18,11 @@ In this article I explain the logic of the Factory, give a demonstration of how 
 
 Before getting into the details, I've created a simple demo that uses the Memento Factory to track a number of non-primite variables, ie: `arrays` and `objects`.
 
-<p class="text-cente
-  ">
-  <a href
-  "/demo/angularjs-memento-factor
-  /">
-  <i class="fa fa-code" aria-hidden="true"></i>
-  Demo
-  </a>
+<p class="text-center">
+  <a class="button" href="/demo/angularjs-memento-factorY/">
+    <i class="fa fa-code" aria-hidden="true"></i>
+      Demo
+    </a>
   <a class="button" href="https://github.com/oodavid/oodavid.com/tree/master/static/demo/angularjs-memento-factory/">
     <i class="fa fa-github" aria-hidden="true"></i>
     GitHub
