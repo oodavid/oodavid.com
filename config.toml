@@ -2,7 +2,7 @@ baseurl = "https://oodavid.com/"
 languageCode = "en-gb"
 title = "oodavid.com"
 theme = "oodavid"
-paginate = 8
+paginate = 5
 
 # Site Params
 [params]
