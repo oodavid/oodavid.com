@@ -587,6 +587,20 @@ table {
     line-height: 16px;
     font-size: 14px; }
 
+h1 .hash-link, h2 .hash-link, h3 .hash-link, h4 .hash-link, h5 .hash-link, h6 .hash-link {
+  position: relative;
+  right: 0.7em;
+  width: 0;
+  display: inline-block;
+  opacity: 0;
+  color: inherit; }
+
+h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-link, h5:hover .hash-link, h6:hover .hash-link {
+  opacity: 0.3; }
+  h1:hover .hash-link:hover, h2:hover .hash-link:hover, h3:hover .hash-link:hover, h4:hover .hash-link:hover, h5:hover .hash-link:hover, h6:hover .hash-link:hover {
+    opacity: 1;
+    color: #a1628b; }
+
 .container {
   width: 800px;
   margin: 0 auto; }
