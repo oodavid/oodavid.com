@@ -1,6 +1,6 @@
 +++
 title = "AngularJS Pagination Component"
-date = 2017-07-04T08:17:20+01:00
+date = 2017-08-08T08:17:20+01:00
 draft = true
 slug = ""
 tags = []
